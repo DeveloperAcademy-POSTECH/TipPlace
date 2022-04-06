@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainTabView: View {
     @State private var selectedTab = "정보"
-// 제일 처음 앱을 구동했을 떄 정보 화면이 제일 먼저 뜨도록 설정
+    // 제일 처음 앱을 구동했을 떄 정보 화면이 제일 먼저 뜨도록 설정
 
     var body: some View {
         TabView(selection: $selectedTab) {

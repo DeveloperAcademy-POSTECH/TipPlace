@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C5336A3227FDB62A00102AF3 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = C5336A3127FDB62A00102AF3 /* .swiftlint.yml */; };
+		C5336A3527FDB83500102AF3 /* .swiftlint.yml  in Resources */ = {isa = PBXBuildFile; fileRef = C5336A3427FDB83500102AF3 /* .swiftlint.yml  */; };
 		C5991F9A27FD6AD2007A7F26 /* TipPlaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5991F9927FD6AD2007A7F26 /* TipPlaceApp.swift */; };
 		C5991F9E27FD6AD3007A7F26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5991F9D27FD6AD3007A7F26 /* Assets.xcassets */; };
 		C5991FA127FD6AD3007A7F26 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5991FA027FD6AD3007A7F26 /* Preview Assets.xcassets */; };
@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C5336A3127FDB62A00102AF3 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		C5336A3427FDB83500102AF3 /* .swiftlint.yml  */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swiftlint.yml "; sourceTree = "<group>"; };
 		C5991F9627FD6AD2007A7F26 /* TipPlace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TipPlace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5991F9927FD6AD2007A7F26 /* TipPlaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipPlaceApp.swift; sourceTree = "<group>"; };
 		C5991F9D27FD6AD3007A7F26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -43,7 +43,7 @@
 		C5991F8D27FD6AD2007A7F26 = {
 			isa = PBXGroup;
 			children = (
-				C5336A3127FDB62A00102AF3 /* .swiftlint.yml */,
+				C5336A3427FDB83500102AF3 /* .swiftlint.yml  */,
 				C5991F9827FD6AD2007A7F26 /* TipPlace */,
 				C5991F9727FD6AD2007A7F26 /* Products */,
 			);
@@ -89,7 +89,7 @@
 				C5991F9227FD6AD2007A7F26 /* Sources */,
 				C5991F9327FD6AD2007A7F26 /* Frameworks */,
 				C5991F9427FD6AD2007A7F26 /* Resources */,
-				C5336A3027FDB59700102AF3 /* ShellScript */,
+				C5336A3327FDB80100102AF3 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -138,7 +138,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5336A3227FDB62A00102AF3 /* .swiftlint.yml in Resources */,
+				C5336A3527FDB83500102AF3 /* .swiftlint.yml  in Resources */,
 				C5991FA127FD6AD3007A7F26 /* Preview Assets.xcassets in Resources */,
 				C5991F9E27FD6AD3007A7F26 /* Assets.xcassets in Resources */,
 			);
@@ -147,7 +147,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		C5336A3027FDB59700102AF3 /* ShellScript */ = {
+		C5336A3327FDB80100102AF3 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
