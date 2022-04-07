@@ -78,6 +78,7 @@
 				C5991F9927FD6AD2007A7F26 /* TipPlaceApp.swift */,
 				C5991F9D27FD6AD3007A7F26 /* Assets.xcassets */,
 				C5991F9F27FD6AD3007A7F26 /* Preview Content */,
+				C5540CF827FE834300FB675D /* ContentView.swift */,
 			);
 			path = TipPlace;
 			sourceTree = "<group>";
@@ -182,6 +183,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5540CF927FE834300FB675D /* ContentView.swift in Sources */,
 				C5991FA827FD6B84007A7F26 /* CategoryView.swift in Sources */,
 				C5991FAD27FD6B97007A7F26 /* MyPageView.swift in Sources */,
 				C5991FAE27FD6B97007A7F26 /* MainBoardView.swift in Sources */,
