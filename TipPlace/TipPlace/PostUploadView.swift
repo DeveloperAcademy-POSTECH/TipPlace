@@ -12,6 +12,23 @@ struct PostUploadView: View {
     @State var title: String = ""
     @State var tag: String = ""
     @State var content: String = ""
+    let categoryArray: [String] = [
+        Category.economy.korean,
+        Category.law.korean,
+        Category.safety.korean,
+        Category.cook.korean,
+        Category.livingAlone.korean,
+        Category.cleaning.korean,
+        Category.tech.korean,
+        Category.driving.korean,
+        Category.health.korean,
+        Category.campusLife.korean,
+        Category.workingLife.korean,
+        Category.companionLife.korean,
+        Category.hobby.korean,
+        Category.relationship.korean,
+        Category.etc.korean
+    ]
     var body: some View {
         NavigationView {
             Form {
@@ -23,18 +40,15 @@ struct PostUploadView: View {
                             .padding(.horizontal, 8)
                             .padding(.vertical, 10)
                     }
-                    TextEditor(text: $title).frame(height: 40)
+                    TextEditor(text: $title).frame(height: 60)
                 }
                 // 카테고리 입력 칸
-                NavigationLink(destination: List {
-                    Text("1")
-                    Text("2")
-                    Text("3")
-                    Text("4")
-                    Text("5")
-                }) {
-                    Text("카테고리 선택")
-                }
+                NavigationLink(
+                    destination: List {
+                        ForEach(categoryArray, id: \.self) { categoryName in
+                            Button(categoryName) {}
+                        }
+                    }) { Text("카테고리 선택").padding(.horizontal, 8) }
                 // 태그 입력 칸
                 ZStack(alignment: .topLeading) {
                     if tag.isEmpty {
@@ -43,7 +57,7 @@ struct PostUploadView: View {
                             .padding(.horizontal, 8)
                             .padding(.vertical, 12)
                     }
-                    TextEditor(text: $tag).frame(height: 80)
+                    TextEditor(text: $tag).frame(height: 60)
                 }
                 // 게시글 입력 칸
                 ZStack(alignment: .topLeading) {
@@ -57,13 +71,19 @@ struct PostUploadView: View {
                 }
                 HStack {
                     // 글형태 버튼
-                    Button("글형태") {}
+                    Button(action: {}, label: {
+                        Text("글형태")})
+                    .buttonStyle(.borderless)
                     // 체크리스트 버튼
-                    Button("체크리스트") {}
+                    Button(action: {}, label: {
+                        Text("체크리스트")})
+                    .buttonStyle(.borderless)
                     // 사진 버튼
-                    Button("사진") {}
+                    Button(action: {}, label: {
+                        Text("사진")})
+                    .buttonStyle(.borderless)
                     Spacer()
-                }
+                }.padding(.horizontal, 8)
             }.navigationBarTitle("글쓰기", displayMode: .inline)
                 .navigationBarItems(
                     // 취소 누를 경우의 동작
