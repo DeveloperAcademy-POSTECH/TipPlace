@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C5336A3527FDB83500102AF3 /* .swiftlint.yml  in Resources */ = {isa = PBXBuildFile; fileRef = C5336A3427FDB83500102AF3 /* .swiftlint.yml  */; };
+		C5540CF927FE834300FB675D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5540CF827FE834300FB675D /* ContentView.swift */; };
 		C5991F9A27FD6AD2007A7F26 /* TipPlaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5991F9927FD6AD2007A7F26 /* TipPlaceApp.swift */; };
 		C5991F9E27FD6AD3007A7F26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5991F9D27FD6AD3007A7F26 /* Assets.xcassets */; };
 		C5991FA127FD6AD3007A7F26 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5991FA027FD6AD3007A7F26 /* Preview Assets.xcassets */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		C5336A3427FDB83500102AF3 /* .swiftlint.yml  */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swiftlint.yml "; sourceTree = "<group>"; };
+		C5540CF827FE834300FB675D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C5991F9627FD6AD2007A7F26 /* TipPlace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TipPlace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5991F9927FD6AD2007A7F26 /* TipPlaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipPlaceApp.swift; sourceTree = "<group>"; };
 		C5991F9D27FD6AD3007A7F26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				C5991F9927FD6AD2007A7F26 /* TipPlaceApp.swift */,
 				C5991F9D27FD6AD3007A7F26 /* Assets.xcassets */,
 				C5991F9F27FD6AD3007A7F26 /* Preview Content */,
+				C5540CF827FE834300FB675D /* ContentView.swift */,
 			);
 			path = TipPlace;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5540CF927FE834300FB675D /* ContentView.swift in Sources */,
 				C5991FA827FD6B84007A7F26 /* CategoryView.swift in Sources */,
 				C5991FAD27FD6B97007A7F26 /* MyPageView.swift in Sources */,
 				C5991FAE27FD6B97007A7F26 /* MainBoardView.swift in Sources */,
