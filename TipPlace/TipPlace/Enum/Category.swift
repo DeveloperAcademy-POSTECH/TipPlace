@@ -23,8 +23,7 @@ enum Category: Int {
     case companionLife
     case hobby
     case relationship
-    
-    var kr: String {
+    var korean: String {
         switch self {
         case .etc: return "기타"
         case .economy: return "경제"
