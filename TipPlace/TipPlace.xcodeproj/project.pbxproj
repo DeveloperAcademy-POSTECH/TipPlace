@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		0769BF3927FE6FD9009548C9 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 0769BF3827FE6FD9009548C9 /* .swiftlint.yml */; };
 		0769BF3E27FEAF7E009548C9 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0769BF3D27FEAF7E009548C9 /* Category.swift */; };
+		0769BF5627FF05E4009548C9 /* BoardPostListData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0769BF5527FF05E4009548C9 /* BoardPostListData.json */; };
+		0769BF5A27FF0640009548C9 /* DetailPostData1.json in Resources */ = {isa = PBXBuildFile; fileRef = 0769BF5927FF0640009548C9 /* DetailPostData1.json */; };
+		0769BF5E27FF068F009548C9 /* DetailPostData2.json in Resources */ = {isa = PBXBuildFile; fileRef = 0769BF5D27FF068F009548C9 /* DetailPostData2.json */; };
+		0769BF6027FF06AF009548C9 /* DetailPostData3.json in Resources */ = {isa = PBXBuildFile; fileRef = 0769BF5F27FF06AF009548C9 /* DetailPostData3.json */; };
+		0769BF6227FF06DA009548C9 /* UserData1.json in Resources */ = {isa = PBXBuildFile; fileRef = 0769BF6127FF06DA009548C9 /* UserData1.json */; };
+		0769BF6427FF06F8009548C9 /* UserData2.json in Resources */ = {isa = PBXBuildFile; fileRef = 0769BF6327FF06F8009548C9 /* UserData2.json */; };
+		0769BF6627FF0719009548C9 /* RecommendedPeopleData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0769BF6527FF0719009548C9 /* RecommendedPeopleData.json */; };
 		C5991F9A27FD6AD2007A7F26 /* TipPlaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5991F9927FD6AD2007A7F26 /* TipPlaceApp.swift */; };
 		C5991F9E27FD6AD3007A7F26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5991F9D27FD6AD3007A7F26 /* Assets.xcassets */; };
 		C5991FA127FD6AD3007A7F26 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5991FA027FD6AD3007A7F26 /* Preview Assets.xcassets */; };
@@ -21,6 +28,13 @@
 /* Begin PBXFileReference section */
 		0769BF3827FE6FD9009548C9 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		0769BF3D27FEAF7E009548C9 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		0769BF5527FF05E4009548C9 /* BoardPostListData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BoardPostListData.json; sourceTree = "<group>"; };
+		0769BF5927FF0640009548C9 /* DetailPostData1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DetailPostData1.json; sourceTree = "<group>"; };
+		0769BF5D27FF068F009548C9 /* DetailPostData2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DetailPostData2.json; sourceTree = "<group>"; };
+		0769BF5F27FF06AF009548C9 /* DetailPostData3.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DetailPostData3.json; sourceTree = "<group>"; };
+		0769BF6127FF06DA009548C9 /* UserData1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = UserData1.json; sourceTree = "<group>"; };
+		0769BF6327FF06F8009548C9 /* UserData2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = UserData2.json; sourceTree = "<group>"; };
+		0769BF6527FF0719009548C9 /* RecommendedPeopleData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RecommendedPeopleData.json; sourceTree = "<group>"; };
 		C5991F9627FD6AD2007A7F26 /* TipPlace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TipPlace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5991F9927FD6AD2007A7F26 /* TipPlaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipPlaceApp.swift; sourceTree = "<group>"; };
 		C5991F9D27FD6AD3007A7F26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -50,6 +64,20 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
+		0769BF5427FF05C2009548C9 /* MockData */ = {
+			isa = PBXGroup;
+			children = (
+				0769BF5527FF05E4009548C9 /* BoardPostListData.json */,
+				0769BF5927FF0640009548C9 /* DetailPostData1.json */,
+				0769BF5D27FF068F009548C9 /* DetailPostData2.json */,
+				0769BF5F27FF06AF009548C9 /* DetailPostData3.json */,
+				0769BF6127FF06DA009548C9 /* UserData1.json */,
+				0769BF6327FF06F8009548C9 /* UserData2.json */,
+				0769BF6527FF0719009548C9 /* RecommendedPeopleData.json */,
+			);
+			path = MockData;
+			sourceTree = "<group>";
+		};
 		C5991F8D27FD6AD2007A7F26 = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +98,7 @@
 		C5991F9827FD6AD2007A7F26 /* TipPlace */ = {
 			isa = PBXGroup;
 			children = (
+				0769BF5427FF05C2009548C9 /* MockData */,
 				0769BF3C27FEAF6A009548C9 /* Enum */,
 				C5991FA727FD6B84007A7F26 /* CategoryView.swift */,
 				C5991FAB27FD6B97007A7F26 /* MainBoardView.swift */,
@@ -149,8 +178,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0769BF6627FF0719009548C9 /* RecommendedPeopleData.json in Resources */,
+				0769BF6227FF06DA009548C9 /* UserData1.json in Resources */,
 				0769BF3927FE6FD9009548C9 /* .swiftlint.yml in Resources */,
+				0769BF6427FF06F8009548C9 /* UserData2.json in Resources */,
 				C5991FA127FD6AD3007A7F26 /* Preview Assets.xcassets in Resources */,
+				0769BF5A27FF0640009548C9 /* DetailPostData1.json in Resources */,
+				0769BF5E27FF068F009548C9 /* DetailPostData2.json in Resources */,
+				0769BF5627FF05E4009548C9 /* BoardPostListData.json in Resources */,
+				0769BF6027FF06AF009548C9 /* DetailPostData3.json in Resources */,
 				C5991F9E27FD6AD3007A7F26 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

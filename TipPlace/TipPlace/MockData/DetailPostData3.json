@@ -1,0 +1,55 @@
+{
+    "_comment": "게시글 상세보기를 요청했을 때의 결과 데이터(게시글id: 3)",
+
+    "id": 3,
+    "category": 1,
+    "isAnonymous": false,
+    "title": "세번째 게시글",
+    "content": "세번째 게시글 내용",
+    "author": {
+        "id": 2,
+        "profileImage": null,
+        "name": "이등유저",
+        "specialDomain": []
+    },
+    "createdAt": "2022-03-01T23:01:00",
+    "imagesUrl": [],
+    "tags": ["첫번째태그", "두번째태그", "세번째태그"],
+    "usefulCount": 12,
+    "replys": [
+        {
+            "id": 1,
+            "postId": 3,
+            "isAnonymous": false,
+            "author": {
+                "id": 1,
+                "profileImage": null,
+                "name": "일등유저",
+                "specialDomain": [1]
+            },
+            "content": "첫번째 댓글이에요",
+            "createdAt": "2022-03-01T23:01:00"
+        },
+        {
+            "id": 2,
+            "postId": 3,
+            "isAnonymous": false,
+            "author": {
+                "id": 2,
+                "profileImage": null,
+                "name": "이등유저",
+                "specialDomain": []
+            },
+            "content": "두번째 댓글이에요",
+            "createdAt": "2022-03-01T23:01:00"
+        },
+        {
+            "id": 3,
+            "postId": 3,
+            "isAnonymous": true,
+            "author": null,
+            "content": "익명 세번째 댓글이에요",
+            "createdAt": "2022-03-01T23:01:00"
+        }
+    ]
+}
