@@ -7,28 +7,16 @@
 
 import SwiftUI
 
+class GlobalVarInPostUploadView: ObservableObject {
+    @Published var selectedCategory: String = "카테고리 선택"
+}
+
 struct PostUploadView: View {
     @Environment(\.presentationMode) var presentationMode
+    @ObservedObject var globalVar = GlobalVarInPostUploadView()
     @State var title: String = ""
     @State var tag: String = ""
     @State var content: String = ""
-    let categoryArray: [String] = [
-        Category.economy.korean,
-        Category.law.korean,
-        Category.safety.korean,
-        Category.cook.korean,
-        Category.livingAlone.korean,
-        Category.cleaning.korean,
-        Category.tech.korean,
-        Category.driving.korean,
-        Category.health.korean,
-        Category.campusLife.korean,
-        Category.workingLife.korean,
-        Category.companionLife.korean,
-        Category.hobby.korean,
-        Category.relationship.korean,
-        Category.etc.korean
-    ]
     var body: some View {
         NavigationView {
             Form {
@@ -44,11 +32,8 @@ struct PostUploadView: View {
                 }
                 // 카테고리 입력 칸
                 NavigationLink(
-                    destination: List {
-                        ForEach(categoryArray, id: \.self) { categoryName in
-                            Button(categoryName) {}
-                        }
-                    }) { Text("카테고리 선택").padding(.horizontal, 8) }
+                    destination: CategorySelectView(globalVar: globalVar)
+                ) { Text(self.globalVar.selectedCategory).padding(.horizontal, 8) }
                 // 태그 입력 칸
                 ZStack(alignment: .topLeading) {
                     if tag.isEmpty {
@@ -96,6 +81,38 @@ struct PostUploadView: View {
                         // 서버에 데이터 보내기 코드 작성 필요
                     }
                 )
+        }
+    }
+}
+
+struct CategorySelectView: View {
+    @Environment(\.presentationMode) var presentationMode
+    @ObservedObject var globalVar: GlobalVarInPostUploadView
+    let categoryArray: [String] = [
+        Category.economy.korean,
+        Category.law.korean,
+        Category.safety.korean,
+        Category.cook.korean,
+        Category.livingAlone.korean,
+        Category.cleaning.korean,
+        Category.tech.korean,
+        Category.driving.korean,
+        Category.health.korean,
+        Category.campusLife.korean,
+        Category.workingLife.korean,
+        Category.companionLife.korean,
+        Category.hobby.korean,
+        Category.relationship.korean,
+        Category.etc.korean
+    ]
+    var body: some View {
+        List {
+            ForEach(categoryArray, id: \.self) { categoryName in
+                Button(categoryName) {
+                    self.globalVar.selectedCategory = categoryName
+                    self.presentationMode.wrappedValue.dismiss()
+                }
+            }
         }
     }
 }
