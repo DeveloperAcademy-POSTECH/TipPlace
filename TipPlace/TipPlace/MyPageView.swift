@@ -10,9 +10,7 @@ import SwiftUI
 struct MyPageView: View {
     var body: some View {
         NavigationView {
-            ZStack {
-                Color.green
-            }.navigationTitle("마이페이지")
+            
         }
     }
 }
