@@ -14,12 +14,13 @@ class GlobalVarInPostUploadView: ObservableObject {
 struct PostUploadView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var globalVar = GlobalVarInPostUploadView()
+    @State private var showSheet = false
+    @State private var images: [UIImage] = []
     @State private var title: String = ""
     @State private var tagSentence: String = ""
+    @State private var tags: [String] = []
     @State private var content: String = ""
     @State private var isAnonymous = true
-    @State private var images: [UIImage] = []
-    @State private var showSheet = false
     var body: some View {
         NavigationView {
             ScrollViewReader { proxy in
@@ -84,15 +85,60 @@ struct PostUploadView: View {
                         destination: CategorySelectView(globalVar: globalVar)
                     ) { Text(self.globalVar.selectedCategory).padding(.horizontal, 8) }
                     // 태그 입력 칸
-                    ZStack(alignment: .topLeading) {
-                        if tagSentence.isEmpty {
-                            Text("#태그는 5개까지 입력할 수 있어요")
-                                .foregroundColor(Color(UIColor.placeholderText))
-                                .padding(.horizontal, 8)
-                                .padding(.vertical, 12)
+                    VStack(alignment: .leading) {
+                        ZStack(alignment: .topLeading) {
+                            if tags.count < 5 {
+                                // tag의 개수가 5보다 적고 아무것도 입력되지 않았을 때 나타나는 PlaceHolder
+                                if tagSentence.isEmpty {
+                                    Text("#태그는 5개까지 입력할 수 있어요")
+                                        .foregroundColor(Color(UIColor.placeholderText))
+                                        .padding(.horizontal, 8)
+                                        .padding(.top, 12)
+                                }
+                                // tag 작성 칸
+                                TextEditor(text: $tagSentence)
+                                    .onChange(of: tagSentence) {_ in
+                                        if tagSentence.hasPrefix("#") &&
+                                            (tagSentence.hasSuffix(" ") || tagSentence.hasSuffix("\n")) {
+                                            let endIdx = tagSentence.index(tagSentence.endIndex, offsetBy: -2)
+                                            tags.append(String(tagSentence[...endIdx]))
+                                            tagSentence = ""
+                                        }
+                                    }
+                                Text(tagSentence).opacity(0).padding(8)
+                            } else {
+                                // tag의 개수가 5개가 되면 보여주는 PlaceHolder
+                                Text("더 추가하려면 기존 태그를 삭제해주세요")
+                                    .foregroundColor(Color(UIColor.placeholderText))
+                                    .padding(.horizontal, 8)
+                                    .padding(.top, 12)
+                                    .padding(.bottom, 7)
+                            }
                         }
-                        TextEditor(text: $tagSentence)
-                        Text(tagSentence).opacity(0).padding(.all, 8)
+                        ScrollView(.horizontal) {
+                            HStack {
+                                // 추가된 태그 보기
+                                ForEach(tags, id: \.self) { tag in
+                                    ZStack(alignment: .topTrailing) {
+                                        Text(tag)
+                                               .padding(5)
+                                               .font(.body)
+                                               .background(Color.gray)
+                                               .foregroundColor(Color.white)
+                                               .cornerRadius(5)
+                                               .padding(3)
+                                               .padding(.bottom, 8)
+                                        Button(action: {
+                                            let tagIdx = tags.firstIndex(of: tag)
+                                            tags.remove(at: tagIdx!)
+                                        }, label: {
+                                            Image(systemName: "x.square.fill")
+                                        }).foregroundColor(Color.black)
+                                            .frame(width: 15, height: 15)
+                                    }
+                                }
+                            }
+                        }
                     }.id("bottomOfTagSentence")
                     // 게시글 입력 칸
                     ZStack(alignment: .topLeading) {
@@ -119,7 +165,9 @@ struct PostUploadView: View {
                             print("사진 개수: " + String(images.count))
                             print("글 제목: " + title)
                             print("카테고리: " + globalVar.selectedCategory)
-                            print("태그문장: " + tagSentence)
+                            tags.enumerated().forEach {
+                                print("tag\($0): \($1)")
+                            }
                             print("게시글: " + content)
                             print("익명여부: " + (isAnonymous ? "O" : "X"))
                         }
