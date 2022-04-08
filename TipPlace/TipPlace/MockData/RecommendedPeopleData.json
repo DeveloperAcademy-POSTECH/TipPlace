@@ -1,0 +1,56 @@
+{
+    "_comment": "추천 유저들을 요청했을 때의 목록",
+    
+    "recommendedPeoples": [
+        {
+            "id": 1,
+            "profileImage": null,
+            "name": "일등유저",
+            "specialDomain": [1]
+        },
+        {
+            "id": 3,
+            "profileImage": null,
+            "name": "삼등유저",
+            "specialDomain": [1]
+        },
+        {
+            "id": 4,
+            "profileImage": null,
+            "name": "사등유저",
+            "specialDomain": [1]
+        },
+        {
+            "id": 5,
+            "profileImage": null,
+            "name": "오등유저",
+            "specialDomain": [1]
+        },
+        {
+            "id": 6,
+            "profileImage": null,
+            "name": "육등유저",
+            "specialDomain": [1]
+        },
+        {
+            "id": 7,
+            "profileImage": null,
+            "name": "칠등유저",
+            "specialDomain": [1]
+        },
+        {
+            "id": 8,
+            "profileImage": null,
+            "name": "팔등유저",
+            "specialDomain": [1]
+        },
+        {
+            "id": 9,
+            "profileImage": null,
+            "name": "구등유저",
+            "specialDomain": [1]
+        }
+    ]
+    
+}
+

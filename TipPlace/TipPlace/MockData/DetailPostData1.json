@@ -1,0 +1,15 @@
+{
+    "_comment": "게시글 상세보기를 요청했을 때의 결과 데이터(게시글id: 1)",
+
+    "id": 1,
+    "category": 1,
+    "isAnonymous": true,
+    "title": "첫번째 게시글",
+    "content": "첫번째 게시글 내용",
+    "author": null,
+    "createdAt": "2022-03-01T23:01:00",
+    "imagesUrl": [],
+    "tags": ["첫번째태그", "두번째태그", "세번째태그"],
+    "usefulCount": 32,
+    "replys": []
+}
