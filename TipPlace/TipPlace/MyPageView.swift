@@ -40,7 +40,6 @@ struct MyPageView: View {
                     .foregroundColor(.black )
                 }
             }
-            Divider()
         }
     }
 }
