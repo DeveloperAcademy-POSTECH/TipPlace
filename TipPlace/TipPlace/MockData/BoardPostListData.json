@@ -1,0 +1,50 @@
+{
+    "_comment": "게시글 목록 불러오기를 요청했을 때 결과 데이터",
+    
+    "posts": [
+        {
+            "id": 3,
+            "isAnonymous": false,
+            "title": "세번째 게시글",
+            "content": "세번째 게시글 내용",
+            "author": {
+                "id": 2,
+                "profileImage": null,
+                "name": "이등유저",
+                "specialDomain": []
+            },
+            "createdAt": "2022-03-01T23:01:00",
+            "thumnailImageUrl": null,
+            "usefulCount": 12,
+            "replyCount": 3
+        },
+        {
+            "id": 2,
+            "isAnonymous": false,
+            "title": "두번째 게시글",
+            "content": "두번째 게시글 내용",
+            "author": {
+                "id": 1,
+                "profileImage": null,
+                "name": "일등유저",
+                "specialDomain": [1]
+            },
+            "createdAt": "2022-03-01T23:01:00",
+            "thumnailImageUrl": null,
+            "usefulCount": 32,
+            "replyCount": 0
+        },
+        {
+            "id": 1,
+            "isAnonymous": true,
+            "title": "첫번째 게시글",
+            "content": "첫번째 게시글 내용",
+            "author": null,
+            "createdAt": "2022-03-01T23:01:00",
+            "thumnailImageUrl": null,
+            "usefulCount": 32,
+            "replyCount": 0
+        }
+    ]
+}
+
