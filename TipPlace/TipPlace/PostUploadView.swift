@@ -14,14 +14,60 @@ class GlobalVarInPostUploadView: ObservableObject {
 struct PostUploadView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var globalVar = GlobalVarInPostUploadView()
-    @State var title: String = ""
-    @State var tagSentence: String = ""
-    @State var content: String = ""
-    @State var isAnonymous = true
+    @State private var title: String = ""
+    @State private var tagSentence: String = ""
+    @State private var content: String = ""
+    @State private var isAnonymous = true
+    @State private var images: [UIImage] = []
+    @State private var showSheet = false
     var body: some View {
         NavigationView {
             ScrollViewReader { proxy in
                 Form {
+                    // 사진 추가 칸
+                    ScrollView(.horizontal) {
+                        HStack {
+                            // 사진 추가 버튼
+                            Button(action: {
+                                if images.count < 10 {
+                                    showSheet.toggle()
+                                }
+                            }, label: {
+                                VStack {
+                                    Image(systemName: "camera.fill")
+                                    Text("\(images.count)/10")
+                                }
+                                .padding(10)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                                    .stroke(Color.gray, lineWidth: 3)
+                                )
+                            }).foregroundColor(Color.gray)
+                            .buttonStyle(.borderless)
+                            .cornerRadius(10)
+                            .padding(10)
+                            .sheet(isPresented: $showSheet) {
+                                ImagePicker(sourceType: .photoLibrary, selectedImages: self.$images)
+                            }
+                            // 추가된 사진 미리보기
+                            ForEach(images, id: \.self) { img in
+                                ZStack(alignment: .topTrailing) {
+                                    Image(uiImage: img)
+                                        .resizable()
+                                        .frame(width: 55, height: 55)
+                                        .aspectRatio(contentMode: .fill)
+                                        .padding(3)
+                                    Button(action: {
+                                        let imgIdx = images.firstIndex(of: img)
+                                        images.remove(at: imgIdx!)
+                                    }, label: {
+                                        Image(systemName: "x.square.fill")
+                                    }).foregroundColor(Color.black)
+                                        .frame(width: 15, height: 15)
+                                }
+                            }
+                        }
+                    }
                     // 제목 입력 칸
                     ZStack(alignment: .topLeading) {
                         if title.isEmpty {
@@ -70,10 +116,12 @@ struct PostUploadView: View {
                         trailing: Button("업로드") {
                             self.presentationMode.wrappedValue.dismiss()
                             // 서버에 데이터 보내는 코드 작성 필요
+                            print("사진 개수: " + String(images.count))
                             print("글 제목: " + title)
                             print("카테고리: " + globalVar.selectedCategory)
                             print("태그문장: " + tagSentence)
                             print("게시글: " + content)
+                            print("익명여부: " + (isAnonymous ? "O" : "X"))
                         }
                     )
                 .toolbar {
@@ -105,6 +153,7 @@ struct PostUploadView: View {
     }
 }
 
+// 카테고리 선택 시 목록 나오게 하는 View
 struct CategorySelectView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var globalVar: GlobalVarInPostUploadView
@@ -143,6 +192,7 @@ struct PostUploadView_Previews: PreviewProvider {
     }
 }
 
+// CheckBox가 구현된 View
 struct CheckBoxView: View {
     @Binding var checked: Bool
 
@@ -152,6 +202,46 @@ struct CheckBoxView: View {
             .onTapGesture {
                 self.checked.toggle()
             }
+    }
+}
+
+// 앨범에 접근 가능하게 하는 View
+struct ImagePicker: UIViewControllerRepresentable {
+    @Environment(\.presentationMode) private var presentationMode
+    var sourceType: UIImagePickerController.SourceType = .photoLibrary
+    @Binding var selectedImages: [UIImage]
+
+    func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
+        let imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = sourceType
+        imagePicker.delegate = context.coordinator
+
+        return imagePicker
+    }
+
+    func updateUIViewController(_ uiViewController: UIImagePickerController,
+                                context: UIViewControllerRepresentableContext<ImagePicker>) {
+    }
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+
+    final class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+        var parent: ImagePicker
+
+        init(_ parent: ImagePicker) {
+            self.parent = parent
+        }
+
+        func imagePickerController(_ picker: UIImagePickerController,
+                                   didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+            if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+                parent.selectedImages.append(image)
+            }
+            parent.presentationMode.wrappedValue.dismiss()
+        }
     }
 }
 
