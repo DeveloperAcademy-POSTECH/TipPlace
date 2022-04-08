@@ -27,6 +27,7 @@ struct DetailPostView: View {
                 post content
                 post content
                 """
+
     var body: some View {
         List {
             // info section
@@ -37,6 +38,7 @@ struct DetailPostView: View {
             }
             .listRowSeparator(.hidden)
             .listSectionSeparator(.visible, edges: .bottom)
+
             // content section
             Section {
                 Text(content)
@@ -47,12 +49,14 @@ struct DetailPostView: View {
             }
             .listRowSeparator(.hidden)
             .listSectionSeparator(.visible, edges: .bottom)
+
             // event buttons section
             Section {
                 Text("event section")
             }
             .listRowSeparator(.hidden)
             .listSectionSeparator(.visible, edges: .bottom)
+
             // reply section
             Section {
                 Text("reply list")
