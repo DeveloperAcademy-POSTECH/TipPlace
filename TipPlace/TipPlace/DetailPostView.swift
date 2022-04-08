@@ -34,7 +34,7 @@ struct DetailPostView: View {
             Section {
                 Text(title)
                     .font(.largeTitle)
-                Text("user info")
+                AuthorProfileView(User(name: "user", profileUrl: nil), date: Date())
             }
             .listRowSeparator(.hidden)
             .listSectionSeparator(.visible, edges: .bottom)
@@ -65,6 +65,33 @@ struct DetailPostView: View {
         }
         .navigationBarTitleDisplayMode(.inline)
         .listStyle(.plain)
+    }
+
+    struct User {
+        let name: String
+        let profileUrl: String?
+    }
+
+    struct AuthorProfileView: View {
+        let user: User
+        let date: Date
+
+        init(_ user: User, date: Date) {
+            self.user = user
+            self.date = date
+        }
+
+        var body: some View {
+            HStack(alignment: .center) {
+                Image(systemName: "person.crop.circle")
+                VStack(alignment: .leading) {
+                    Text(user.name)
+                        .font(.subheadline)
+                    Text(date.description)
+                        .font(.caption2)
+                }
+            }
+        }
     }
 }
 
