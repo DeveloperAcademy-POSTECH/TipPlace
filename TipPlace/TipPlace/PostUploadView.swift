@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Struct간 공유하는 변수
 class GlobalVarInPostUploadView: ObservableObject {
     @Published var selectedCategory: String = "카테고리 선택"
 }
@@ -21,6 +22,36 @@ struct PostUploadView: View {
     @State private var tags: [String] = []
     @State private var content: String = ""
     @State private var isAnonymous = true
+    // 태그 필터링하기
+    func tagFiltering() {
+        if tagSentence.hasSuffix(" ") || tagSentence.hasSuffix("\n") {
+            let trimmedTagSentence = tagSentence.trimmingCharacters(
+                in: .whitespacesAndNewlines)
+            if trimmedTagSentence.hasPrefix("#") {
+                tags.append(trimmedTagSentence)
+                tagSentence = ""
+            }
+        }
+    }
+    // UIImage를 Base64 형태로 바꿔주기
+    func uiToBase64(uiImg: UIImage) -> String {
+        return (uiImg.jpegData(compressionQuality: 1)?.base64EncodedString())!
+    }
+    // 서버에 데이터 보내기
+    func upload() {
+        var base64images: [String] = []
+        for img in images {
+            base64images.append(uiToBase64(uiImg: img))
+        }
+        print("[사진 개수] " + String(images.count))
+        print("[글 제목] " + title)
+        print("[카테고리] " + globalVar.selectedCategory)
+        tags.enumerated().forEach {
+            print("[태그\($0)] \($1)")
+        }
+        print("[게시글] " + content)
+        print("[익명여부] " + (isAnonymous ? "O" : "X"))
+    }
     var body: some View {
         NavigationView {
             ScrollViewReader { proxy in
@@ -99,14 +130,7 @@ struct PostUploadView: View {
                                 TextEditor(text: $tagSentence)
                                     .opacity(tagSentence.isEmpty ? 0.25 : 1)
                                     .onChange(of: tagSentence) {_ in
-                                        if tagSentence.hasSuffix(" ") || tagSentence.hasSuffix("\n") {
-                                            let trimmedTagSentence = tagSentence.trimmingCharacters(
-                                                in: .whitespacesAndNewlines)
-                                            if trimmedTagSentence.hasPrefix("#") {
-                                                tags.append(trimmedTagSentence)
-                                                tagSentence = ""
-                                            }
-                                        }
+                                        tagFiltering()
                                     }
                                 Text(tagSentence).opacity(0).padding(8)
                             } else {
@@ -167,15 +191,7 @@ struct PostUploadView: View {
                         // 업로드 누를 경우의 동작
                         trailing: Button("업로드") {
                             self.presentationMode.wrappedValue.dismiss()
-                            // 서버에 데이터 보내는 코드 작성 필요
-                            print("사진 개수: " + String(images.count))
-                            print("글 제목: " + title)
-                            print("카테고리: " + globalVar.selectedCategory)
-                            tags.enumerated().forEach {
-                                print("tag\($0): \($1)")
-                            }
-                            print("게시글: " + content)
-                            print("익명여부: " + (isAnonymous ? "O" : "X"))
+                            upload()
                         }
                     )
                 .toolbar {
@@ -204,6 +220,12 @@ struct PostUploadView: View {
                 }
             }
         }
+    }
+}
+
+struct PostUploadView_Previews: PreviewProvider {
+    static var previews: some View {
+        PostUploadView()
     }
 }
 
@@ -237,12 +259,6 @@ struct CategorySelectView: View {
                 }
             }
         }
-    }
-}
-
-struct PostUploadView_Previews: PreviewProvider {
-    static var previews: some View {
-        PostUploadView()
     }
 }
 
@@ -299,7 +315,7 @@ struct ImagePicker: UIViewControllerRepresentable {
     }
 }
 
-// 태그 형식으로 쓰려 고려중인 것
+// 태그 형식으로 쓸지 고려중인 것
 // struct WrappedLayoutForTag: View {
 //    @State var platforms = ["Ninetendo", "XBox", "PlayStation", "PlayStation 2", "PlayStation 3"]
 //
