@@ -98,11 +98,12 @@ struct PostUploadView: View {
                                 // tag 작성 칸
                                 TextEditor(text: $tagSentence)
                                     .onChange(of: tagSentence) {_ in
-                                        if tagSentence.hasPrefix("#") &&
-                                            (tagSentence.hasSuffix(" ") || tagSentence.hasSuffix("\n")) {
-                                            let endIdx = tagSentence.index(tagSentence.endIndex, offsetBy: -2)
-                                            tags.append(String(tagSentence[...endIdx]))
-                                            tagSentence = ""
+                                        if tagSentence.hasSuffix(" ") || tagSentence.hasSuffix("\n") {
+                                            let trimmedTagSentence = tagSentence.trimmingCharacters(in: [" ", "\n"])
+                                            if trimmedTagSentence.hasPrefix("#") {
+                                                tags.append(trimmedTagSentence)
+                                                tagSentence = ""
+                                            }
                                         }
                                     }
                                 Text(tagSentence).opacity(0).padding(8)
