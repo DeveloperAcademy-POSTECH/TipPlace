@@ -24,7 +24,7 @@ struct PostUploadView: View {
     var body: some View {
         NavigationView {
             ScrollViewReader { proxy in
-                Form {
+                List {
                     // 사진 추가 칸
                     ScrollView(.horizontal) {
                         HStack {
@@ -77,7 +77,7 @@ struct PostUploadView: View {
                                 .padding(.horizontal, 8)
                                 .padding(.vertical, 10)
                         }
-                        TextEditor(text: $title)
+                        TextEditor(text: $title).opacity(title.isEmpty ? 0.25 : 1)
                         Text(title).opacity(0).padding(.all, 8)
                     }.id("bottomOfTitle")
                     // 카테고리 입력 칸
@@ -97,9 +97,11 @@ struct PostUploadView: View {
                                 }
                                 // tag 작성 칸
                                 TextEditor(text: $tagSentence)
+                                    .opacity(tagSentence.isEmpty ? 0.25 : 1)
                                     .onChange(of: tagSentence) {_ in
                                         if tagSentence.hasSuffix(" ") || tagSentence.hasSuffix("\n") {
-                                            let trimmedTagSentence = tagSentence.trimmingCharacters(in: [" ", "\n"])
+                                            let trimmedTagSentence = tagSentence.trimmingCharacters(
+                                                in: .whitespacesAndNewlines)
                                             if trimmedTagSentence.hasPrefix("#") {
                                                 tags.append(trimmedTagSentence)
                                                 tagSentence = ""
@@ -150,10 +152,13 @@ struct PostUploadView: View {
                                 .padding(.vertical, 12)
                         }
                         TextEditor(text: $content)
+                            .opacity(content.isEmpty ? 0.25 : 1)
                             .frame(minHeight: 150)
                         Text(content).opacity(0).padding(.all, 8)
                     }.id("bottomOfContent")
-                }.navigationBarTitle("글쓰기", displayMode: .inline)
+                }
+                .listStyle(GroupedListStyle())
+                .navigationBarTitle("글쓰기", displayMode: .inline)
                     .navigationBarItems(
                         // 취소 누를 경우의 동작
                         leading: Button("취소") {
