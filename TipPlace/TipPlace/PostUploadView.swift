@@ -9,7 +9,9 @@ import SwiftUI
 
 struct PostUploadView: View {
     @Environment(\.presentationMode) var presentationMode
-    @State private var showSheet = false
+    @State private var showSourceTypeSelection = false
+    @State private var showPhotoLibrary = false
+    @State private var showCamera = false
     @State private var images: [UIImage] = []
     @State private var title: String = ""
     @State private var category: String = "카테고리 선택"
@@ -58,7 +60,7 @@ struct PostUploadView: View {
                             // 사진 추가 버튼
                             Button(action: {
                                 if images.count < 10 {
-                                    showSheet.toggle()
+                                    self.showSourceTypeSelection.toggle()
                                 }
                             }, label: {
                                 VStack {
@@ -70,12 +72,25 @@ struct PostUploadView: View {
                                     RoundedRectangle(cornerRadius: 10)
                                                     .stroke(Color.gray, lineWidth: 3)
                                 )
-                            }).foregroundColor(Color.gray)
+                            })
+                            .foregroundColor(Color.gray)
                             .buttonStyle(.borderless)
                             .cornerRadius(10)
                             .padding(10)
-                            .sheet(isPresented: $showSheet) {
-                                ImagePicker(sourceType: .photoLibrary, selectedImages: self.$images)
+                            // 앨범 열지, 사진 촬영할지 결정
+                            .confirmationDialog("", isPresented: $showSourceTypeSelection) {
+                                    Button("앨범 선택") {
+                                        self.showPhotoLibrary.toggle()
+                                    }
+                                    Button("사진 촬영") {
+                                        self.showCamera.toggle()
+                                    }
+                            }
+                            .sheet(isPresented: $showPhotoLibrary) {
+                                ImagePicker(sourceType: .photoLibrary, selectedImages: $images)
+                            }
+                            .sheet(isPresented: $showCamera) {
+                                ImagePicker(sourceType: .camera, selectedImages: $images)
                             }
                             // 추가된 사진 미리보기
                             ForEach(images, id: \.self) { img in
