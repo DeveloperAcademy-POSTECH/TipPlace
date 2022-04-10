@@ -36,6 +36,9 @@ struct DetailPostView: View {
                     .bold()
                 Text(content)
                 Text("images")
+                List {
+                    
+                }
                 Text("tags")
                 Text("유용해요, 댓글 box")
             }
@@ -67,14 +70,21 @@ struct DetailPostView: View {
         }
 
         var body: some View {
-            HStack(alignment: .center) {
-                Image(systemName: "person.crop.circle")
-                VStack(alignment: .leading) {
-                    Text(user.name)
-                        .font(.subheadline)
-                    Text(date.description)
-                        .font(.caption2)
+            GeometryReader { geometry in
+
+                HStack(alignment: .center) {
+                    Image(systemName: "person.crop.circle")
+                        .resizable()
+                        .frame(width: geometry.size.height, height: geometry.size.height)
+                    VStack(alignment: .leading) {
+                        // TODO: username이 한 줄만 나오도록 해야함.
+                        Text("user.name")
+                            .font(.subheadline)
+                        Text(date.description)
+                            .font(.caption2)
+                    }
                 }
+
             }
         }
     }
