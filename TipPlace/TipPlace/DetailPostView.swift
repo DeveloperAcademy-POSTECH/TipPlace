@@ -58,6 +58,16 @@ struct DetailPostView: View {
             .listRowSeparator(.visible, edges: .top)
         }
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            HStack {
+                Button("button1") {
+                    // action
+                }
+                Button("button2") {
+                    // action
+                }
+            }
+        }
         .listStyle(.plain)
     }
 
