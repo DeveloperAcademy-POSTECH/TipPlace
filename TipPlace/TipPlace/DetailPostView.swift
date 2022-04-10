@@ -49,7 +49,6 @@ struct DetailPostView: View {
                 Text("유용해요, 댓글 box")
             }
             .listRowSeparator(.hidden)
-            .listSectionSeparator(.visible, edges: .bottom)
 
             // reply section
             Section(header: Text("댓글")) {
@@ -69,6 +68,7 @@ struct DetailPostView: View {
             }
         }
         .listStyle(.plain)
+        .listRowSeparator(.visible, edges: .top)
     }
 
     struct User {
