@@ -42,6 +42,7 @@ struct DetailPostView: View {
             // content section
             Section {
                 Text(content)
+                Text("images")
                 Text("tags")
                 Text("유용해요 10  댓글 30  // useful + reply info")
                     .font(.caption)
