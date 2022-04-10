@@ -7,21 +7,17 @@
 
 import SwiftUI
 
-// Struct간 공유하는 변수
-class GlobalVarInPostUploadView: ObservableObject {
-    @Published var selectedCategory: String = "카테고리 선택"
-}
-
 struct PostUploadView: View {
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var globalVar = GlobalVarInPostUploadView()
     @State private var showSheet = false
     @State private var images: [UIImage] = []
     @State private var title: String = ""
+    @State private var category: String = "카테고리 선택"
     @State private var tagSentence: String = ""
     @State private var tags: [String] = []
     @State private var content: String = ""
     @State private var isAnonymous = true
+    @FocusState private var isContentFocused: Bool
     // 태그 필터링하기
     func tagFiltering() {
         if tagSentence.hasSuffix(" ") || tagSentence.hasSuffix("\n") {
@@ -45,7 +41,7 @@ struct PostUploadView: View {
         }
         print("[사진 개수] " + String(images.count))
         print("[글 제목] " + title)
-        print("[카테고리] " + globalVar.selectedCategory)
+        print("[카테고리] " + category)
         tags.enumerated().forEach {
             print("[태그\($0)] \($1)")
         }
@@ -113,8 +109,8 @@ struct PostUploadView: View {
                     }.id("bottomOfTitle")
                     // 카테고리 입력 칸
                     NavigationLink(
-                        destination: CategorySelectView(globalVar: globalVar)
-                    ) { Text(self.globalVar.selectedCategory).padding(.horizontal, 8) }
+                        destination: CategorySelectView(category: $category)
+                    ) { Text(category).padding(.horizontal, 8) }
                     // 태그 입력 칸
                     VStack(alignment: .leading) {
                         ZStack(alignment: .topLeading) {
@@ -176,8 +172,9 @@ struct PostUploadView: View {
                                 .padding(.vertical, 12)
                         }
                         TextEditor(text: $content)
+                            .focused($isContentFocused)
                             .opacity(content.isEmpty ? 0.25 : 1)
-                            .frame(minHeight: 150)
+                            .frame(minHeight: isContentFocused ? 100 : 400)
                         Text(content).opacity(0).padding(.all, 8)
                     }.id("bottomOfContent")
                 }
@@ -190,8 +187,8 @@ struct PostUploadView: View {
                         },
                         // 업로드 누를 경우의 동작
                         trailing: Button("업로드") {
-                            self.presentationMode.wrappedValue.dismiss()
                             upload()
+                            self.presentationMode.wrappedValue.dismiss()
                         }
                     )
                 .toolbar {
@@ -232,7 +229,7 @@ struct PostUploadView_Previews: PreviewProvider {
 // 카테고리 선택 시 목록 나오게 하는 View
 struct CategorySelectView: View {
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var globalVar: GlobalVarInPostUploadView
+    @Binding var category: String
     let categoryArray: [String] = [
         Category.economy.korean,
         Category.law.korean,
@@ -254,7 +251,7 @@ struct CategorySelectView: View {
         List {
             ForEach(categoryArray, id: \.self) { categoryName in
                 Button(categoryName) {
-                    self.globalVar.selectedCategory = categoryName
+                    category = categoryName
                     self.presentationMode.wrappedValue.dismiss()
                 }
             }
