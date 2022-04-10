@@ -27,6 +27,15 @@ struct DetailPostView: View {
                 post content
                 post content
                 """
+    let contentImages = [ContentImage(imageUrl: ""),
+                         ContentImage(imageUrl: ""),
+                         ContentImage(imageUrl: ""),
+                         ContentImage(imageUrl: ""),
+                         ContentImage(imageUrl: ""),
+                         ContentImage(imageUrl: ""),
+                         ContentImage(imageUrl: ""),
+                         ContentImage(imageUrl: "")
+                        ]
 
     var body: some View {
         List {
@@ -35,10 +44,7 @@ struct DetailPostView: View {
                 Text(title)
                     .bold()
                 Text(content)
-                Text("images")
-                List {
-                    
-                }
+                ImageCollecionView(imageDatas: contentImages)
                 Text("tags")
                 Text("유용해요, 댓글 box")
             }
@@ -81,6 +87,47 @@ struct DetailPostView: View {
                             .font(.subheadline)
                         Text(date.description)
                             .font(.caption2)
+                    }
+                }
+            }
+        }
+    }
+
+    struct ContentImage: Identifiable {
+        init(imageUrl: String) {
+            id = imageUrl
+            image = Image(systemName: "checkmark.circle")
+        }
+        let id: String
+        var image: Image?
+    }
+
+    struct ImageCell: View {
+        let imageData: ContentImage
+        var body: some View {
+            guard let image = imageData.image else {
+                return Image("")
+                    .resizable()
+                    .frame(width: 95, height: 95, alignment: .center)
+            }
+            return image
+                .resizable()
+                .frame(width: 95, height: 95, alignment: .center)
+        }
+    }
+
+    //TODO: cell의 재사용 필요
+    struct ImageCollecionView: View {
+        @State var imageDatas = [ContentImage]()
+
+        var body: some View {
+            ScrollView(.horizontal) {
+                HStack {
+                    ForEach(imageDatas) {
+                        ImageCell(imageData: $0)
+                            .background(.yellow)
+                            .cornerRadius(8)
+                            .padding(2)
                     }
                 }
             }
