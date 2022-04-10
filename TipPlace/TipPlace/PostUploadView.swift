@@ -79,18 +79,18 @@ struct PostUploadView: View {
                             .padding(10)
                             // 앨범 열지, 사진 촬영할지 결정
                             .confirmationDialog("", isPresented: $showSourceTypeSelection) {
-                                    Button("앨범 선택") {
-                                        self.showPhotoLibrary.toggle()
-                                    }
-                                    Button("사진 촬영") {
-                                        self.showCamera.toggle()
-                                    }
-                            }
-                            .sheet(isPresented: $showPhotoLibrary) {
-                                ImagePicker(sourceType: .photoLibrary, selectedImages: $images)
+                                Button("사진 촬영") {
+                                    self.showCamera.toggle()
+                                }
+                                Button("앨범 선택") {
+                                    self.showPhotoLibrary.toggle()
+                                }
                             }
                             .sheet(isPresented: $showCamera) {
                                 ImagePicker(sourceType: .camera, selectedImages: $images)
+                            }
+                            .sheet(isPresented: $showPhotoLibrary) {
+                                ImagePicker(sourceType: .photoLibrary, selectedImages: $images)
                             }
                             // 추가된 사진 미리보기
                             ForEach(images, id: \.self) { img in
