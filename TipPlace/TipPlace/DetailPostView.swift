@@ -71,7 +71,6 @@ struct DetailPostView: View {
 
         var body: some View {
             GeometryReader { geometry in
-
                 HStack(alignment: .center) {
                     Image(systemName: "person.crop.circle")
                         .resizable()
@@ -84,7 +83,6 @@ struct DetailPostView: View {
                             .font(.caption2)
                     }
                 }
-
             }
         }
     }
