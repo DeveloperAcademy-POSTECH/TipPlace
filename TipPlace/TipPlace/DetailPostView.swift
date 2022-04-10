@@ -30,39 +30,23 @@ struct DetailPostView: View {
 
     var body: some View {
         List {
-            // info section
             Section {
-                Text(title)
-                    .font(.largeTitle)
                 AuthorProfileView(User(name: "user", profileUrl: nil), date: Date())
-            }
-            .listRowSeparator(.hidden)
-            .listSectionSeparator(.visible, edges: .bottom)
-
-            // content section
-            Section {
+                Text(title)
+                    .bold()
                 Text(content)
                 Text("images")
                 Text("tags")
-                Text("유용해요 10  댓글 30  // useful + reply info")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-            }
-            .listRowSeparator(.hidden)
-            .listSectionSeparator(.visible, edges: .bottom)
-
-            // event buttons section
-            Section {
-                Text("event section")
+                Text("유용해요, 댓글 box")
             }
             .listRowSeparator(.hidden)
             .listSectionSeparator(.visible, edges: .bottom)
 
             // reply section
-            Section {
+            Section(header: Text("댓글")) {
                 Text("reply list")
             }
-            .listRowSeparator(.hidden)
+            .listRowSeparator(.visible, edges: .top)
         }
         .navigationBarTitleDisplayMode(.inline)
         .listStyle(.plain)
