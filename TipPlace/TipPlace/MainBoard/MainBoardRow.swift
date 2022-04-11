@@ -23,7 +23,7 @@ struct MainBoardRow: View {
                         .padding(.bottom, 7)
                     Text(boardPost.author.name)
                         .font(.caption2)
-                        .fontWeight(.thin)
+                        .foregroundColor(.secondary)
                     HStack {
                         Text("유용해요 \(boardPost.usefulCount)")
                         Text("좋아요 \(boardPost.replyCount)")
@@ -36,13 +36,14 @@ struct MainBoardRow: View {
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 100, height: 100, alignment: .center)
-                .clipped()
+                .clipShape(RoundedRectangle(cornerRadius: 15, style: .circular))
+                .padding(.leading, 5)
         }
     }
 }
 
 struct MainBoardRow_Previews: PreviewProvider {
     static var previews: some View {
-        MainBoardRow(boardPost: BoardPostMock.boardPost1)
+        MainBoardRow(boardPost: BoardPostMock.boardPost2)
     }
 }
