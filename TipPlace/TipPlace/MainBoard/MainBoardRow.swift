@@ -15,7 +15,7 @@ struct MainBoardRow: View {
                 Text(boardPost.title)
                     .font(.callout)
                     .fontWeight(.bold)
-                    .lineLimit(2)
+                    .lineLimit(1)
                 VStack(alignment: .leading, spacing: 5) {
                     Text(boardPost.content)
                         .font(.footnote)
@@ -39,6 +39,7 @@ struct MainBoardRow: View {
                 .clipShape(RoundedRectangle(cornerRadius: 15, style: .circular))
                 .padding(.leading, 5)
         }
+        .padding(15)
     }
 }
 
