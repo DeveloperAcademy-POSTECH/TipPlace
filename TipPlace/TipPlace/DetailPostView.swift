@@ -222,34 +222,39 @@ struct DetailPostView: View {
             }
         }
         var contentView: some View {
-            VStack(alignment: .leading) {
-                GeometryReader { geometry in
-                    HStack {
-                        Image(systemName: "person.crop.circle")
-                            .resizable()
-                            .frame(width: geometry.size.height, height: geometry.size.height)
-                        Label(comment.author.name, systemImage: "")
-                            .labelStyle(.titleOnly)
-                    }
+            VStack(alignment: .leading, spacing: 5) {
+                // TODO: 이미지 크기도 사용자 이름 Label의 폰트처럼 다이나믹한 사이즈가 적용되도록 개선이 필요할 듯함.
+                HStack {
+                    Image(systemName: "person.crop.circle")
+                        .resizable()
+                        .frame(width: 23, height: 23)
+                        .padding(2)
+                    Label(comment.author.name, systemImage: "")
+                        .labelStyle(.titleOnly)
+                        .font(.caption)
                 }
                 Text(comment.content)
-                HStack(spacing: 20) {
+                    .font(.caption)
+                HStack(spacing: 15) {
                     Text(comment.createdAt.description)
                         .font(.caption2)
+                        .foregroundColor(.gray)
                     if !comment.isReply {
                         Button {
                             // 답글 버튼 액션
                         } label: {
                             Label("답글", systemImage: "")
                                 .labelStyle(.titleOnly)
-                                .font(.caption2)
+                                .font(.bold(.caption)())
+                                .foregroundColor(.gray)
                         }
                     }
                     Button {
                         // 유용해요 버튼 액션
                     } label: {
                         Label("\(comment.usefulCount)", systemImage: "hands.clap")
-                            .font(.caption2)
+                            .font(.bold(.caption)())
+                            .foregroundColor(.gray)
                     }
                 }
             }
