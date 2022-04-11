@@ -183,18 +183,23 @@ struct DetailPostView: View {
     }
 
     struct CommentView: View {
-        let isReply: Bool
         let comment: CommentModel
 
-        init(_ isReply: Bool = false, comment: CommentModel) {
-            self.isReply = isReply
+        init(comment: CommentModel) {
             self.comment = comment
         }
 
         var body: some View {
-            contentView
+            if !comment.isReply {
+                contentView
+            } else {
+                HStack(alignment: .top) {
+                    Image(systemName: "arrow.turn.down.right")
+                        .padding()
+                    contentView
+                }
+            }
         }
-
         var contentView: some View {
             VStack(alignment: .leading) {
                 GeometryReader { geometry in
@@ -207,6 +212,25 @@ struct DetailPostView: View {
                     }
                 }
                 Text(comment.content)
+                HStack(spacing: 20) {
+                    Text(comment.createdAt.description)
+                        .font(.caption2)
+                    if !comment.isReply {
+                        Button {
+                            // 답글 버튼 액션
+                        } label: {
+                            Label("답글", systemImage: "")
+                                .labelStyle(.titleOnly)
+                                .font(.caption2)
+                        }
+                    }
+                    Button {
+                        // 유용해요 버튼 액션
+                    } label: {
+                        Label("\(comment.usefulCount)", systemImage: "hands.clap")
+                            .font(.caption2)
+                    }
+                }
             }
         }
     }
@@ -214,6 +238,9 @@ struct DetailPostView: View {
     struct CommentModel {
         let author: User
         let content: String
+        let isReply: Bool
+        let createdAt: Date
+        let usefulCount: Int
     }
 }
 
@@ -221,8 +248,7 @@ struct DetailPostView_Previews: PreviewProvider {
     static var previews: some View {
         TempParentView()
         DetailPostView()
-        DetailPostView.CommentView(false,
-                                   comment: DetailPostView.CommentModel(
+        DetailPostView.CommentView(comment: DetailPostView.CommentModel(
                                     author: DetailPostView.User(name: "I'mUser", profileUrl: ""),
                                     content: """
                                             임시 댓글입니다.
@@ -231,7 +257,10 @@ struct DetailPostView_Previews: PreviewProvider {
                                             임시 댓글입니다.
                                             임시 댓글입니다.
                                             임시 댓글입니다.
-                                            """))
+                                            """,
+                                    isReply: true,
+                                    createdAt: Date(),
+                                    usefulCount: 25))
         .frame(maxHeight: 100)
     }
 }
