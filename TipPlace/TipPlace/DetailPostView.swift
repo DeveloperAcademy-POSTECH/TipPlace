@@ -36,6 +36,8 @@ struct DetailPostView: View {
                          ContentImage(imageUrl: ""),
                          ContentImage(imageUrl: "")
                         ]
+    var useableCount: Int = 25
+    var replyCount: Int = 5
 
     var body: some View {
         List {
@@ -46,7 +48,29 @@ struct DetailPostView: View {
                 Text(content)
                 ImageCollecionView(imageDatas: contentImages)
                 Text("tags")
-                Text("유용해요, 댓글 box")
+                HStack {
+                    // TODO: 각 버튼의 icon과 title 사이의 간격 조절 필요함
+                    Button {
+                        // action
+                    } label: {
+                        Label("유용해요 \(useableCount)", systemImage: "hands.clap")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                            .padding(5)
+                            .overlay(RoundedRectangle(cornerRadius: 5)
+                                .stroke(.gray, lineWidth: 1))
+                    }
+                    Button {
+                        // action
+                    } label: {
+                        Label("댓글 \(replyCount)", systemImage: "text.bubble")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                            .padding(5)
+                            .overlay(RoundedRectangle(cornerRadius: 5)
+                                .stroke(.gray, lineWidth: 1))
+                    }
+                }
             }
             .listRowSeparator(.hidden)
 
