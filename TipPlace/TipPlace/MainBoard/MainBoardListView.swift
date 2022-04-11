@@ -11,10 +11,14 @@ struct MainBoardList: View {
     var boardPostsList = BoardPostListMock.boardPosts
     var body: some View {
         List(boardPostsList) { boardPost in
-            NavigationLink(destination: Text("DetailPostView")) {
+            ZStack {
                 MainBoardRow(boardPost: boardPost)
-                    .padding(.vertical, 5)
+                NavigationLink(destination: Text("DetailPostView")) {
+                }
+                .opacity(0)
+                .buttonStyle(.plain)
             }
+            .padding(.vertical, 5)
         }
         .listStyle(.inset)
     }
