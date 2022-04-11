@@ -10,9 +10,9 @@ import SwiftUI
 struct CategoryBoardView: View {
     var categoryEnum: Category
     @State var queryString = ""
-    @State var selectedOption = "최신순"
     @State private var showSheet = false
-    var boardPostsList = BoardPostListMock.boardPosts
+    @State private var selectedOption = "최신순"
+    var boardPostsList: [BoardPost] = BoardPostListMock.boardPosts
     var body: some View {
         NavigationView {
             List {
@@ -27,10 +27,13 @@ struct CategoryBoardView: View {
                     HStack {
                         Text("\(categoryEnum.korean) 게시물")
                         Spacer()
-                        Button(action: {showSheet.toggle()}) {
+                        Button(action: {
+                            showSheet.toggle()})
+                        {
                             Text(selectedOption)
-                            Image(systemName: "arrow.up.arrow.down")}
-                            .confirmationDialog("정렬", isPresented: $showSheet) {
+                            Image(systemName: "arrow.up.arrow.down")
+                        }
+                        .confirmationDialog("정렬", isPresented: $showSheet) {
                                 Button("최신순") {
                                     selectedOption = "최신순"
                                 }
@@ -40,18 +43,16 @@ struct CategoryBoardView: View {
                                 Button("실용순") {
                                     selectedOption = "실용순"
                                 }
-                            }
-                    }.font(.caption)
-                    ForEach(boardPostsList) {boardPost in
-                            NavigationLink {
-                            DetailPostView()
-                            } label: { BoardRow(boardPost: boardPost)
-                            }
+                        }
+//                        정렬 피커 선택
                     }
+                    .font(.caption)
+                    BoardListView(boardPostsList: loadPosts(selectedOption: selectedOption, categorayRawValue: 1))
+//                    ForEach문에 전달할 배열을 loadPosts에서 변경: 정렬
                 }
             }
             .refreshable {
-                print("refresh")
+//                최신 업데이트된 데이터가 있는지 확인. MockData로 어떻게 확인?
             }
             .navigationTitle(categoryEnum.korean)
             .toolbar {
@@ -75,5 +76,18 @@ struct CategoryBoardView: View {
 struct CategoryBoardView_Previews: PreviewProvider {
     static var previews: some View {
         CategoryBoardView(categoryEnum: Category.livingAlone, queryString: "")
+    }
+}
+
+struct BoardListView: View {
+    var boardPostsList: [BoardPost]
+    var body: some View {
+        ForEach(boardPostsList) {boardPost in
+            NavigationLink {
+                DetailPostView()
+                //     스누피 머지 이후 DetailPostView(boardPost.id) 수정
+            } label: { BoardRow(boardPost: boardPost)
+            }
+        }
     }
 }

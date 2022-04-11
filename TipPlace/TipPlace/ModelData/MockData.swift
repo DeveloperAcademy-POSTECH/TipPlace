@@ -134,4 +134,13 @@ struct BoardPostMock {
                                        thumnailImageUrl: nil,
                                        usefulCount: 2,
                                        replyCount: 4)
+    static var boardPost151 = BoardPost(id: 151,
+                                        isAnonymous: true,
+                                        title: "연말정산 꿀팁 줄게",
+                                        content: "연말정산 이제 해야 하는데 다들 걱정이 많죠...? 우리 모두 사회인인데 ㄹㅇ 아무 것도 모르잖어 ㅋㅋㅋㅋㅋ 그래서 내가 사용하고 있는 연말정산 앱 좀 알려줄게!! 삼점쌈도 있고 다른 것도 있는데!",
+                                        author: AuthorMock.author52,
+                                        createdAt: Calendar.current.date(from:DateComponents(year:2021, month:3, day:2, hour:12, minute:30))!,
+                                        thumnailImageUrl: nil,
+                                        usefulCount: 35,
+                                        replyCount: 32)
 }
