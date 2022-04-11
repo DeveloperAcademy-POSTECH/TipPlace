@@ -29,7 +29,7 @@ struct MainBoardView: View {
                             }
                         }
                         .padding(.vertical, 15)
-                        .padding(.leading, 10)
+                        .padding(.leading, 5)
                     }
                 }
                 .padding(.leading, 15)
