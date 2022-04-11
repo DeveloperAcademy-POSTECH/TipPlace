@@ -83,11 +83,25 @@ struct DetailPostView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             HStack {
-                Button("button1") {
-                    // action
+                Button {
+                    // button action
+                } label: {
+                    Label {
+                        Text("")
+                    } icon: {
+                        Image(systemName: "square.and.arrow.up")
+                    }
+                    .labelStyle(.iconOnly)
                 }
-                Button("button2") {
-                    // action
+                Button {
+                    // button action
+                } label: {
+                    Label {
+                        Text("")
+                    } icon: {
+                        Image(systemName: "bookmark")
+                    }
+                    .labelStyle(.iconOnly)
                 }
             }
         }
