@@ -9,30 +9,10 @@ import SwiftUI
 
 struct MainBoardView: View {
     @State var searchText: String = ""
-    var recommendedTags: [String] = load(fileName: "RecommendedTagData.json")
     var body: some View {
         NavigationView {
             VStack {
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        ForEach(recommendedTags, id: \.self) { tag in
-                            Button {
-                                print(tag)
-                            } label: {
-                                Text(tag)
-                                    .padding(.vertical, 8)
-                                    .padding(.horizontal, 15)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(Color.blue, lineWidth: 2)
-                                    )
-                            }
-                        }
-                        .padding(.vertical, 15)
-                        .padding(.leading, 5)
-                    }
-                }
-                .padding(.leading, 15)
+                TagListView()
                 Spacer()
                 Text("")
             }
