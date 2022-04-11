@@ -33,16 +33,17 @@ struct DetailPostView: View {
     }
 
     init(postId: Int) {
-        detailPost = DetailPostModel(id: BoardPostMock.boardPost51.id,
+        let detailPostData = BoardPostMock.boardPost51
+        detailPost = DetailPostModel(id: detailPostData.id,
                                      category: Category.economy,
-                                     isAnonymous: BoardPostMock.boardPost51.isAnonymous,
-                                     title: BoardPostMock.boardPost51.title,
-                                     content: BoardPostMock.boardPost51.content,
-                                     author: BoardPostMock.boardPost51.author,
-                                     createdAt: BoardPostMock.boardPost51.createdAt,
+                                     isAnonymous: detailPostData.isAnonymous,
+                                     title: detailPostData.title,
+                                     content: detailPostData.content,
+                                     author: detailPostData.author,
+                                     createdAt: detailPostData.createdAt,
                                      images: [],
                                      tags: [],
-                                     usefulCount: BoardPostMock.boardPost51.usefulCount,
+                                     usefulCount: detailPostData.usefulCount,
                                      comment: [])
     }
 
