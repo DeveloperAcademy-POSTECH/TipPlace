@@ -9,14 +9,14 @@ import SwiftUI
 
 struct CategoryBoardView: View {
     var categoryEnum: Category
-//    CategoryView에서 NavigationLink로 연결할 때 입력 파라미터로 categoryEnum 받아야 함
-// 네비게이션 바에 횡 스크롤 / 리스트로 넣을 때 횡 스크롤
     @State var queryString = ""
+    @State var selectedOption = "최신순"
+    @State private var showSheet = false
     var boardPostsList = BoardPostListMock.boardPosts
     var body: some View {
         NavigationView {
             List {
-                Section {
+                Section(header: Text("")) {
                     Text("\(categoryEnum.korean) 전문가의 글 모아보기")
                         .font(.caption)
                     RecommendList()
@@ -24,25 +24,34 @@ struct CategoryBoardView: View {
                 .listRowSeparator(.hidden)
                 .listSectionSeparator(.visible, edges: .bottom)
                 Section {
-                    HStack(spacing: 2) {
+                    HStack {
                         Text("\(categoryEnum.korean) 게시물")
-                        .font(.caption)
-                        .frame(alignment: .leading)
                         Spacer()
-                        Text("최신순")
-                            .font(.caption)
-                            .frame(alignment: .trailing)
-                    }
+                        Button(action: {showSheet.toggle()}) {
+                            Text(selectedOption)
+                            Image(systemName: "arrow.up.arrow.down")}
+                            .confirmationDialog("정렬", isPresented: $showSheet) {
+                                Button("최신순") {
+                                    selectedOption = "최신순"
+                                }
+                                Button("인기순") {
+                                    selectedOption = "인기순"
+                                }
+                                Button("실용순") {
+                                    selectedOption = "실용순"
+                                }
+                            }
+                    }.font(.caption)
                     ForEach(boardPostsList) {boardPost in
-                        NavigationLink {
-                            Text("스누피")
-                        } label: {
-                            BoardRow(boardPost: boardPost)
-                        }
+                            NavigationLink {
+                            DetailPostView()
+                            } label: { BoardRow(boardPost: boardPost)
+                            }
                     }
                 }
-                .listRowSeparator(.hidden)
-                .listSectionSeparator(.visible, edges: .bottom)
+            }
+            .refreshable {
+                print("refresh")
             }
             .navigationTitle(categoryEnum.korean)
             .toolbar {

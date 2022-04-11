@@ -12,7 +12,10 @@ struct RecommendedMock {
 }
 
 struct BoardPostListMock {
-    static var boardPosts: [BoardPost] = [BoardPostMock.boardPost1]
+    static var boardPosts: [BoardPost] =
+    [BoardPostMock.boardPost1, BoardPostMock.boardPost51, BoardPostMock.boardPost52,
+     BoardPostMock.boardPost53, BoardPostMock.boardPost54, BoardPostMock.boardPost55,
+     BoardPostMock.boardPost56, BoardPostMock.boardPost57, BoardPostMock.boardPost58]
 }
 
 struct AuthorMock {
