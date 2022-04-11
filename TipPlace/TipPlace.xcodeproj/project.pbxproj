@@ -24,6 +24,7 @@
 		C5991FAD27FD6B97007A7F26 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5991FAA27FD6B97007A7F26 /* MyPageView.swift */; };
 		C5991FAE27FD6B97007A7F26 /* MainBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5991FAB27FD6B97007A7F26 /* MainBoardView.swift */; };
 		C5EDB1302803D7B700DC8CDB /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EDB12F2803D7B700DC8CDB /* ProfileImageView.swift */; };
+		C5F0C57F28041DEE0016AD09 /* ExpertCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F0C57E28041DEE0016AD09 /* ExpertCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		C5991FAA27FD6B97007A7F26 /* MyPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		C5991FAB27FD6B97007A7F26 /* MainBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainBoardView.swift; sourceTree = "<group>"; };
 		C5EDB12F2803D7B700DC8CDB /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
+		C5F0C57E28041DEE0016AD09 /* ExpertCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpertCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				C5991FAB27FD6B97007A7F26 /* MainBoardView.swift */,
 				C5991FA927FD6B97007A7F26 /* MainTabView.swift */,
 				C5991FAA27FD6B97007A7F26 /* MyPageView.swift */,
+				C5F0C57B28041C0D0016AD09 /* MyPageChildrenView */,
 				C5EDB12F2803D7B700DC8CDB /* ProfileImageView.swift */,
 				C5991F9927FD6AD2007A7F26 /* TipPlaceApp.swift */,
 				C5991F9D27FD6AD3007A7F26 /* Assets.xcassets */,
@@ -120,6 +123,14 @@
 				C5991FA027FD6AD3007A7F26 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C5F0C57B28041C0D0016AD09 /* MyPageChildrenView */ = {
+			isa = PBXGroup;
+			children = (
+				C5F0C57E28041DEE0016AD09 /* ExpertCollectionView.swift */,
+			);
+			path = MyPageChildrenView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +236,7 @@
 				C5EDB1302803D7B700DC8CDB /* ProfileImageView.swift in Sources */,
 				C5991FAD27FD6B97007A7F26 /* MyPageView.swift in Sources */,
 				C5991FAE27FD6B97007A7F26 /* MainBoardView.swift in Sources */,
+				C5F0C57F28041DEE0016AD09 /* ExpertCollectionView.swift in Sources */,
 				C5991F9A27FD6AD2007A7F26 /* TipPlaceApp.swift in Sources */,
 				C5991FAC27FD6B97007A7F26 /* MainTabView.swift in Sources */,
 				0769BF3E27FEAF7E009548C9 /* Category.swift in Sources */,

@@ -93,8 +93,16 @@ struct ProfileView: View {
 
 struct ButtonView: View {
     let title: String
+//    func childrenViewSelector() {
+//        let _: String = title
+//        if (title == "전문가 모아보기") {
+//            ExpertCollectionView()
+//        }
+//    }
     var body: some View {
         Button {
+//            ExpertCollectionView()
+            //버튼에 딸린 뷰를 추가하는 작업중입니다.
             print("버튼 눌림")
         } label: {
             HStack {
@@ -120,6 +128,9 @@ struct DividerView: View {
 
 struct MyPageView_Previews: PreviewProvider {
     static var previews: some View {
-        MyPageView()
+        Group {
+            MyPageView()
+            ExpertCollectionView()
+        }
     }
 }
