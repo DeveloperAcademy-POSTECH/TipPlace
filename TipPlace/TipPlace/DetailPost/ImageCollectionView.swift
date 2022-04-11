@@ -9,8 +9,9 @@ import SwiftUI
 
 extension DetailPostView {
     struct ContentImage: Identifiable {
-        init(imageUrl: String) {
-            id = imageUrl
+        init(imageUrl: URL) {
+//            id = imageUrl
+            id = UUID().uuidString
             image = Image(systemName: "checkmark.circle")
         }
         let id: String

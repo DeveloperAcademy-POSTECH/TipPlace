@@ -70,9 +70,12 @@ extension DetailPostView {
 struct CommentView_Previews: PreviewProvider {
     static var previews: some View {
         DetailPostView(postId: 1)
-        DetailPostView.CommentView(comment: DetailPostView.CommentModel(
+        DetailPostView.CommentView(comment: CommentModel(
                                     id: 1,
-                                    author: DetailPostView.User(name: "I'mUser", profileUrl: ""),
+                                    postId: 1,
+                                    commentId: nil,
+                                    isAnonnymous: false,
+                                    author: AuthorMock.author51,
                                     content: """
                                             임시 댓글입니다.
                                             임시 댓글입니다.

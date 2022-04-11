@@ -9,10 +9,10 @@ import SwiftUI
 
 extension DetailPostView {
     struct AuthorProfileView: View {
-        let user: User
+        let user: Author
         let date: Date
 
-        init(_ user: User, date: Date) {
+        init(_ user: Author, date: Date) {
             self.user = user
             self.date = date
         }
@@ -25,7 +25,7 @@ extension DetailPostView {
                         .frame(width: geometry.size.height, height: geometry.size.height)
                     VStack(alignment: .leading) {
                         // TODO: username이 한 줄만 나오도록 해야함.
-                        Text("user.name")
+                        Text(user.name)
                             .font(.subheadline)
                         Text(date.description)
                             .font(.caption2)

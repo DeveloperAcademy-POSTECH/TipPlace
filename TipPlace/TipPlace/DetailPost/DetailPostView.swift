@@ -20,44 +20,53 @@ struct TempParentView: View {
 }
 
 struct DetailPostView: View {
-    init(postId: Int) {
-        //
-        title = tempTitle
-        content = tempContent
-        contentImages = tempContentImages
-        useableCount = tempUseableCount
-        replyCount = tempReplyCount
-        comments = tempComments
+    let detailPost: DetailPostModel
+    // TODO: images를 뽑아 내는 게 여기서 할 일이 적합한지, CollectionView에서 처리하는 게 적합한지 생각해보기
+    var images: [ContentImage] {
+        get {
+            var imageArray: [ContentImage] = []
+            for imageUrl in detailPost.images {
+                imageArray.append(ContentImage(imageUrl: imageUrl))
+            }
+            return imageArray
+        }
     }
 
-    let title: String
-    let content: String
-    let contentImages: [ContentImage]
-    var useableCount: Int
-    var replyCount: Int
-    var comments: [CommentModel]
+    init(postId: Int) {
+        detailPost = DetailPostModel(id: BoardPostMock.boardPost51.id,
+                                     category: Category.economy,
+                                     isAnonymous: BoardPostMock.boardPost51.isAnonymous,
+                                     title: BoardPostMock.boardPost51.title,
+                                     content: BoardPostMock.boardPost51.content,
+                                     author: BoardPostMock.boardPost51.author,
+                                     createdAt: BoardPostMock.boardPost51.createdAt,
+                                     images: [],
+                                     tags: [],
+                                     usefulCount: BoardPostMock.boardPost51.usefulCount,
+                                     comment: [])
+    }
 
     var body: some View {
         List {
             Section {
-                AuthorProfileView(User(name: "user", profileUrl: nil), date: Date())
-                Text(title)
+                AuthorProfileView(detailPost.author, date: Date())
+                Text(detailPost.title)
                     .bold()
-                Text(content)
-                ImageCollecionView(imageDatas: contentImages)
+                Text(detailPost.content)
+                ImageCollecionView(imageDatas: images)
                 Text("tags")
                 HStack {
                     // TODO: 각 버튼의 icon과 title 사이의 간격 조절 필요함
                     Button {
                         // action
                     } label: {
-                        Label("유용해요 \(useableCount)", systemImage: "hands.clap")
+                        Label("유용해요 \(detailPost.usefulCount)", systemImage: "hands.clap")
                             .modifier(BoxButtonLabel())
                     }
                     Button {
                         // action
                     } label: {
-                        Label("댓글 \(replyCount)", systemImage: "text.bubble")
+                        Label("댓글 \(detailPost.comment.count)", systemImage: "text.bubble")
                             .modifier(BoxButtonLabel())
                     }
                 }
@@ -67,7 +76,7 @@ struct DetailPostView: View {
 
             // reply section
             Section(header: Text("댓글")) {
-                ForEach(comments) { comment in
+                ForEach(detailPost.comment) { comment in
                     CommentView(comment: comment)
                         .listRowBackground(Color.clear)
                 }
@@ -105,60 +114,6 @@ struct DetailPostView: View {
                     .stroke(.gray, lineWidth: 1))
         }
     }
-
-    // Temp User Model
-    struct User {
-        let name: String
-        let profileUrl: String?
-    }
-
-    // Temp Comment Model
-    struct CommentModel: Identifiable {
-        let id: Int
-        let author: User
-        let content: String
-        let isReply: Bool
-        let createdAt: Date
-        let usefulCount: Int
-    }
-
-    // Temp Mock Datas
-    let tempTitle = "Title"
-    let tempContent = """
-                post content
-                post content
-                post content
-                post content
-                """
-    let tempContentImages = [ContentImage(imageUrl: ""),
-                             ContentImage(imageUrl: ""),
-                             ContentImage(imageUrl: ""),
-                             ContentImage(imageUrl: ""),
-                             ContentImage(imageUrl: ""),
-                             ContentImage(imageUrl: ""),
-                             ContentImage(imageUrl: ""),
-                             ContentImage(imageUrl: "")
-                            ]
-    let tempUseableCount: Int = 25
-    let tempReplyCount: Int = 5
-    let tempComments: [CommentModel] = [CommentModel(id: 1,
-                                                     author: User(name: "user1", profileUrl: nil),
-                                                     content: "댓글",
-                                                     isReply: false,
-                                                     createdAt: Date(),
-                                                     usefulCount: 23),
-                                        CommentModel(id: 2,
-                                                     author: User(name: "user2", profileUrl: nil),
-                                                     content: "대댓글",
-                                                     isReply: true,
-                                                     createdAt: Date(),
-                                                     usefulCount: 11),
-                                        CommentModel(id: 3,
-                                                     author: User(name: "user3", profileUrl: nil),
-                                                     content: "댓글",
-                                                     isReply: false,
-                                                     createdAt: Date(),
-                                                     usefulCount: 2)]
 }
 
 struct DetailPostView_Previews: PreviewProvider {
