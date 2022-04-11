@@ -38,6 +38,24 @@ struct DetailPostView: View {
                         ]
     var useableCount: Int = 25
     var replyCount: Int = 5
+    var comments: [CommentModel] = [CommentModel(id: 1,
+                                                 author: User(name: "user1", profileUrl: nil),
+                                                 content: "댓글",
+                                                 isReply: false,
+                                                 createdAt: Date(),
+                                                 usefulCount: 23),
+                                    CommentModel(id: 2,
+                                                 author: User(name: "user2", profileUrl: nil),
+                                                 content: "대댓글",
+                                                 isReply: true,
+                                                 createdAt: Date(),
+                                                 usefulCount: 11),
+                                    CommentModel(id: 3,
+                                                 author: User(name: "user3", profileUrl: nil),
+                                                 content: "댓글",
+                                                 isReply: false,
+                                                 createdAt: Date(),
+                                                 usefulCount: 2),]
 
     var body: some View {
         List {
@@ -76,7 +94,10 @@ struct DetailPostView: View {
 
             // reply section
             Section(header: Text("댓글")) {
-                Text("reply list")
+//                Text("reply list")
+                ForEach(comments) { comment in
+                    CommentView(comment: comment)
+                }
             }
             .listRowSeparator(.visible, edges: .top)
         }
@@ -235,7 +256,8 @@ struct DetailPostView: View {
         }
     }
 
-    struct CommentModel {
+    struct CommentModel: Identifiable {
+        let id: Int
         let author: User
         let content: String
         let isReply: Bool
@@ -249,6 +271,7 @@ struct DetailPostView_Previews: PreviewProvider {
         TempParentView()
         DetailPostView()
         DetailPostView.CommentView(comment: DetailPostView.CommentModel(
+                                    id: 1,
                                     author: DetailPostView.User(name: "I'mUser", profileUrl: ""),
                                     content: """
                                             임시 댓글입니다.
