@@ -17,7 +17,9 @@ struct MainBoardView: View {
                 MainBoardList()
             }
             .navigationTitle("정보")
-            .searchable(text: $searchText, prompt: "정보를 검색해보세요") {
+            .searchable(text: $searchText,
+                        placement: .navigationBarDrawer(displayMode: .automatic),
+                        prompt: "정보를 검색해보세요") {
                 Text("apple").searchCompletion("apple")
                 Text("banana").searchCompletion("banana")
                 Text("orange").searchCompletion("orange")
