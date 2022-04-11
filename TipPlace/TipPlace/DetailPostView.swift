@@ -12,7 +12,7 @@ struct TempParentView: View {
         NavigationView {
             List {
                 NavigationLink("to DetailPostView") {
-                    DetailPostView()
+                    DetailPostView(1)
                 }
             }
         }
@@ -20,6 +20,10 @@ struct TempParentView: View {
 }
 
 struct DetailPostView: View {
+    init(_ postId: Int) {
+        //
+    }
+
     let title = "Title"
     let content = """
                 post content
@@ -275,7 +279,7 @@ struct DetailPostView: View {
 struct DetailPostView_Previews: PreviewProvider {
     static var previews: some View {
         TempParentView()
-        DetailPostView()
+        DetailPostView(1)
         DetailPostView.CommentView(comment: DetailPostView.CommentModel(
                                     id: 1,
                                     author: DetailPostView.User(name: "I'mUser", profileUrl: ""),
