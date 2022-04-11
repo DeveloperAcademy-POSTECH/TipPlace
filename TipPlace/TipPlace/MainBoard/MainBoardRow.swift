@@ -32,6 +32,7 @@ struct MainBoardRow: View {
                 }
             }
             Spacer()
+            // TODO: 서버로부터 이미지 받아서 뿌리기
             Image("요정의 샘")
                 .resizable()
                 .aspectRatio(contentMode: .fill)

@@ -10,6 +10,7 @@ import SwiftUI
 struct MainBoardView: View {
     @State var searchText: String = ""
     var body: some View {
+        // TODO: scroll시 서치바 사라지고 태그 남기기
         NavigationView {
             List {
                 Section {
