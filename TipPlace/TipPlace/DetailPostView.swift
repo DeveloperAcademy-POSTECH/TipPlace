@@ -181,11 +181,57 @@ struct DetailPostView: View {
             }
         }
     }
+
+    struct CommentView: View {
+        let isReply: Bool
+        let comment: CommentModel
+
+        init(_ isReply: Bool = false, comment: CommentModel) {
+            self.isReply = isReply
+            self.comment = comment
+        }
+
+        var body: some View {
+            contentView
+        }
+
+        var contentView: some View {
+            VStack(alignment: .leading) {
+                GeometryReader { geometry in
+                    HStack {
+                        Image(systemName: "person.crop.circle")
+                            .resizable()
+                            .frame(width: geometry.size.height, height: geometry.size.height)
+                        Label(comment.author.name, systemImage: "")
+                            .labelStyle(.titleOnly)
+                    }
+                }
+                Text(comment.content)
+            }
+        }
+    }
+
+    struct CommentModel {
+        let author: User
+        let content: String
+    }
 }
 
 struct DetailPostView_Previews: PreviewProvider {
     static var previews: some View {
         TempParentView()
         DetailPostView()
+        DetailPostView.CommentView(false,
+                                   comment: DetailPostView.CommentModel(
+                                    author: DetailPostView.User(name: "I'mUser", profileUrl: ""),
+                                    content: """
+                                            임시 댓글입니다.
+                                            임시 댓글입니다.
+                                            임시 댓글입니다.
+                                            임시 댓글입니다.
+                                            임시 댓글입니다.
+                                            임시 댓글입니다.
+                                            """))
+        .frame(maxHeight: 100)
     }
 }
