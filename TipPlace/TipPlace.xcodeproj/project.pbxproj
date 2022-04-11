@@ -107,6 +107,16 @@
 			path = ModelData;
 			sourceTree = "<group>";
 		};
+		AE4E3A672803B9EC00293623 /* CategoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				4AA1E3BA28006B1F00156D19 /* CategoryBoardView.swift */,
+				4AA1E3BC28006B2A00156D19 /* RecommendedItem.swift */,
+				4AA1E3B828006B1400156D19 /* BoardRow.swift */,
+			);
+			path = CategoryBoard;
+			sourceTree = "<group>";
+		};
 		C5991F8D27FD6AD2007A7F26 = {
 			isa = PBXGroup;
 			children = (
@@ -135,9 +145,7 @@
 				C5991FA927FD6B97007A7F26 /* MainTabView.swift */,
 				C5991FAA27FD6B97007A7F26 /* MyPageView.swift */,
 				C5991F9927FD6AD2007A7F26 /* TipPlaceApp.swift */,
-				4AA1E3BA28006B1F00156D19 /* CategoryBoardView.swift */,
-				4AA1E3BC28006B2A00156D19 /* RecommendedItem.swift */,
-				4AA1E3B828006B1400156D19 /* BoardRow.swift */,
+				AE4E3A672803B9EC00293623 /* CategoryBoard */,
 				0769BF6927FFD03B009548C9 /* DetailPostView.swift */,
 				AE4E3A662803132E00293623 /* ModelData */,
 				C5991F9D27FD6AD3007A7F26 /* Assets.xcassets */,
