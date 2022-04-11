@@ -12,7 +12,7 @@ import SwiftUI
 // Recommended 태그도 긇어오자...
 
 struct RecommendedItem: View {
-    var rec: Recommended
+    var rec: Author
     var body: some View {
         VStack {
             Image(systemName: "person")
@@ -32,6 +32,6 @@ struct RecommendedItem: View {
 
 struct RecommendedItem_Previews: PreviewProvider {
     static var previews: some View {
-        RecommendedItem(rec: recommended[0])
+        RecommendedItem(rec: RecommendedMock.recommended[0])
     }
 }
