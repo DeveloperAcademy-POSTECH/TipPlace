@@ -12,7 +12,7 @@ struct TempParentView: View {
         NavigationView {
             List {
                 NavigationLink("to DetailPostView") {
-                    DetailPostView(1)
+                    DetailPostView(postId: 1)
                 }
             }
         }
@@ -20,7 +20,7 @@ struct TempParentView: View {
 }
 
 struct DetailPostView: View {
-    init(_ postId: Int) {
+    init(postId: Int) {
         //
     }
 
@@ -59,7 +59,7 @@ struct DetailPostView: View {
                                                  content: "댓글",
                                                  isReply: false,
                                                  createdAt: Date(),
-                                                 usefulCount: 2),]
+                                                 usefulCount: 2)]
 
     var body: some View {
         List {
@@ -190,7 +190,7 @@ struct DetailPostView: View {
         }
     }
 
-    //TODO: cell의 재사용 필요
+    // TODO: cell의 재사용 필요
     struct ImageCollecionView: View {
         @State var imageDatas = [ContentImage]()
 
@@ -279,7 +279,7 @@ struct DetailPostView: View {
 struct DetailPostView_Previews: PreviewProvider {
     static var previews: some View {
         TempParentView()
-        DetailPostView(1)
+        DetailPostView(postId: 1)
         DetailPostView.CommentView(comment: DetailPostView.CommentModel(
                                     id: 1,
                                     author: DetailPostView.User(name: "I'mUser", profileUrl: ""),
