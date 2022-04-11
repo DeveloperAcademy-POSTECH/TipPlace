@@ -26,7 +26,7 @@ struct MainBoardRow: View {
                         .foregroundColor(.secondary)
                     HStack {
                         Text("유용해요 \(boardPost.usefulCount)")
-                        Text("좋아요 \(boardPost.replyCount)")
+                        Text("댓글 \(boardPost.replyCount)")
                     }
                     .font(.caption2)
                 }
@@ -36,10 +36,10 @@ struct MainBoardRow: View {
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 100, height: 100, alignment: .center)
-                .clipShape(RoundedRectangle(cornerRadius: 15, style: .circular))
+                .clipShape(RoundedRectangle(cornerRadius: 10, style: .circular))
                 .padding(.leading, 5)
         }
-        .padding(15)
+        .padding(5)
     }
 }
 

@@ -17,7 +17,8 @@ struct TagListView: View {
                         print(tag)
                     } label: {
                         Text(tag)
-                            .padding(.vertical, 8)
+                            .font(.callout)
+                            .padding(.vertical, 6)
                             .padding(.horizontal, 15)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 10)
@@ -25,11 +26,11 @@ struct TagListView: View {
                             )
                     }
                 }
-                .padding(.vertical, 15)
-                .padding(.leading, 5)
+                .padding(.bottom, 10)
+                .padding(.top, 5)
+                .padding(.horizontal, 2.5)
             }
         }
-        .padding(.leading, 15)
     }
 }
 
