@@ -10,7 +10,7 @@ import SwiftUI
 struct MainBoardList: View {
     var boardPostsList = BoardPostListMock.boardPosts
     var body: some View {
-        List(boardPostsList) { boardPost in
+        ForEach(boardPostsList) { boardPost in
             ZStack {
                 MainBoardRow(boardPost: boardPost)
                 NavigationLink(destination: Text("DetailPostView")) {

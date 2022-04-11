@@ -11,11 +11,18 @@ struct MainBoardView: View {
     @State var searchText: String = ""
     var body: some View {
         NavigationView {
-            VStack {
-                TagListView()
-                Spacer()
-                MainBoardList()
+            List {
+                Section {
+                    TagListView()
+                }
+                .listRowBackground(Color.clear)
+                .listRowSeparator(.hidden)
+                Section {
+                    MainBoardList()
+                }
+                .listRowBackground(Color.clear)
             }
+            .listStyle(.plain)
             .navigationTitle("정보")
             .searchable(text: $searchText,
                         placement: .navigationBarDrawer(displayMode: .automatic),
