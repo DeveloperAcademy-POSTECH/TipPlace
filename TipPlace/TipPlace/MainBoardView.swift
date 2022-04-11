@@ -16,7 +16,9 @@ struct MainBoardView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(recommendedTags, id: \.self) { tag in
-                            Button(action: { print(tag) }) {
+                            Button {
+                                print(tag)
+                            } label: {
                                 Text(tag)
                                     .padding(.vertical, 8)
                                     .padding(.horizontal, 15)
@@ -43,7 +45,9 @@ struct MainBoardView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: { print("writing..") }) {
+                    Button {
+                        print("writing..")
+                    } label: {
                         Image(systemName: "square.and.pencil")
                     }
                 }
