@@ -17,6 +17,7 @@
 		0769BF6427FF06F8009548C9 /* UserData2.json in Resources */ = {isa = PBXBuildFile; fileRef = 0769BF6327FF06F8009548C9 /* UserData2.json */; };
 		0769BF6627FF0719009548C9 /* RecommendedPeopleData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0769BF6527FF0719009548C9 /* RecommendedPeopleData.json */; };
 		0769BF6A27FFD03B009548C9 /* DetailPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0769BF6927FFD03B009548C9 /* DetailPostView.swift */; };
+		4A11D95F2803D9F700532C30 /* PostUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A11D95E2803D9F700532C30 /* PostUploadView.swift */; };
 		4AA1E3B928006B1400156D19 /* BoardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA1E3B828006B1400156D19 /* BoardRow.swift */; };
 		4AA1E3BB28006B1F00156D19 /* CategoryBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA1E3BA28006B1F00156D19 /* CategoryBoardView.swift */; };
 		4AA1E3BD28006B2A00156D19 /* RecommendedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA1E3BC28006B2A00156D19 /* RecommendedItem.swift */; };
@@ -47,6 +48,7 @@
 		0769BF6327FF06F8009548C9 /* UserData2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = UserData2.json; sourceTree = "<group>"; };
 		0769BF6527FF0719009548C9 /* RecommendedPeopleData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RecommendedPeopleData.json; sourceTree = "<group>"; };
 		0769BF6927FFD03B009548C9 /* DetailPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostView.swift; sourceTree = "<group>"; };
+		4A11D95E2803D9F700532C30 /* PostUploadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostUploadView.swift; sourceTree = "<group>"; };
 		4AA1E3B828006B1400156D19 /* BoardRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardRow.swift; sourceTree = "<group>"; };
 		4AA1E3BA28006B1F00156D19 /* CategoryBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryBoardView.swift; sourceTree = "<group>"; };
 		4AA1E3BC28006B2A00156D19 /* RecommendedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendedItem.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				AE4E3A672803B9EC00293623 /* CategoryBoard */,
 				0769BF6927FFD03B009548C9 /* DetailPostView.swift */,
 				AEE70E5B28004B2E004E0F01 /* LoadData.swift */,
+				4A11D95E2803D9F700532C30 /* PostUploadView.swift */,
 				AE4E3A662803132E00293623 /* ModelData */,
 				C5991F9D27FD6AD3007A7F26 /* Assets.xcassets */,
 				C5991F9F27FD6AD3007A7F26 /* Preview Content */,
@@ -273,6 +276,7 @@
 				AEE70E5C28004B2E004E0F01 /* LoadData.swift in Sources */,
 				C5991FA827FD6B84007A7F26 /* CategoryView.swift in Sources */,
 				4AA1E3BD28006B2A00156D19 /* RecommendedItem.swift in Sources */,
+				4A11D95F2803D9F700532C30 /* PostUploadView.swift in Sources */,
 				4AA1E3BB28006B1F00156D19 /* CategoryBoardView.swift in Sources */,
 				0769BF6A27FFD03B009548C9 /* DetailPostView.swift in Sources */,
 				C5991FAD27FD6B97007A7F26 /* MyPageView.swift in Sources */,

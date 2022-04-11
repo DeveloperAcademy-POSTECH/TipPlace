@@ -12,31 +12,44 @@ struct CategoryBoardView: View {
 //    CategoryView에서 NavigationLink로 연결할 때 입력 파라미터로 categoryEnum 받아야 함
 // 네비게이션 바에 횡 스크롤 / 리스트로 넣을 때 횡 스크롤
     @State var queryString = ""
-
+    var boardPostsList = BoardPostListMock.boardPosts
     var body: some View {
         NavigationView {
-            VStack {
-                Text("\(categoryEnum.korean) 전문가의 글 모아보기").padding()
-                RecommendList()
-                Divider()
-                HStack {
-                    Text("\(categoryEnum.korean) 게시물")
-                    Text("정렬")
-                    Button {
-                        print("sorting")
-                    } label: {
-                        ZStack {
-                            Image(systemName: "arrow.up.arrow.down")
+            List {
+                Section {
+                    Text("\(categoryEnum.korean) 전문가의 글 모아보기")
+                        .font(.caption)
+                    RecommendList()
+                }
+                .listRowSeparator(.hidden)
+                .listSectionSeparator(.visible, edges: .bottom)
+                Section {
+                    HStack(spacing: 2) {
+                        Text("\(categoryEnum.korean) 게시물")
+                        .font(.caption)
+                        .frame(alignment: .leading)
+                        Spacer()
+                        Text("최신순")
+                            .font(.caption)
+                            .frame(alignment: .trailing)
+                    }
+                    ForEach(boardPostsList) {boardPost in
+                        NavigationLink {
+                            Text("스누피")
+                        } label: {
+                            BoardRow(boardPost: boardPost)
                         }
                     }
                 }
-                BoardList()
+                .listRowSeparator(.hidden)
+                .listSectionSeparator(.visible, edges: .bottom)
             }
             .navigationTitle(categoryEnum.korean)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink {
-                    Text("Dophi's writing")
+                    PostUploadView()
+                        .navigationBarHidden(true)
                 } label: {
                     Image(systemName: "square.and.pencil")
                 }
