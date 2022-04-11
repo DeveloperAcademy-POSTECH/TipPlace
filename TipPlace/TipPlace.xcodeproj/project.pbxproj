@@ -23,6 +23,7 @@
 		C5991FAC27FD6B97007A7F26 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5991FA927FD6B97007A7F26 /* MainTabView.swift */; };
 		C5991FAD27FD6B97007A7F26 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5991FAA27FD6B97007A7F26 /* MyPageView.swift */; };
 		C5991FAE27FD6B97007A7F26 /* MainBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5991FAB27FD6B97007A7F26 /* MainBoardView.swift */; };
+		C5EDB1302803D7B700DC8CDB /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EDB12F2803D7B700DC8CDB /* ProfileImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		C5991FA927FD6B97007A7F26 /* MainTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		C5991FAA27FD6B97007A7F26 /* MyPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		C5991FAB27FD6B97007A7F26 /* MainBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainBoardView.swift; sourceTree = "<group>"; };
+		C5EDB12F2803D7B700DC8CDB /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				C5991FAB27FD6B97007A7F26 /* MainBoardView.swift */,
 				C5991FA927FD6B97007A7F26 /* MainTabView.swift */,
 				C5991FAA27FD6B97007A7F26 /* MyPageView.swift */,
+				C5EDB12F2803D7B700DC8CDB /* ProfileImageView.swift */,
 				C5991F9927FD6AD2007A7F26 /* TipPlaceApp.swift */,
 				C5991F9D27FD6AD3007A7F26 /* Assets.xcassets */,
 				C5991F9F27FD6AD3007A7F26 /* Preview Content */,
@@ -219,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5991FA827FD6B84007A7F26 /* CategoryView.swift in Sources */,
+				C5EDB1302803D7B700DC8CDB /* ProfileImageView.swift in Sources */,
 				C5991FAD27FD6B97007A7F26 /* MyPageView.swift in Sources */,
 				C5991FAE27FD6B97007A7F26 /* MainBoardView.swift in Sources */,
 				C5991F9A27FD6AD2007A7F26 /* TipPlaceApp.swift in Sources */,

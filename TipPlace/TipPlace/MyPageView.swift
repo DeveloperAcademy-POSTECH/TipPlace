@@ -45,6 +45,8 @@ struct MyPageView: View {
 }
 
 struct ProfileView: View {
+//    let userNmae
+//    let userSpecialty
     var body: some View {
         HStack {
             ZStack {
@@ -54,17 +56,49 @@ struct ProfileView: View {
                 Circle()
                     .foregroundColor(Color.white)
                     .frame(width: 80, height: 80)
-                Image(systemName: "person")
+                ProfileImageView()
             }
             .padding(EdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 10))
             VStack(alignment: .leading, spacing: 7) {
                 Text("내일은 요리왕")
                     .font(.system(size: 20))
                 Text("mijinc@icloud.com")
+                .font(.system(size: 10))
+                .accentColor(.black)
+                HStack {
+                    Text("자취")
                     .font(.system(size: 10))
+                    .foregroundColor(.green)
+                    Text("|")
+                    .font(.system(size: 10))
+                    .foregroundColor(.black)
+                    Text("#자취")
+                    .font(.system(size: 10))
+                    .foregroundColor(.black)
+                    Text("#자취")
+                    .font(.system(size: 10))
+                    .foregroundColor(.black)
+                    Text("#자취")
+                    .font(.system(size: 10))
+                    .foregroundColor(.black)
+                }
             }
         }
         .padding(EdgeInsets(top: 30, leading: 0, bottom: 30, trailing: 100))
+    }
+}
+
+extension UIImageView {
+    func load(url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -81,7 +115,7 @@ struct ButtonView: View {
                 Image(systemName: "chevron.forward")
                     .foregroundColor(Color.gray)
             }
-            .padding(EdgeInsets(top: 8, leading: 20, bottom: -1, trailing: 20))
+            .padding(EdgeInsets(top: 8, leading: 20, bottom: 0, trailing: 20))
         }
         .foregroundColor(Color.black)
         Divider()
