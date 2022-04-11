@@ -12,7 +12,7 @@ struct RecommendedMock {
 }
 
 struct BoardPostListMock {
-    static var boardPosts: [BoardPost] = [BoardPostMock.boardPost1]
+    static var boardPosts: [BoardPost] = [BoardPostMock.boardPost1, BoardPostMock.boardPost2]
 }
 
 struct AuthorMock {
@@ -31,4 +31,17 @@ struct BoardPostMock {
                                       thumnailImageUrl: nil,
                                       usefulCount: 5,
                                       replyCount: 6)
+    static var boardPost2 = BoardPost(id: 2,
+                                      isAnonymous: false,
+                                      title: "자취생들이 꼭 봐야할 화장실 청소 방법",
+                                      content: """
+                                      평소에 자취하면서 화장실 청소가 고민이었던 분 꼭 들어오세요!
+                                      화장실 청소는 생각보다 어렵지 않아요.
+                                      딱 5가지만 염두에 두면 되는데요, 먼저 첫번째는 이거고,...
+                                      """,
+                                      author: AuthorMock.rec2,
+                                      createdAt: Date.now,
+                                      thumnailImageUrl: nil,
+                                      usefulCount: 117,
+                                      replyCount: 88)
 }
