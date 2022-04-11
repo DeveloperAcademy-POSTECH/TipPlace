@@ -89,14 +89,15 @@ struct DetailPostView: View {
                                 .stroke(.gray, lineWidth: 1))
                     }
                 }
+                .listRowBackground(Color.clear)
             }
             .listRowSeparator(.hidden)
 
             // reply section
             Section(header: Text("댓글")) {
-//                Text("reply list")
                 ForEach(comments) { comment in
                     CommentView(comment: comment)
+                        .listRowBackground(Color.clear)
                 }
             }
             .listRowSeparator(.visible, edges: .top)
