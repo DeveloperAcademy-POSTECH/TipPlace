@@ -14,7 +14,7 @@ struct MainBoardView: View {
             VStack {
                 TagListView()
                 Spacer()
-                Text("")
+                MainBoardList()
             }
             .navigationTitle("정보")
             .searchable(text: $searchText, prompt: "정보를 검색해보세요") {
