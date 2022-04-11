@@ -165,20 +165,5 @@ struct DetailPostView_Previews: PreviewProvider {
     static var previews: some View {
         TempParentView()
         DetailPostView(postId: 1)
-        DetailPostView.CommentView(comment: DetailPostView.CommentModel(
-                                    id: 1,
-                                    author: DetailPostView.User(name: "I'mUser", profileUrl: ""),
-                                    content: """
-                                            임시 댓글입니다.
-                                            임시 댓글입니다.
-                                            임시 댓글입니다.
-                                            임시 댓글입니다.
-                                            임시 댓글입니다.
-                                            임시 댓글입니다.
-                                            """,
-                                    isReply: true,
-                                    createdAt: Date(),
-                                    usefulCount: 25))
-        .frame(maxHeight: 100)
     }
 }
