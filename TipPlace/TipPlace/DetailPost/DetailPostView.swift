@@ -42,7 +42,7 @@ struct DetailPostView: View {
                                      author: detailPostData.author,
                                      createdAt: detailPostData.createdAt,
                                      images: [],
-                                     tags: [],
+                                     tags: ["aaa", "bbb"],
                                      usefulCount: detailPostData.usefulCount,
                                      comment: [])
     }
@@ -50,12 +50,25 @@ struct DetailPostView: View {
     var body: some View {
         List {
             Section {
+                // MARK: author
                 AuthorProfileView(detailPost.author, date: Date())
+
+                // MARK: title
                 Text(detailPost.title)
                     .bold()
+
+                // MARK: content
                 Text(detailPost.content)
+
+                // MARK: images
                 ImageCollecionView(imageDatas: images)
-                Text("tags")
+
+                // MARK: tags
+                if !detailPost.tags.isEmpty {
+                    TagListView(tags: detailPost.tags)
+                }
+
+                // MARK: buttons
                 HStack {
                     // TODO: 각 버튼의 icon과 title 사이의 간격 조절 필요함
                     Button {
@@ -75,7 +88,7 @@ struct DetailPostView: View {
             }
             .listRowSeparator(.hidden)
 
-            // reply section
+            // MARK: reply section
             Section(header: Text("댓글")) {
                 ForEach(detailPost.comment) { comment in
                     CommentView(comment: comment)
