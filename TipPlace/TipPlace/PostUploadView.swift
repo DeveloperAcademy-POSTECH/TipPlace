@@ -7,21 +7,110 @@
 
 import SwiftUI
 
-class GlobalVarInPostUploadView: ObservableObject {
-    @Published var selectedCategory: String = "카테고리 선택"
-}
-
 struct PostUploadView: View {
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var globalVar = GlobalVarInPostUploadView()
-    @State var title: String = ""
-    @State var tagSentence: String = ""
-    @State var content: String = ""
-    @State var isAnonymous = true
+    @State private var showSourceTypeSelection = false
+    @State private var showPhotoLibrary = false
+    @State private var showCamera = false
+    @State private var images: [UIImage] = []
+    @State private var title: String = ""
+    @State private var category: String = "카테고리 선택"
+    @State private var tagSentence: String = ""
+    @State private var tags: [String] = []
+    @State private var content: String = ""
+    @State private var isAnonymous = true
+    @FocusState private var isContentFocused: Bool
+    // 태그 필터링하기
+    func tagFiltering() {
+        if tagSentence.hasSuffix(" ") || tagSentence.hasSuffix("\n") {
+            let trimmedTagSentence = tagSentence.trimmingCharacters(
+                in: .whitespacesAndNewlines)
+            if trimmedTagSentence.hasPrefix("#") {
+                tags.append(trimmedTagSentence)
+                tagSentence = ""
+            }
+        }
+    }
+    // UIImage를 Base64 형태로 바꿔주기
+    func uiToBase64(uiImg: UIImage) -> String {
+        return (uiImg.jpegData(compressionQuality: 1)?.base64EncodedString())!
+    }
+    // 서버에 데이터 보내기
+    func upload() {
+        var base64images: [String] = []
+        for img in images {
+            base64images.append(uiToBase64(uiImg: img))
+        }
+        print("[사진 개수] " + String(images.count))
+        print("[글 제목] " + title)
+        print("[카테고리] " + category)
+        tags.enumerated().forEach {
+            print("[태그\($0)] \($1)")
+        }
+        print("[게시글] " + content)
+        print("[익명여부] " + (isAnonymous ? "O" : "X"))
+    }
     var body: some View {
         NavigationView {
             ScrollViewReader { proxy in
-                Form {
+                List {
+                    // 사진 추가 칸
+                    ScrollView(.horizontal) {
+                        HStack {
+                            // 사진 추가 버튼
+                            Button(action: {
+                                if images.count < 10 {
+                                    self.showSourceTypeSelection.toggle()
+                                }
+                            }, label: {
+                                VStack {
+                                    Image(systemName: "camera.fill")
+                                    Text("\(images.count)/10")
+                                }
+                                .padding(10)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                                    .stroke(Color.gray, lineWidth: 3)
+                                )
+                            })
+                            .foregroundColor(Color.gray)
+                            .buttonStyle(.borderless)
+                            .cornerRadius(10)
+                            .padding(10)
+                            // 앨범 열지, 사진 촬영할지 결정
+                            .confirmationDialog("", isPresented: $showSourceTypeSelection) {
+                                Button("사진 촬영") {
+                                    self.showCamera.toggle()
+                                }
+                                Button("앨범 선택") {
+                                    self.showPhotoLibrary.toggle()
+                                }
+                            }
+                            .sheet(isPresented: $showCamera) {
+                                ImagePicker(sourceType: .camera, selectedImages: $images)
+                            }
+                            .sheet(isPresented: $showPhotoLibrary) {
+                                ImagePicker(sourceType: .photoLibrary, selectedImages: $images)
+                            }
+                            // 추가된 사진 미리보기
+                            ForEach(images, id: \.self) { img in
+                                ZStack(alignment: .topTrailing) {
+                                    Image(uiImage: img)
+                                        .resizable()
+                                        .frame(width: 55, height: 55)
+                                        .aspectRatio(contentMode: .fill)
+                                        .padding(3)
+                                    Button(action: {
+                                        let imgIdx = images.firstIndex(of: img)
+                                        images.remove(at: imgIdx!)
+                                    }, label: {
+                                        Image(systemName: "x.square.fill")
+                                    }).foregroundColor(Color.black)
+                                        .frame(width: 15, height: 15)
+                                }
+                            }
+                        }
+                    }
                     // 제목 입력 칸
                     ZStack(alignment: .topLeading) {
                         if title.isEmpty {
@@ -30,23 +119,64 @@ struct PostUploadView: View {
                                 .padding(.horizontal, 8)
                                 .padding(.vertical, 10)
                         }
-                        TextEditor(text: $title)
+                        TextEditor(text: $title).opacity(title.isEmpty ? 0.25 : 1)
                         Text(title).opacity(0).padding(.all, 8)
                     }.id("bottomOfTitle")
                     // 카테고리 입력 칸
                     NavigationLink(
-                        destination: CategorySelectView(globalVar: globalVar)
-                    ) { Text(self.globalVar.selectedCategory).padding(.horizontal, 8) }
+                        destination: CategorySelectView(category: $category)
+                    ) { Text(category).padding(.horizontal, 8) }
                     // 태그 입력 칸
-                    ZStack(alignment: .topLeading) {
-                        if tagSentence.isEmpty {
-                            Text("#태그는 5개까지 입력할 수 있어요")
-                                .foregroundColor(Color(UIColor.placeholderText))
-                                .padding(.horizontal, 8)
-                                .padding(.vertical, 12)
+                    VStack(alignment: .leading) {
+                        ZStack(alignment: .topLeading) {
+                            if tags.count < 5 {
+                                // tag의 개수가 5보다 적고 아무것도 입력되지 않았을 때 나타나는 PlaceHolder
+                                if tagSentence.isEmpty {
+                                    Text("#태그는 5개까지 입력할 수 있어요")
+                                        .foregroundColor(Color(UIColor.placeholderText))
+                                        .padding(.horizontal, 8)
+                                        .padding(.top, 12)
+                                }
+                                // tag 작성 칸
+                                TextEditor(text: $tagSentence)
+                                    .opacity(tagSentence.isEmpty ? 0.25 : 1)
+                                    .onChange(of: tagSentence) {_ in
+                                        tagFiltering()
+                                    }
+                                Text(tagSentence).opacity(0).padding(8)
+                            } else {
+                                // tag의 개수가 5개가 되면 보여주는 PlaceHolder
+                                Text("더 추가하려면 기존 태그를 삭제해주세요")
+                                    .foregroundColor(Color(UIColor.placeholderText))
+                                    .padding(.horizontal, 8)
+                                    .padding(.top, 12)
+                                    .padding(.bottom, 7)
+                            }
                         }
-                        TextEditor(text: $tagSentence)
-                        Text(tagSentence).opacity(0).padding(.all, 8)
+                        ScrollView(.horizontal) {
+                            HStack {
+                                // 추가된 태그 보기
+                                ForEach(tags, id: \.self) { tag in
+                                    ZStack(alignment: .topTrailing) {
+                                        Text(tag)
+                                               .padding(5)
+                                               .font(.body)
+                                               .background(Color.gray)
+                                               .foregroundColor(Color.white)
+                                               .cornerRadius(5)
+                                               .padding(3)
+                                               .padding(.bottom, 8)
+                                        Button(action: {
+                                            let tagIdx = tags.firstIndex(of: tag)
+                                            tags.remove(at: tagIdx!)
+                                        }, label: {
+                                            Image(systemName: "x.square.fill")
+                                        }).foregroundColor(Color.black)
+                                            .frame(width: 15, height: 15)
+                                    }
+                                }
+                            }
+                        }
                     }.id("bottomOfTagSentence")
                     // 게시글 입력 칸
                     ZStack(alignment: .topLeading) {
@@ -57,10 +187,14 @@ struct PostUploadView: View {
                                 .padding(.vertical, 12)
                         }
                         TextEditor(text: $content)
-                            .frame(minHeight: 150)
+                            .focused($isContentFocused)
+                            .opacity(content.isEmpty ? 0.25 : 1)
+                            .frame(minHeight: isContentFocused ? 100 : 400)
                         Text(content).opacity(0).padding(.all, 8)
                     }.id("bottomOfContent")
-                }.navigationBarTitle("글쓰기", displayMode: .inline)
+                }
+                .listStyle(GroupedListStyle())
+                .navigationBarTitle("글쓰기", displayMode: .inline)
                     .navigationBarItems(
                         // 취소 누를 경우의 동작
                         leading: Button("취소") {
@@ -68,12 +202,8 @@ struct PostUploadView: View {
                         },
                         // 업로드 누를 경우의 동작
                         trailing: Button("업로드") {
+                            upload()
                             self.presentationMode.wrappedValue.dismiss()
-                            // 서버에 데이터 보내는 코드 작성 필요
-                            print("글 제목: " + title)
-                            print("카테고리: " + globalVar.selectedCategory)
-                            print("태그문장: " + tagSentence)
-                            print("게시글: " + content)
                         }
                     )
                 .toolbar {
@@ -105,9 +235,16 @@ struct PostUploadView: View {
     }
 }
 
+struct PostUploadView_Previews: PreviewProvider {
+    static var previews: some View {
+        PostUploadView()
+    }
+}
+
+// 카테고리 선택 시 목록 나오게 하는 View
 struct CategorySelectView: View {
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var globalVar: GlobalVarInPostUploadView
+    @Binding var category: String
     let categoryArray: [String] = [
         Category.economy.korean,
         Category.law.korean,
@@ -129,7 +266,7 @@ struct CategorySelectView: View {
         List {
             ForEach(categoryArray, id: \.self) { categoryName in
                 Button(categoryName) {
-                    self.globalVar.selectedCategory = categoryName
+                    category = categoryName
                     self.presentationMode.wrappedValue.dismiss()
                 }
             }
@@ -137,12 +274,7 @@ struct CategorySelectView: View {
     }
 }
 
-struct PostUploadView_Previews: PreviewProvider {
-    static var previews: some View {
-        PostUploadView()
-    }
-}
-
+// CheckBox가 구현된 View
 struct CheckBoxView: View {
     @Binding var checked: Bool
 
@@ -155,7 +287,47 @@ struct CheckBoxView: View {
     }
 }
 
-// 태그 형식으로 쓰려 고려중인 것
+// 앨범에 접근 가능하게 하는 View
+struct ImagePicker: UIViewControllerRepresentable {
+    @Environment(\.presentationMode) private var presentationMode
+    var sourceType: UIImagePickerController.SourceType = .photoLibrary
+    @Binding var selectedImages: [UIImage]
+
+    func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
+        let imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = sourceType
+        imagePicker.delegate = context.coordinator
+
+        return imagePicker
+    }
+
+    func updateUIViewController(_ uiViewController: UIImagePickerController,
+                                context: UIViewControllerRepresentableContext<ImagePicker>) {
+    }
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+
+    final class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+        var parent: ImagePicker
+
+        init(_ parent: ImagePicker) {
+            self.parent = parent
+        }
+
+        func imagePickerController(_ picker: UIImagePickerController,
+                                   didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+            if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+                parent.selectedImages.append(image)
+            }
+            parent.presentationMode.wrappedValue.dismiss()
+        }
+    }
+}
+
+// 태그 형식으로 쓸지 고려중인 것
 // struct WrappedLayoutForTag: View {
 //    @State var platforms = ["Ninetendo", "XBox", "PlayStation", "PlayStation 2", "PlayStation 3"]
 //
