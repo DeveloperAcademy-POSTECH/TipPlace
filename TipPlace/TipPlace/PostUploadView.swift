@@ -35,12 +35,16 @@ struct PostUploadView: View {
     func uiToBase64(uiImg: UIImage) -> String {
         return (uiImg.jpegData(compressionQuality: 1)?.base64EncodedString())!
     }
-    // 서버에 데이터 보내기
+    // 서버에 데이터 보내기 (현재는 Print문으로 대체)
     func upload() {
         var base64images: [String] = []
         for img in images {
             base64images.append(uiToBase64(uiImg: img))
         }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        let dateString = dateFormatter.string(from: Date.now)
         print("[사진 개수] " + String(images.count))
         print("[글 제목] " + title)
         print("[카테고리] " + category)
@@ -49,6 +53,7 @@ struct PostUploadView: View {
         }
         print("[게시글] " + content)
         print("[익명여부] " + (isAnonymous ? "O" : "X"))
+        print("[시간] " + dateString)
     }
     var body: some View {
         NavigationView {
@@ -326,54 +331,3 @@ struct ImagePicker: UIViewControllerRepresentable {
         }
     }
 }
-
-// 태그 형식으로 쓸지 고려중인 것
-// struct WrappedLayoutForTag: View {
-//    @State var platforms = ["Ninetendo", "XBox", "PlayStation", "PlayStation 2", "PlayStation 3"]
-//
-//    var body: some View {
-//        GeometryReader { geometry in
-//            self.generateContent(in: geometry)
-//        }
-//    }
-//
-//    private func generateContent(in geoProxy: GeometryProxy) -> some View {
-//        var width = CGFloat.zero
-//        var height = CGFloat.zero
-//
-//        return ZStack(alignment: .topLeading) {
-//            ForEach(self.platforms, id: \.self) { platform in self.item(for: platform)
-//                    .padding([.horizontal, .vertical], 4)
-//                    .alignmentGuide(.leading, computeValue: { dens in
-//                        if abs(width - dens.width) > geoProxy.size.width {
-//                            width = 0
-//                            height -= dens.height
-//                        }
-//                        let result = width
-//                        if platform == self.platforms.last! {
-//                            width = 0 // last item
-//                        } else {
-//                            width -= dens.width
-//                        }
-//                        return result
-//                    })
-//                    .alignmentGuide(.top, computeValue: { _ in
-//                        let result = height
-//                        if platform == self.platforms.last! {
-//                            height = 0 // last item
-//                        }
-//                        return result
-//                    })
-//            }
-//        }
-//    }
-//
-//    func item(for text: String) -> some View {
-//        Text(text)
-//            .padding(.all, 5)
-//            .font(.body)
-//            .background(Color.blue)
-//            .foregroundColor(Color.white)
-//            .cornerRadius(5)
-//    }
-// }

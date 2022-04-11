@@ -12,7 +12,7 @@ struct TempParentView: View {
         NavigationView {
             List {
                 NavigationLink("to DetailPostView") {
-                    DetailPostView()
+                    DetailPostView(postId: 1)
                 }
             }
         }
@@ -20,6 +20,10 @@ struct TempParentView: View {
 }
 
 struct DetailPostView: View {
+    init(postId: Int) {
+        //
+    }
+
     let title = "Title"
     let content = """
                 post content
@@ -27,44 +31,108 @@ struct DetailPostView: View {
                 post content
                 post content
                 """
+    let contentImages = [ContentImage(imageUrl: ""),
+                         ContentImage(imageUrl: ""),
+                         ContentImage(imageUrl: ""),
+                         ContentImage(imageUrl: ""),
+                         ContentImage(imageUrl: ""),
+                         ContentImage(imageUrl: ""),
+                         ContentImage(imageUrl: ""),
+                         ContentImage(imageUrl: "")
+                        ]
+    var useableCount: Int = 25
+    var replyCount: Int = 5
+    var comments: [CommentModel] = [CommentModel(id: 1,
+                                                 author: User(name: "user1", profileUrl: nil),
+                                                 content: "댓글",
+                                                 isReply: false,
+                                                 createdAt: Date(),
+                                                 usefulCount: 23),
+                                    CommentModel(id: 2,
+                                                 author: User(name: "user2", profileUrl: nil),
+                                                 content: "대댓글",
+                                                 isReply: true,
+                                                 createdAt: Date(),
+                                                 usefulCount: 11),
+                                    CommentModel(id: 3,
+                                                 author: User(name: "user3", profileUrl: nil),
+                                                 content: "댓글",
+                                                 isReply: false,
+                                                 createdAt: Date(),
+                                                 usefulCount: 2)]
 
     var body: some View {
         List {
-            // info section
             Section {
-                Text(title)
-                    .font(.largeTitle)
                 AuthorProfileView(User(name: "user", profileUrl: nil), date: Date())
-            }
-            .listRowSeparator(.hidden)
-            .listSectionSeparator(.visible, edges: .bottom)
-
-            // content section
-            Section {
+                Text(title)
+                    .bold()
                 Text(content)
+                ImageCollecionView(imageDatas: contentImages)
                 Text("tags")
-                Text("유용해요 10  댓글 30  // useful + reply info")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
+                HStack {
+                    // TODO: 각 버튼의 icon과 title 사이의 간격 조절 필요함
+                    Button {
+                        // action
+                    } label: {
+                        Label("유용해요 \(useableCount)", systemImage: "hands.clap")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                            .padding(5)
+                            .overlay(RoundedRectangle(cornerRadius: 5)
+                                .stroke(.gray, lineWidth: 1))
+                    }
+                    Button {
+                        // action
+                    } label: {
+                        Label("댓글 \(replyCount)", systemImage: "text.bubble")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                            .padding(5)
+                            .overlay(RoundedRectangle(cornerRadius: 5)
+                                .stroke(.gray, lineWidth: 1))
+                    }
+                }
+                .listRowBackground(Color.clear)
             }
             .listRowSeparator(.hidden)
-            .listSectionSeparator(.visible, edges: .bottom)
-
-            // event buttons section
-            Section {
-                Text("event section")
-            }
-            .listRowSeparator(.hidden)
-            .listSectionSeparator(.visible, edges: .bottom)
 
             // reply section
-            Section {
-                Text("reply list")
+            Section(header: Text("댓글")) {
+                ForEach(comments) { comment in
+                    CommentView(comment: comment)
+                        .listRowBackground(Color.clear)
+                }
             }
-            .listRowSeparator(.hidden)
+            .listRowSeparator(.visible, edges: .top)
         }
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            HStack {
+                Button {
+                    // button action
+                } label: {
+                    Label {
+                        Text("")
+                    } icon: {
+                        Image(systemName: "square.and.arrow.up")
+                    }
+                    .labelStyle(.iconOnly)
+                }
+                Button {
+                    // button action
+                } label: {
+                    Label {
+                        Text("")
+                    } icon: {
+                        Image(systemName: "bookmark")
+                    }
+                    .labelStyle(.iconOnly)
+                }
+            }
+        }
         .listStyle(.plain)
+        .listRowSeparator(.visible, edges: .top)
     }
 
     struct User {
@@ -82,22 +150,150 @@ struct DetailPostView: View {
         }
 
         var body: some View {
-            HStack(alignment: .center) {
-                Image(systemName: "person.crop.circle")
-                VStack(alignment: .leading) {
-                    Text(user.name)
-                        .font(.subheadline)
-                    Text(date.description)
-                        .font(.caption2)
+            GeometryReader { geometry in
+                HStack(alignment: .center) {
+                    Image(systemName: "person.crop.circle")
+                        .resizable()
+                        .frame(width: geometry.size.height, height: geometry.size.height)
+                    VStack(alignment: .leading) {
+                        // TODO: username이 한 줄만 나오도록 해야함.
+                        Text("user.name")
+                            .font(.subheadline)
+                        Text(date.description)
+                            .font(.caption2)
+                    }
                 }
             }
         }
+    }
+
+    struct ContentImage: Identifiable {
+        init(imageUrl: String) {
+            id = imageUrl
+            image = Image(systemName: "checkmark.circle")
+        }
+        let id: String
+        var image: Image?
+    }
+
+    struct ImageCell: View {
+        let imageData: ContentImage
+        var body: some View {
+            guard let image = imageData.image else {
+                return Image("")
+                    .resizable()
+                    .frame(width: 95, height: 95, alignment: .center)
+            }
+            return image
+                .resizable()
+                .frame(width: 95, height: 95, alignment: .center)
+        }
+    }
+
+    // TODO: cell의 재사용 필요
+    struct ImageCollecionView: View {
+        @State var imageDatas = [ContentImage]()
+
+        var body: some View {
+            ScrollView(.horizontal) {
+                HStack {
+                    ForEach(imageDatas) {
+                        ImageCell(imageData: $0)
+                            .background(.yellow)
+                            .cornerRadius(8)
+                            .padding(2)
+                    }
+                }
+            }
+        }
+    }
+
+    struct CommentView: View {
+        let comment: CommentModel
+
+        init(comment: CommentModel) {
+            self.comment = comment
+        }
+
+        var body: some View {
+            if !comment.isReply {
+                contentView
+            } else {
+                HStack(alignment: .top) {
+                    Image(systemName: "arrow.turn.down.right")
+                        .padding()
+                    contentView
+                }
+            }
+        }
+        var contentView: some View {
+            VStack(alignment: .leading, spacing: 5) {
+                // TODO: 이미지 크기도 사용자 이름 Label의 폰트처럼 다이나믹한 사이즈가 적용되도록 개선이 필요할 듯함.
+                HStack {
+                    Image(systemName: "person.crop.circle")
+                        .resizable()
+                        .frame(width: 23, height: 23)
+                        .padding(2)
+                    Label(comment.author.name, systemImage: "")
+                        .labelStyle(.titleOnly)
+                        .font(.caption)
+                }
+                Text(comment.content)
+                    .font(.caption)
+                HStack(spacing: 15) {
+                    Text(comment.createdAt.description)
+                        .font(.caption2)
+                        .foregroundColor(.gray)
+                    if !comment.isReply {
+                        Button {
+                            // 답글 버튼 액션
+                        } label: {
+                            Label("답글", systemImage: "")
+                                .labelStyle(.titleOnly)
+                                .font(.bold(.caption)())
+                                .foregroundColor(.gray)
+                        }
+                    }
+                    Button {
+                        // 유용해요 버튼 액션
+                    } label: {
+                        Label("\(comment.usefulCount)", systemImage: "hands.clap")
+                            .font(.bold(.caption)())
+                            .foregroundColor(.gray)
+                    }
+                }
+            }
+        }
+    }
+
+    struct CommentModel: Identifiable {
+        let id: Int
+        let author: User
+        let content: String
+        let isReply: Bool
+        let createdAt: Date
+        let usefulCount: Int
     }
 }
 
 struct DetailPostView_Previews: PreviewProvider {
     static var previews: some View {
         TempParentView()
-        DetailPostView()
+        DetailPostView(postId: 1)
+        DetailPostView.CommentView(comment: DetailPostView.CommentModel(
+                                    id: 1,
+                                    author: DetailPostView.User(name: "I'mUser", profileUrl: ""),
+                                    content: """
+                                            임시 댓글입니다.
+                                            임시 댓글입니다.
+                                            임시 댓글입니다.
+                                            임시 댓글입니다.
+                                            임시 댓글입니다.
+                                            임시 댓글입니다.
+                                            """,
+                                    isReply: true,
+                                    createdAt: Date(),
+                                    usefulCount: 25))
+        .frame(maxHeight: 100)
     }
 }
