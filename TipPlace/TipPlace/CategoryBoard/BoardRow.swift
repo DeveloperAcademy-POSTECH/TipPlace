@@ -38,6 +38,6 @@ struct BoardRow: View {
 
 struct BoardRow_Previews: PreviewProvider {
     static var previews: some View {
-        BoardRow(boardPost: boardPosts[0])
+        BoardRow(boardPost: BoardPostMock.boardPost1)
     }
 }
