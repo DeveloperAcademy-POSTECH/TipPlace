@@ -25,7 +25,7 @@ extension DetailPostView {
                     .modifier(DetailPostView.BoxButtonLabel())
                     .foregroundColor(.mint)
                     .overlay(RoundedRectangle(cornerRadius: 5)
-                        .stroke(.mint, lineWidth: 1))
+                    .stroke(.mint, lineWidth: 1))
             } else {
                 return configuration.label
                     .modifier(DetailPostView.BoxButtonLabel())

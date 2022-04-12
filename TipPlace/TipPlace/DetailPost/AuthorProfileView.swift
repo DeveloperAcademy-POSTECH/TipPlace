@@ -9,8 +9,8 @@ import SwiftUI
 
 extension DetailPostView {
     struct AuthorProfileView: View {
-        let user: Author
-        let date: Date
+        private let user: Author
+        private let date: Date
 
         init(_ user: Author, date: Date) {
             self.user = user
@@ -38,7 +38,6 @@ extension DetailPostView {
 
 struct AuthorProfile_Previews: PreviewProvider {
     static var previews: some View {
-//        DetailPostView.AuthorProfileView(<#T##user: DetailPostView.User##DetailPostView.User#>, date: <#T##Date#>)
         DetailPostView(postId: 1)
     }
 }

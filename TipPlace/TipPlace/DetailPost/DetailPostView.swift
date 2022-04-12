@@ -27,8 +27,7 @@ struct DetailPostView: View {
 
     var bookmarkImageString: String {
         get {
-            if didBookMarked { return "bookmark.fill" }
-            return "bookmark"
+            didBookMarked ? "bookmark.fill" : "bookmark"
         }
     }
 
