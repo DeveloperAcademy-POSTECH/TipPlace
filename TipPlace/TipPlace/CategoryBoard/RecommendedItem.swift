@@ -32,6 +32,6 @@ struct RecommendedItem: View {
 
 struct RecommendedItem_Previews: PreviewProvider {
     static var previews: some View {
-        RecommendedItem(recommended: RecommendedMock.recommended[0])
+        RecommendedItem(recommended: ListMock.authors[1])
     }
 }
