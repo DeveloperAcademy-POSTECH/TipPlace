@@ -37,6 +37,7 @@
 		C5EDB1302803D7B700DC8CDB /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EDB12F2803D7B700DC8CDB /* ProfileImageView.swift */; };
 		C5F0C57F28041DEE0016AD09 /* ExpertCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F0C57E28041DEE0016AD09 /* ExpertCollectionView.swift */; };
 		C5F0C5832804A8CD0016AD09 /* MyPageChildrenViewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F0C5822804A8CD0016AD09 /* MyPageChildrenViewList.swift */; };
+		C5F0C585280507E60016AD09 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F0C584280507E60016AD09 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		C5EDB12F2803D7B700DC8CDB /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 		C5F0C57E28041DEE0016AD09 /* ExpertCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpertCollectionView.swift; sourceTree = "<group>"; };
 		C5F0C5822804A8CD0016AD09 /* MyPageChildrenViewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageChildrenViewList.swift; sourceTree = "<group>"; };
+		C5F0C584280507E60016AD09 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,7 +158,6 @@
 		C5991F9827FD6AD2007A7F26 /* TipPlace */ = {
 			isa = PBXGroup;
 			children = (
-				C5991F9927FD6AD2007A7F26 /* TipPlaceApp.swift */,
 				C5991FA927FD6B97007A7F26 /* MainTabView.swift */,
 				C5991FAB27FD6B97007A7F26 /* MainBoardView.swift */,
 				C5991FA727FD6B84007A7F26 /* CategoryView.swift */,
@@ -190,6 +191,7 @@
 			children = (
 				C5F0C57E28041DEE0016AD09 /* ExpertCollectionView.swift */,
 				C5F0C5822804A8CD0016AD09 /* MyPageChildrenViewList.swift */,
+				C5F0C584280507E60016AD09 /* SettingsView.swift */,
 			);
 			path = MyPageChildrenView;
 			sourceTree = "<group>";
@@ -294,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5F0C585280507E60016AD09 /* SettingsView.swift in Sources */,
 				C5991FA827FD6B84007A7F26 /* CategoryView.swift in Sources */,
 				C5EDB1302803D7B700DC8CDB /* ProfileImageView.swift in Sources */,
 				AE4E3A6328030BEF00293623 /* BoardPost.swift in Sources */,

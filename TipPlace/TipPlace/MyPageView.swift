@@ -35,9 +35,12 @@ struct MyPageView: View {
                 .navigationTitle("마이페이지")
                 .toolbar {
                     Button {
-                        print("tapped")
                     } label: {
-                        Image(systemName: "gearshape")
+                        NavigationLink(destination: SettingsView()) {
+                            HStack {
+                                Image(systemName: "gearshape")
+                            }
+                        }
                     }
                     .foregroundColor(.green)
                 }
