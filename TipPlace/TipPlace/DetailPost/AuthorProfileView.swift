@@ -24,9 +24,9 @@ extension DetailPostView {
                         .resizable()
                         .frame(width: geometry.size.height, height: geometry.size.height)
                     VStack(alignment: .leading) {
-                        // TODO: username이 한 줄만 나오도록 해야함.
                         Text(user.name)
                             .font(.subheadline)
+                            .lineLimit(1)
                         Text(date.description)
                             .font(.caption2)
                     }
