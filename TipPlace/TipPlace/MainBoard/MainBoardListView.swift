@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct MainBoardList: View {
-    var boardPostsList = BoardPostListMock.boardPosts
+//    BoardPostListMock -> ListMock으로 변경
+    var boardPostsList = ListMock.boardPosts
     var body: some View {
         ForEach(boardPostsList) { boardPost in
             ZStack {
