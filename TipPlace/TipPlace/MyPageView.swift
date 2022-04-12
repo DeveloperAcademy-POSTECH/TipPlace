@@ -14,7 +14,6 @@ struct MyPageView: View {
                 ScrollView {
                     VStack {
                         ProfileView()
-                        DividerView()
                         ButtonView(title: "관심 카테고리 설정")
                         ButtonView(title: "관심 태그 설정")
                         ButtonView(title: "전문 분야 설정")
@@ -48,17 +47,14 @@ struct MyPageView: View {
 }
 
 struct ProfileView: View {
-//    let userNmae
-//    let userSpecialty
+    //    let userNmae
+    //    let userSpecialty
     var body: some View {
         HStack {
             ZStack {
                 Circle()
                     .foregroundColor(Color.gray)
                     .frame(width: 90, height: 90)
-                Circle()
-                    .foregroundColor(Color.white)
-                    .frame(width: 80, height: 80)
                 ProfileImageView()
             }
             .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10))
@@ -66,24 +62,24 @@ struct ProfileView: View {
                 Text("내일은 요리왕")
                     .font(.system(size: 20))
                 Text("mijinc@icloud.com")
-                .font(.system(size: 10))
-                .accentColor(.black)
+                    .font(.system(size: 10))
+                    .accentColor(.black)
                 HStack {
                     Text("자취")
                         .font(.system(size: 10, weight: .heavy))
-                    .foregroundColor(.green)
+                        .foregroundColor(.green)
                     Divider()
                         .background(Color.black)
                         .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
                     Text("#자취")
-                    .font(.system(size: 10))
-                    .foregroundColor(.black)
+                        .font(.system(size: 10))
+                        .foregroundColor(.black)
                     Text("#자취")
-                    .font(.system(size: 10))
-                    .foregroundColor(.black)
+                        .font(.system(size: 10))
+                        .foregroundColor(.black)
                     Text("#자취")
-                    .font(.system(size: 10))
-                    .foregroundColor(.black)
+                        .font(.system(size: 10))
+                        .foregroundColor(.black)
                 }
             }
         }
@@ -93,26 +89,19 @@ struct ProfileView: View {
 
 struct ButtonView: View {
     let title: String
-//    func childrenViewSelector() {
-//        let _: String = title
-//        if (title == "전문가 모아보기") {
-//            ExpertCollectionView()
-//        }
-//    }
     var body: some View {
         Button {
-//            ExpertCollectionView()
-            //버튼에 딸린 뷰를 추가하는 작업중입니다.
-            print("버튼 눌림")
         } label: {
-            HStack {
-                Text(title)
-                    .font(.system(size: 16))
-                Spacer()
-                Image(systemName: "chevron.forward")
-                    .foregroundColor(Color.gray)
+            NavigationLink(destination: MyPageChildrenViewList(title: title)) {
+                HStack {
+                    Text(title)
+                        .font(.system(size: 16))
+                    Spacer()
+                    Image(systemName: "chevron.forward")
+                        .foregroundColor(Color.gray)
+                }
+                .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
             }
-            .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
         }
         .foregroundColor(Color.black)
         DividerView()
@@ -128,9 +117,6 @@ struct DividerView: View {
 
 struct MyPageView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            MyPageView()
-            ExpertCollectionView()
-        }
+        MyPageView()
     }
 }

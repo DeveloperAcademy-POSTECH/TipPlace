@@ -25,6 +25,7 @@
 		C5991FAE27FD6B97007A7F26 /* MainBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5991FAB27FD6B97007A7F26 /* MainBoardView.swift */; };
 		C5EDB1302803D7B700DC8CDB /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EDB12F2803D7B700DC8CDB /* ProfileImageView.swift */; };
 		C5F0C57F28041DEE0016AD09 /* ExpertCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F0C57E28041DEE0016AD09 /* ExpertCollectionView.swift */; };
+		C5F0C5832804A8CD0016AD09 /* MyPageChildrenViewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F0C5822804A8CD0016AD09 /* MyPageChildrenViewList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		C5991FAB27FD6B97007A7F26 /* MainBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainBoardView.swift; sourceTree = "<group>"; };
 		C5EDB12F2803D7B700DC8CDB /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 		C5F0C57E28041DEE0016AD09 /* ExpertCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpertCollectionView.swift; sourceTree = "<group>"; };
+		C5F0C5822804A8CD0016AD09 /* MyPageChildrenViewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageChildrenViewList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				C5F0C57E28041DEE0016AD09 /* ExpertCollectionView.swift */,
+				C5F0C5822804A8CD0016AD09 /* MyPageChildrenViewList.swift */,
 			);
 			path = MyPageChildrenView;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				C5EDB1302803D7B700DC8CDB /* ProfileImageView.swift in Sources */,
 				C5991FAD27FD6B97007A7F26 /* MyPageView.swift in Sources */,
 				C5991FAE27FD6B97007A7F26 /* MainBoardView.swift in Sources */,
+				C5F0C5832804A8CD0016AD09 /* MyPageChildrenViewList.swift in Sources */,
 				C5F0C57F28041DEE0016AD09 /* ExpertCollectionView.swift in Sources */,
 				C5991F9A27FD6AD2007A7F26 /* TipPlaceApp.swift in Sources */,
 				C5991FAC27FD6B97007A7F26 /* MainTabView.swift in Sources */,

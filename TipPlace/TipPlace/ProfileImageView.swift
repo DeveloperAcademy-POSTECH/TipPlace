@@ -22,8 +22,8 @@ struct ProfileImageView: View {
         } placeholder: {
             ProgressView()
         }
-        .frame(width: 80, height: 80)
-        .cornerRadius(40)
+        .frame(width: 88, height: 88)
+        .cornerRadius(44)
     }
     // 유저의 이미지 조건을 추가해야함. 목데이터 상황 봐서
 }
