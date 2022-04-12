@@ -11,22 +11,18 @@ extension MainBoardView {
 struct TagListView: View {
     var recommendedTags: [String] = load(fileName: "RecommendedTagData.json")
     @Binding var selectedTag: String
+    @State var isTagSelected = false
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
                 ForEach(recommendedTags, id: \.self) { tag in
                     Button {
                         selectedTag = tag
+                        isTagSelected.toggle()
                     } label: {
                         Text(tag)
-                            .font(.callout)
-                            .padding(.vertical, 6)
-                            .padding(.horizontal, 15)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color.blue, lineWidth: 2)
-                            )
                     }
+                    .buttonStyle(MainTagButtonStyle(isButtonSelected: $isTagSelected))
                 }
                 .padding(.bottom, 10)
                 .padding(.top, 5)
