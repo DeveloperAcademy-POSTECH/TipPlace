@@ -22,6 +22,7 @@
 		4AA1E3B928006B1400156D19 /* BoardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA1E3B828006B1400156D19 /* BoardRow.swift */; };
 		4AA1E3BB28006B1F00156D19 /* CategoryBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA1E3BA28006B1F00156D19 /* CategoryBoardView.swift */; };
 		4AA1E3BD28006B2A00156D19 /* RecommendedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA1E3BC28006B2A00156D19 /* RecommendedItem.swift */; };
+		4AD373412805A9460080259E /* loadRecommends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD373402805A9460080259E /* loadRecommends.swift */; };
 		AE3418B32803D1C300A54336 /* TagListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3418B22803D1C300A54336 /* TagListView.swift */; };
 		AE3418BA2803D41F00A54336 /* MainBoardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3418B92803D41E00A54336 /* MainBoardListView.swift */; };
 		AE4E3A5F28030B8100293623 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4E3A5E28030B8100293623 /* Author.swift */; };
@@ -64,6 +65,7 @@
 		4AA1E3B828006B1400156D19 /* BoardRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardRow.swift; sourceTree = "<group>"; };
 		4AA1E3BA28006B1F00156D19 /* CategoryBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryBoardView.swift; sourceTree = "<group>"; };
 		4AA1E3BC28006B2A00156D19 /* RecommendedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendedItem.swift; sourceTree = "<group>"; };
+		4AD373402805A9460080259E /* loadRecommends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loadRecommends.swift; sourceTree = "<group>"; };
 		AE3418B22803D1C300A54336 /* TagListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagListView.swift; sourceTree = "<group>"; };
 		AE3418B92803D41E00A54336 /* MainBoardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBoardListView.swift; sourceTree = "<group>"; };
 		AE4E3A5E28030B8100293623 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				4A798DC528052C8900DD31E4 /* dateToString.swift */,
 				4A798DC628052C8900DD31E4 /* loadPosts.swift */,
 				AEE70E5B28004B2E004E0F01 /* LoadData.swift */,
+				4AD373402805A9460080259E /* loadRecommends.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				C5EDB1302803D7B700DC8CDB /* ProfileImageView.swift in Sources */,
 				AE4E3A6328030BEF00293623 /* BoardPost.swift in Sources */,
 				AEE70E5C28004B2E004E0F01 /* LoadData.swift in Sources */,
+				4AD373412805A9460080259E /* loadRecommends.swift in Sources */,
 				C5991FA827FD6B84007A7F26 /* CategoryView.swift in Sources */,
 				BC39DC3628050EE700192C74 /* CommentModel.swift in Sources */,
 				4AA1E3BD28006B2A00156D19 /* RecommendedItem.swift in Sources */,

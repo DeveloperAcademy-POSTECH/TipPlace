@@ -35,3 +35,4 @@ func loadPosts(selectedOption: String, category: Category) -> [BoardPost] {
     }
     return boardPosts
 }
+
