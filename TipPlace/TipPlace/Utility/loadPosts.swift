@@ -22,7 +22,6 @@ func loadPosts(selected: String) -> [BoardPost] {
     return boardPosts
 }
 
-
 func loadPosts(selectedOption: String, category: Category) -> [BoardPost] {
     var boardPosts: [BoardPost]
     if selectedOption == "최신순" {
