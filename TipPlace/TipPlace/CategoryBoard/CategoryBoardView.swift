@@ -38,7 +38,7 @@ struct CategoryBoardView: View {
                                     selectedOption = "최신순"
                                 }
                                 Button("인기순") {
-                                    selectedOption  = "인기순"
+                                    selectedOption = "인기순"
                                 }
                                 Button("실용순") {
                                     selectedOption = "실용순"
