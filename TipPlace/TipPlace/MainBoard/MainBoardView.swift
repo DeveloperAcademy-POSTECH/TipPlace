@@ -36,8 +36,8 @@ struct MainBoardView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        print("writing..")
+                    NavigationLink {
+                        PostUploadView().navigationBarHidden(true)
                     } label: {
                         Image(systemName: "square.and.pencil")
                     }
