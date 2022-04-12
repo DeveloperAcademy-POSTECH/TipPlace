@@ -9,17 +9,18 @@ import SwiftUI
 
 struct MainBoardView: View {
     @State var searchText: String = ""
+    @State var selectedTag: String = "전체"
     var body: some View {
         // TODO: scroll시 서치바 사라지고 태그 남기기
         NavigationView {
             List {
                 Section {
-                    TagListView()
+                    TagListView(selectedTag: $selectedTag)
                 }
                 .listRowBackground(Color.clear)
                 .listRowSeparator(.hidden)
                 Section {
-                    MainBoardList()
+                    MainBoardList(selectedTag: $selectedTag)
                 }
                 .listRowBackground(Color.clear)
             }

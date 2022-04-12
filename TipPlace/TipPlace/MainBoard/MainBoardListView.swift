@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct MainBoardList: View {
-//    BoardPostListMock -> ListMock으로 변경
-    var boardPostsList = ListMock.boardPosts
+    @Binding var selectedTag: String
+
     var body: some View {
-        ForEach(boardPostsList) { boardPost in
+        ForEach(filterPost(with: ListMock.boardPosts, by: selectedTag)) { boardPost in
             ZStack {
                 MainBoardRow(boardPost: boardPost)
-                NavigationLink(destination: DetailPostView(postId: 1)) {
+                NavigationLink(destination: DetailPostView(postId: boardPost.id)) {
                 }
                 .opacity(0)
                 .buttonStyle(.plain)
@@ -27,7 +27,7 @@ struct MainBoardList: View {
 
 struct MainBoardList_Previews: PreviewProvider {
     static var previews: some View {
-        MainBoardList()
+        MainBoardList(selectedTag: .constant("자취"))
     }
 }
 

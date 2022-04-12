@@ -7,14 +7,16 @@
 
 import SwiftUI
 
+extension MainBoardView {
 struct TagListView: View {
     var recommendedTags: [String] = load(fileName: "RecommendedTagData.json")
+    @Binding var selectedTag: String
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
                 ForEach(recommendedTags, id: \.self) { tag in
                     Button {
-                        print(tag)
+                        selectedTag = tag
                     } label: {
                         Text(tag)
                             .font(.callout)
@@ -33,9 +35,10 @@ struct TagListView: View {
         }
     }
 }
+}
 
 struct TagListView_Previews: PreviewProvider {
     static var previews: some View {
-        TagListView()
+        MainBoardView.TagListView(selectedTag: .constant("tag"))
     }
 }
