@@ -16,7 +16,7 @@ struct CategoryBoardView: View {
     var body: some View {
         NavigationView {
             List {
-                Section(header: Text("")) {
+                Section(footer: Text("")) {
                     Text("\(categoryEnum.korean) 전문가의 글 모아보기")
                         .font(.caption)
                     RecommendList()
@@ -66,9 +66,9 @@ struct CategoryBoardView: View {
                 }
             }
         }
-        .searchable(text: $queryString, prompt: "\(categoryEnum.korean) 내 검색", suggestions: {
+        .searchable(text: $queryString, placement: .navigationBarDrawer(displayMode: .automatic), prompt: "\(categoryEnum.korean) 내 검색", suggestions: {
                     Text("내 태그").searchCompletion("내 태그")
-                })
+        })
     //            검색 바 구현 -> searchable로 해서 검색창?
     }
 }
@@ -82,12 +82,15 @@ struct CategoryBoardView_Previews: PreviewProvider {
 struct BoardListView: View {
     var boardPostsList: [BoardPost]
     var body: some View {
-        ForEach(boardPostsList) {boardPost in
+        ForEach(boardPostsList) { boardPost in
             NavigationLink {
                 DetailPostView()
                 //     스누피 머지 이후 DetailPostView(boardPost.id) 수정
             } label: { BoardRow(boardPost: boardPost)
+                    .padding(.vertical, 5)
             }
+            
         }
+        .listStyle(.inset)
     }
 }

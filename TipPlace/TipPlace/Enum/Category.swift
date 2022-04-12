@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Category: Int {
+enum Category: Int, Codable {
     case etc = 0
     case economy
     case law
