@@ -9,9 +9,12 @@ import SwiftUI
 
 struct RecommendList: View {
     var body: some View {
+        let recommended = ListMock.authors.filter{
+            $0.speficalDomain?.isEmpty == false
+        }
         ScrollView(.horizontal) {
             HStack {
-                ForEach(RecommendedMock.recommended) {rec in
+                ForEach(recommended) {rec in
                     NavigationLink {
                         Text("프로필로 보낸다")
                         //                   Simon의 MyPageView? 고유 아이디로 찾아야 함
