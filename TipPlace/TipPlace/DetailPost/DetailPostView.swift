@@ -16,10 +16,14 @@ struct TempParentView: View {
                 }
             }
         }
+        .navigationTitle(Text("자취"))
     }
 }
 
 struct DetailPostView: View {
+    @State var isUsefulButtonSelected = false
+    @State var isCommentButtonClicked = false
+
     let detailPost: DetailPostModel
     // TODO: images를 뽑아 내는 게 여기서 할 일이 적합한지, CollectionView에서 처리하는 게 적합한지 생각해보기
     var images: [ContentImage] {
@@ -33,7 +37,7 @@ struct DetailPostView: View {
     }
 
     init(postId: Int) {
-        let detailPostData = BoardPostMock.boardPost51
+        let detailPostData = BoardPostMock.boardPost54
         detailPost = DetailPostModel(id: detailPostData.id,
                                      category: Category.economy,
                                      isAnonymous: detailPostData.isAnonymous,
@@ -71,18 +75,21 @@ struct DetailPostView: View {
                 // MARK: buttons
                 HStack {
                     // TODO: 각 버튼의 icon과 title 사이의 간격 조절 필요함
-                    Button {
-                        // action
-                    } label: {
+                    // MARK: 유용해요 버튼
+                    Button(action: {
+                        isUsefulButtonSelected.toggle()
+                    }, label: {
                         Label("유용해요 \(detailPost.usefulCount)", systemImage: "hands.clap")
-                            .modifier(BoxButtonLabel())
-                    }
-                    Button {
-                        // action
-                    } label: {
+                    })
+                    .buttonStyle(BoxButtonStyle(isButtonSelected: $isUsefulButtonSelected))
+
+                    // MARK: 댓글 버튼
+                    Button(action: {
+                        //
+                    }, label: {
                         Label("댓글 \(detailPost.comment.count)", systemImage: "text.bubble")
-                            .modifier(BoxButtonLabel())
-                    }
+                    })
+                    .buttonStyle(BoxButtonStyle(isButtonSelected: $isCommentButtonClicked))
                 }
                 .listRowBackground(Color.clear)
             }
@@ -116,17 +123,6 @@ struct DetailPostView: View {
         }
         .listStyle(.plain)
         .listRowSeparator(.visible, edges: .top)
-    }
-
-    struct BoxButtonLabel: ViewModifier {
-        func body(content: Content) -> some View {
-            content
-                .font(.caption)
-                .foregroundColor(.gray)
-                .padding(5)
-                .overlay(RoundedRectangle(cornerRadius: 5)
-                    .stroke(.gray, lineWidth: 1))
-        }
     }
 }
 
