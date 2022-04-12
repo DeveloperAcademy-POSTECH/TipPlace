@@ -22,13 +22,13 @@ extension DetailPostView {
         func makeBody(configuration: Self.Configuration) -> some View {
             if isButtonSelected {
                 return configuration.label
-                    .modifier(BoxButtonLabel())
+                    .modifier(DetailPostView.BoxButtonLabel())
                     .foregroundColor(.mint)
                     .overlay(RoundedRectangle(cornerRadius: 5)
                         .stroke(.mint, lineWidth: 1))
             } else {
                 return configuration.label
-                    .modifier(BoxButtonLabel())
+                    .modifier(DetailPostView.BoxButtonLabel())
                     .foregroundColor(.gray)
                     .overlay(RoundedRectangle(cornerRadius: 5)
                         .stroke(.gray, lineWidth: 1))
