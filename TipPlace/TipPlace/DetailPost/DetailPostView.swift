@@ -105,7 +105,6 @@ struct DetailPostView: View {
 
                 // MARK: buttons
                 HStack {
-                    // TODO: 각 버튼의 icon과 title 사이의 간격 조절 필요함
                     // MARK: 유용해요 버튼
                     Button(action: {
                         isUsefulButtonSelected.toggle()
