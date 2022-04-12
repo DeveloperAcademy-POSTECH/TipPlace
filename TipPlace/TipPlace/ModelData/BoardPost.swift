@@ -18,7 +18,7 @@ struct BoardPost: Codable, Identifiable {
     var usefulCount: Int
     var replyCount: Int
     var tag: [String]?
-    var categroy: Category
+    var category: Category
 
     init(id: Int, isAnonymous: Bool,
          title: String, content: String,
@@ -34,6 +34,6 @@ struct BoardPost: Codable, Identifiable {
         self.usefulCount = usefulCount
         self.replyCount = replyCount
         self.tag = tag
-        self.categroy = category
+        self.category = category
     }
 }

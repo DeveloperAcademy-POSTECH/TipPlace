@@ -44,7 +44,7 @@ struct CategoryBoardView: View {
 //                        정렬 피커 선택
                     }
                     .font(.caption)
-                    BoardListView(boardPostsList: loadPosts(selectedOption: selectedOption, categorayRawValue: 1))
+                    BoardListView(boardPostsList: loadPosts(selectedOption: selectedOption, category: categoryEnum))
 //                    ForEach문에 전달할 배열을 loadPosts에서 변경: 정렬
                 }
             }
