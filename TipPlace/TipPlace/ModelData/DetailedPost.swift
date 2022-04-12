@@ -15,7 +15,7 @@ struct DetailPostModel: Codable, Identifiable{
     var content: String
     var author: Author
     var createdAt: Date
-    var images: [URL]?
+    var images: [URL?]
     var tags: [String]?
     var usefulCount: Int
     var comment: [CommentModel]?
@@ -25,7 +25,7 @@ struct DetailPostModel: Codable, Identifiable{
     
     init(id: Int, category: Category, isAnonymous: Bool,
          title: String, content: String, author: Author,
-         createdAt: Date, images: [URL]?, tags: [String]?,
+         createdAt: Date, images: [URL?], tags: [String]?,
          usefulCount: Int, comment: [CommentModel]?, idWithUseful: [Int]?,
          idWithReply: [Int]?, idWithMark: [Int]?) {
         self.id = id
