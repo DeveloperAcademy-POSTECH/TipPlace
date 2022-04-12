@@ -55,10 +55,6 @@ struct DetailPostView: View {
                 detailPost = detailPostData
         }
 
-        if detailPost == nil {
-            detailPost = ListMock.detailPosts.first
-        }
-
         guard let detailPost = detailPost else {
             self.detailPost = DetailPostModel(id: 0,
                                               category: .etc,
