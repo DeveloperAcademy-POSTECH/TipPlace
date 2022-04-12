@@ -12,7 +12,7 @@ struct CategoryBoardView: View {
     @State var queryString = ""
     @State private var showSheet = false
     @State private var selectedOption = "최신순"
-    var boardPostsList: [BoardPost] = BoardPostListMock.boardPosts
+    var boardPostsList: [BoardPost] = ListMock.boardPosts
     var body: some View {
         NavigationView {
             List {
