@@ -28,7 +28,6 @@ extension DetailPostView {
         }
         var contentView: some View {
             VStack(alignment: .leading, spacing: 5) {
-                // TODO: 이미지 크기도 사용자 이름 Label의 폰트처럼 다이나믹한 사이즈가 적용되도록 개선이 필요할 듯함.
                 HStack {
                     Image(systemName: "person.crop.circle")
                         .resizable()
@@ -57,9 +56,13 @@ extension DetailPostView {
                     Button {
                         // 유용해요 버튼 액션
                     } label: {
-                        Label("\(comment.usefulCount)", systemImage: "hands.clap")
-                            .font(.bold(.caption)())
-                            .foregroundColor(.gray)
+                        HStack {
+                            Image(systemName: "hands.clap")
+                                .padding(EdgeInsets(top: -3, leading: 0, bottom: -3, trailing: -5))
+                            Text("\(comment.usefulCount)")
+                        }
+                        .font(.bold(.caption)())
+                        .foregroundColor(.gray)
                     }
                 }
             }
