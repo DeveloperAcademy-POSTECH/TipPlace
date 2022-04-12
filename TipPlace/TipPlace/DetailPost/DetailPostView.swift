@@ -87,7 +87,11 @@ struct DetailPostView: View {
                     Button(action: {
                         isUsefulButtonSelected.toggle()
                     }, label: {
-                        Label("유용해요 \(detailPost.usefulCount)", systemImage: "hands.clap")
+                        HStack {
+                            Image(systemName: "hands.clap")
+                                .padding(EdgeInsets(top: -3, leading: 0, bottom: -3, trailing: -5))
+                            Text("유용해요 \(detailPost.usefulCount)")
+                        }
                     })
                     .buttonStyle(BoxButtonStyle(isButtonSelected: $isUsefulButtonSelected))
 
@@ -95,7 +99,11 @@ struct DetailPostView: View {
                     Button(action: {
                         //
                     }, label: {
-                        Label("댓글 \(detailPost.comment.count)", systemImage: "text.bubble")
+                        HStack {
+                            Image(systemName: "text.bubble")
+                                .padding(EdgeInsets(top: -3, leading: 0, bottom: -3, trailing: -5))
+                            Text("댓글 \(detailPost.comment.count)")
+                        }
                     })
                     .buttonStyle(BoxButtonStyle(isButtonSelected: $isCommentButtonClicked))
                 }
