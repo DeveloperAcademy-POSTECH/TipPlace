@@ -9,25 +9,131 @@ import Foundation
 
 
 struct ListMock {
-    static var boardPosts: [BoardPost] = [BoardPostMock.boardPost1, BoardPostMock.boardPost2, BoardPostMock.boardPost3, BoardPostMock.boardPost4, BoardPostMock.boardPost5, BoardPostMock.boardPost53, BoardPostMock.boardPost54, BoardPostMock.boardPost55, BoardPostMock.boardPost56, BoardPostMock.boardPost57]
-    static var authors: [Author] = [AuthorMock.author1, AuthorMock.author2, AuthorMock.author3, AuthorMock.author4, AuthorMock.author5, AuthorMock.author6, AuthorMock.author7, AuthorMock.author8, AuthorMock.author9, AuthorMock.author10, AuthorMock.author53, AuthorMock.author54, AuthorMock.author55, AuthorMock.author56, AuthorMock.author57]
-    static var userInfos: [UserInfo] = [UserInfoMock.userInfo1, UserInfoMock.userInfo2, UserInfoMock.userInfo3, UserInfoMock.userInfo4, UserInfoMock.userInfo5, UserInfoMock.userInfo6, UserInfoMock.userInfo7, UserInfoMock.userInfo8, UserInfoMock.userInfo9, UserInfoMock.userInfo10, UserInfoMock.userInfo53, UserInfoMock.userInfo54, UserInfoMock.userInfo55, UserInfoMock.userInfo56, UserInfoMock.userInfo57]
-    static var detailPosts: [DetailPostModel] = [DetailPostMock.detailedPost1, DetailPostMock.detailedPost2, DetailPostMock.detailedPost3, DetailPostMock.detailedPost4, DetailPostMock.detailedPost5, DetailPostMock.DetailPostMock53, DetailPostMock.DetailPostMock54, DetailPostMock.DetailPostMock55, DetailPostMock.DetailPostMock56, DetailPostMock.DetailPostMock57]
-    static var comments: [CommentModel] = [CommentModelMock.comment1_1, CommentModelMock.comment1_2, CommentModelMock.comment1_3, CommentModelMock.comment1_4, CommentModelMock.comment1_5, CommentModelMock.comment1_6, CommentModelMock.comment2_1, CommentModelMock.comment2_2, CommentModelMock.comment2_3, CommentModelMock.comment3_1, CommentModelMock.comment3_2, CommentModelMock.comment3_3, CommentModelMock.comment3_4, CommentModelMock.comment4_1, CommentModelMock.comment4_2, CommentModelMock.comment4_3, CommentModelMock.CommentModelMock53, CommentModelMock.CommentModelMock54, CommentModelMock.CommentModelMock55, CommentModelMock.CommentModelMock56, CommentModelMock.CommentModelMock57, CommentModelMock.CommentModelMock58, CommentModelMock.CommentModelMock59, CommentModelMock.CommentModelMock60, CommentModelMock.CommentModelMock61, CommentModelMock.CommentModelMock62, CommentModelMock.CommentModelMock63, CommentModelMock.CommentModelMock64, CommentModelMock.CommentModelMock65, CommentModelMock.CommentModelMock66]
+    static var boardPosts: [BoardPost] = [BoardPostMock.boardPost1,
+                                          BoardPostMock.boardPost2,
+                                          BoardPostMock.boardPost3,
+                                          BoardPostMock.boardPost4,
+                                          BoardPostMock.boardPost5,
+                                          BoardPostMock.boardPost53,
+                                          BoardPostMock.boardPost54,
+                                          BoardPostMock.boardPost55,
+                                          BoardPostMock.boardPost56,
+                                          BoardPostMock.boardPost57]
+    static var authors: [Author] = [AuthorMock.author1,
+                                    AuthorMock.author2,
+                                    AuthorMock.author3,
+                                    AuthorMock.author4,
+                                    AuthorMock.author5,
+                                    AuthorMock.author6,
+                                    AuthorMock.author7,
+                                    AuthorMock.author8,
+                                    AuthorMock.author9,
+                                    AuthorMock.author10,
+                                    AuthorMock.author53,
+                                    AuthorMock.author54,
+                                    AuthorMock.author55,
+                                    AuthorMock.author56,
+                                    AuthorMock.author57]
+    static var userInfos: [UserInfo] = [UserInfoMock.userInfo1,
+                                        UserInfoMock.userInfo2,
+                                        UserInfoMock.userInfo3,
+                                        UserInfoMock.userInfo4,
+                                        UserInfoMock.userInfo5,
+                                        UserInfoMock.userInfo6,
+                                        UserInfoMock.userInfo7,
+                                        UserInfoMock.userInfo8,
+                                        UserInfoMock.userInfo9,
+                                        UserInfoMock.userInfo10,
+                                        UserInfoMock.userInfo53,
+                                        UserInfoMock.userInfo54,
+                                        UserInfoMock.userInfo55,
+                                        UserInfoMock.userInfo56,
+                                        UserInfoMock.userInfo57]
+    static var detailPosts: [DetailPostModel] = [DetailPostMock.detailedPost1,
+                                                 DetailPostMock.detailedPost2,
+                                                 DetailPostMock.detailedPost3,
+                                                 DetailPostMock.detailedPost4,
+                                                 DetailPostMock.detailedPost5,
+                                                 DetailPostMock.DetailPostMock53,
+                                                 DetailPostMock.DetailPostMock54,
+                                                 DetailPostMock.DetailPostMock55,
+                                                 DetailPostMock.DetailPostMock56,
+                                                 DetailPostMock.DetailPostMock57]
+    static var comments: [CommentModel] = [CommentModelMock.CommentModelMock1,
+                                           CommentModelMock.CommentModelMock2,
+                                           CommentModelMock.CommentModelMock3,
+                                           CommentModelMock.CommentModelMock4,
+                                           CommentModelMock.CommentModelMock5,
+                                           CommentModelMock.CommentModelMock6,
+                                           CommentModelMock.CommentModelMock7,
+                                           CommentModelMock.CommentModelMock8,
+                                           CommentModelMock.CommentModelMock9,
+                                           CommentModelMock.CommentModelMock10,
+                                           CommentModelMock.CommentModelMock11,
+                                           CommentModelMock.CommentModelMock12,
+                                           CommentModelMock.CommentModelMock13,
+                                           CommentModelMock.CommentModelMock14,
+                                           CommentModelMock.CommentModelMock15,
+                                           CommentModelMock.CommentModelMock16,
+                                           CommentModelMock.CommentModelMock53,
+                                           CommentModelMock.CommentModelMock54,
+                                           CommentModelMock.CommentModelMock55,
+                                           CommentModelMock.CommentModelMock56,
+                                           CommentModelMock.CommentModelMock57,
+                                           CommentModelMock.CommentModelMock58,
+                                           CommentModelMock.CommentModelMock59,
+                                           CommentModelMock.CommentModelMock60,
+                                           CommentModelMock.CommentModelMock61,
+                                           CommentModelMock.CommentModelMock62,
+                                           CommentModelMock.CommentModelMock63,
+                                           CommentModelMock.CommentModelMock64,
+                                           CommentModelMock.CommentModelMock65,
+                                           CommentModelMock.CommentModelMock66]
 }
 
 
 struct AuthorMock {
-    static var author1 = Author(id: 1, profileImage: URL(string: "https://img.hankyung.com/photo/202102/AD.25456232.1.jpg"), name: "자취왕", specialDomain: [Category.livingAlone, Category.cook, Category.cleaning])
-    static var author2 = Author(id: 2, profileImage: URL(string: "https://dimg.donga.com/wps/NEWS/IMAGE/2014/02/04/60569995.3.jpg"), name: "고라파덕", specialDomain: [Category.companionLife])
-    static var author3 = Author(id: 3, profileImage: nil, name: "물위애동동", specialDomain: [])
-    static var author4 = Author(id: 4, profileImage: nil, name: "minsu96", specialDomain: [])
-    static var author5 = Author(id: 5, profileImage: nil, name: "봄봄봄", specialDomain: [Category.livingAlone])
-    static var author6 = Author(id: 6, profileImage: URL(string: "https://cdn.crowdpic.net/detail-thumb/thumb_d_E2EEB7B49A4E6D7E44355FE4235DBB17.jpg"), name: "whitesky123", specialDomain: [])
-    static var author7 = Author(id: 7, profileImage: nil, name: "서울여포", specialDomain: [])
-    static var author8 = Author(id: 8, profileImage: nil, name: "나눔이", specialDomain: [Category.companionLife])
-    static var author9 = Author(id: 9, profileImage: URL(string: "https://image-notepet.akamaized.net/resize/620x-/seimage/20180220%2Facb6381fef1e712ccc38f6469aec5422.jpg"), name: "잠실동집사", specialDomain: [Category.companionLife, Category.health])
-    static var author10 = Author(id: 10, profileImage: URL(string: "https://t1.daumcdn.net/cfile/blog/242B904959643CE10E"), name: "puppy_love", specialDomain: [])
+    static var author1 = Author(id: 1,
+                                profileImage: URL(string: "https://img.hankyung.com/photo/202102/AD.25456232.1.jpg"),
+                                name: "자취왕",
+                                specialDomain: [Category.livingAlone, Category.cook, Category.cleaning])
+    static var author2 = Author(id: 2,
+                                profileImage:
+                                    URL(string: "https://dimg.donga.com/wps/NEWS/IMAGE/2014/02/04/60569995.3.jpg"),
+                                name: "고라파덕",
+                                specialDomain: [Category.companionLife])
+    static var author3 = Author(id: 3,
+                                profileImage: nil,
+                                name: "물위애동동",
+                                specialDomain: [])
+    static var author4 = Author(id: 4,
+                                profileImage: nil,
+                                name: "minsu96",
+                                specialDomain: [])
+    static var author5 = Author(id: 5,
+                                profileImage: nil,
+                                name: "봄봄봄",
+                                specialDomain: [Category.livingAlone])
+    static var author6 = Author(id: 6,
+                                profileImage: URL(string: "https://cdn.crowdpic.net/detail-thumb/thumb_d_E2EEB7B49A4E6D7E44355FE4235DBB17.jpg"),
+                                name: "whitesky123",
+                                specialDomain: [])
+    static var author7 = Author(id: 7,
+                                profileImage: nil,
+                                name: "서울여포",
+                                specialDomain: [])
+    static var author8 = Author(id: 8,
+                                profileImage: nil,
+                                name: "나눔이",
+                                specialDomain: [Category.companionLife])
+    static var author9 = Author(id: 9,
+                                profileImage: URL(string: "https://image-notepet.akamaized.net/resize/620x-/seimage/20180220%2Facb6381fef1e712ccc38f6469aec5422.jpg"),
+                                name: "잠실동집사",
+                                specialDomain: [Category.companionLife, Category.health])
+    static var author10 = Author(id: 10,
+                                 profileImage: URL(string: "https://t1.daumcdn.net/cfile/blog/242B904959643CE10E"),
+                                 name: "puppy_love",
+                                 specialDomain: [])
     static var author53 = Author(id: 53,
                                  profileImage: URL(string: "https://blog.kakaocdn.net/dn/dmzcxp/btqX826B16P/zUEIdmEYec7XLXKG1fghk1/img.jpg"),
                                  name: "보리아빠",
@@ -39,16 +145,106 @@ struct AuthorMock {
 }
 
 struct UserInfoMock{
-    static var userInfo1 = UserInfo(id: 1, profileImage: URL(string: "https://img.hankyung.com/photo/202102/AD.25456232.1.jpg"), name: "자취왕", specialDomain: [Category.livingAlone, Category.cook, Category.cleaning], usefulPost: [], replyPost: [1], markPost: [], writtendPost: [1, 3], interestedTag: ["자취", "청소", "요리", "꿀팁Ca"], interestedCategory: [Category.livingAlone, Category.cleaning, Category.cook])
-    static var userInfo2 = UserInfo(id: 2, profileImage: URL(string: "https://dimg.donga.com/wps/NEWS/IMAGE/2014/02/04/60569995.3.jpg"), name: "고라파덕", specialDomain: [Category.companionLife], usefulPost: [3], replyPost: [1,3], markPost: [1,3], writtendPost: [2], interestedTag: ["자취", "독립", "동물", "애완견"], interestedCategory: [Category.companionLife, Category.livingAlone])
-    static var userInfo3 = UserInfo(id: 3, profileImage: nil, name: "물위애동동", specialDomain: [], usefulPost: [1,3], replyPost: [1,3], markPost: [3], writtendPost: [], interestedTag: ["자취", "독립", "동물", "애완견"], interestedCategory: [Category.companionLife, Category.livingAlone])
-    static var userInfo4 = UserInfo(id: 4, profileImage: nil, name: "minsu96", specialDomain: [], usefulPost: [], replyPost: [2,4], markPost: [], writtendPost: [], interestedTag: ["자취", "독립", "동물", "애완견"], interestedCategory: [Category.companionLife, Category.livingAlone])
-    static var userInfo5 = UserInfo(id: 5, profileImage: nil, name: "봄봄봄", specialDomain: [Category.livingAlone], usefulPost: [1,3], replyPost: [1,3], markPost: [1,3], writtendPost: [], interestedTag: ["자취", "독립", "동물", "애완견"], interestedCategory: [Category.companionLife, Category.livingAlone])
-    static var userInfo6 = UserInfo(id: 6, profileImage: URL(string: "https://cdn.crowdpic.net/detail-thumb/thumb_d_E2EEB7B49A4E6D7E44355FE4235DBB17.jpg"), name: "whitesky123", specialDomain: [], usefulPost: [], replyPost: [2], markPost: [], writtendPost: [], interestedTag: ["자취", "독립", "동물", "애완견"], interestedCategory: [Category.companionLife, Category.livingAlone])
-    static var userInfo7 = UserInfo(id: 7, profileImage: nil, name: "서울여포", specialDomain: [], usefulPost: [], replyPost: [2], markPost: [], writtendPost: [], interestedTag: ["자취", "독립", "동물", "애완견"], interestedCategory: [Category.companionLife, Category.livingAlone])
-    static var userInfo8 = UserInfo(id: 8, profileImage: nil, name: "나눔이", specialDomain: [Category.companionLife], usefulPost: [], replyPost: [4], markPost: [4], writtendPost: [5], interestedTag: ["자취", "독립", "동물", "애완견"], interestedCategory: [Category.companionLife, Category.livingAlone])
-    static var userInfo9 = UserInfo(id: 9, profileImage: URL(string: "https://image-notepet.akamaized.net/resize/620x-/seimage/20180220%2Facb6381fef1e712ccc38f6469aec5422.jpg"), name: "잠실동집사", specialDomain: [Category.companionLife, Category.health], usefulPost: [4], replyPost: [4], markPost: [], writtendPost: [], interestedTag: ["고양이", "운동"], interestedCategory: [Category.companionLife, Category.health])
-    static var userInfo10 = UserInfo(id: 10, profileImage: URL(string: "https://t1.daumcdn.net/cfile/blog/242B904959643CE10E"), name: "puppy_love", specialDomain: [], usefulPost: [], replyPost: [], markPost: [], writtendPost: [4], interestedTag: ["강아지", "고양이"], interestedCategory: [Category.companionLife])
+    static var userInfo1 = UserInfo(id: 1,
+                                    profileImage: URL(string: "https://img.hankyung.com/photo/202102/AD.25456232.1.jpg"),
+                                    name: "자취왕",
+                                    specialDomain: [Category.livingAlone, Category.cook, Category.cleaning],
+                                    usefulPost: [],
+                                    replyPost: [1],
+                                    markPost: [],
+                                    writtendPost: [1, 3],
+                                    interestedTag: ["자취", "청소", "요리", "꿀팁Ca"],
+                                    interestedCategory: [Category.livingAlone, Category.cleaning, Category.cook])
+    static var userInfo2 = UserInfo(id: 2,
+                                    profileImage: URL(string: "https://dimg.donga.com/wps/NEWS/IMAGE/2014/02/04/60569995.3.jpg"),
+                                    name: "고라파덕",
+                                    specialDomain: [Category.companionLife],
+                                    usefulPost: [3],
+                                    replyPost: [1,3],
+                                    markPost: [1,3],
+                                    writtendPost: [2],
+                                    interestedTag: ["자취", "독립", "동물", "애완견"],
+                                    interestedCategory: [Category.companionLife, Category.livingAlone])
+    static var userInfo3 = UserInfo(id: 3,
+                                    profileImage: nil,
+                                    name: "물위애동동",
+                                    specialDomain: [],
+                                    usefulPost: [1,3],
+                                    replyPost: [1,3],
+                                    markPost: [3],
+                                    writtendPost: [],
+                                    interestedTag: ["자취", "독립", "동물", "애완견"],
+                                    interestedCategory: [Category.companionLife, Category.livingAlone])
+    static var userInfo4 = UserInfo(id: 4,
+                                    profileImage: nil,
+                                    name: "minsu96",
+                                    specialDomain: [],
+                                    usefulPost: [],
+                                    replyPost: [2,4],
+                                    markPost: [],
+                                    writtendPost: [],
+                                    interestedTag: ["자취", "독립", "동물", "애완견"],
+                                    interestedCategory: [Category.companionLife, Category.livingAlone])
+    static var userInfo5 = UserInfo(id: 5,
+                                    profileImage: nil,
+                                    name: "봄봄봄",
+                                    specialDomain: [Category.livingAlone],
+                                    usefulPost: [1,3],
+                                    replyPost: [1,3],
+                                    markPost: [1,3],
+                                    writtendPost: [],
+                                    interestedTag: ["자취", "독립", "동물", "애완견"],
+                                    interestedCategory: [Category.companionLife, Category.livingAlone])
+    static var userInfo6 = UserInfo(id: 6,
+                                    profileImage: URL(string: "https://cdn.crowdpic.net/detail-thumb/thumb_d_E2EEB7B49A4E6D7E44355FE4235DBB17.jpg"),
+                                    name: "whitesky123",
+                                    specialDomain: [],
+                                    usefulPost: [],
+                                    replyPost: [2],
+                                    markPost: [],
+                                    writtendPost: [],
+                                    interestedTag: ["자취", "독립", "동물", "애완견"],
+                                    interestedCategory: [Category.companionLife, Category.livingAlone])
+    static var userInfo7 = UserInfo(id: 7,
+                                    profileImage: nil,
+                                    name: "서울여포",
+                                    specialDomain: [],
+                                    usefulPost: [],
+                                    replyPost: [2],
+                                    markPost: [],
+                                    writtendPost: [],
+                                    interestedTag: ["자취", "독립", "동물", "애완견"],
+                                    interestedCategory: [Category.companionLife, Category.livingAlone])
+    static var userInfo8 = UserInfo(id: 8,
+                                    profileImage: nil,
+                                    name: "나눔이",
+                                    specialDomain: [Category.companionLife],
+                                    usefulPost: [],
+                                    replyPost: [4],
+                                    markPost: [4],
+                                    writtendPost: [5],
+                                    interestedTag: ["자취", "독립", "동물", "애완견"],
+                                    interestedCategory: [Category.companionLife, Category.livingAlone])
+    static var userInfo9 = UserInfo(id: 9,
+                                    profileImage: URL(string: "https://image-notepet.akamaized.net/resize/620x-/seimage/20180220%2Facb6381fef1e712ccc38f6469aec5422.jpg"),
+                                    name: "잠실동집사",
+                                    specialDomain: [Category.companionLife, Category.health],
+                                    usefulPost: [4],
+                                    replyPost: [4],
+                                    markPost: [],
+                                    writtendPost: [],
+                                    interestedTag: ["고양이", "운동"],
+                                    interestedCategory: [Category.companionLife, Category.health])
+    static var userInfo10 = UserInfo(id: 10,
+                                     profileImage: URL(string: "https://t1.daumcdn.net/cfile/blog/242B904959643CE10E"),
+                                     name: "puppy_love",
+                                     specialDomain: [],
+                                     usefulPost: [],
+                                     replyPost: [],
+                                     markPost: [],
+                                     writtendPost: [4],
+                                     interestedTag: ["강아지", "고양이"],
+                                     interestedCategory: [Category.companionLife])
     static var userInfo53 = UserInfo(id: 53,
                               profileImage: URL(string: "https://blog.kakaocdn.net/dn/dmzcxp/btqX826B16P/zUEIdmEYec7XLXKG1fghk1/img.jpg"),
                               name: "보리아빠",
@@ -102,7 +298,7 @@ struct UserInfoMock{
 }
 
 struct CommentModelMock {
-    static var comment1_1 = CommentModel(
+    static var CommentModelMock1 = CommentModel(
         id: 1,
         postId: 1,
         commentId: nil,
@@ -113,7 +309,7 @@ struct CommentModelMock {
         createdAt: Calendar.current.date(from: DateComponents(year: 2022, month: 3, day: 17, hour: 15, minute: 20))!,
         usefulCount: 0
     )
-    static var comment1_2 = CommentModel(
+    static var CommentModelMock2 = CommentModel(
         id: 2,
         postId: 1,
         commentId: 1,
@@ -124,7 +320,7 @@ struct CommentModelMock {
         createdAt: Calendar.current.date(from: DateComponents(year: 2022, month: 3, day: 17, hour: 15, minute: 24))!,
         usefulCount: 0
     )
-    static var comment1_3 = CommentModel(
+    static var CommentModelMock3 = CommentModel(
         id: 3,
         postId: 1,
         commentId: nil,
@@ -135,7 +331,7 @@ struct CommentModelMock {
         createdAt: Calendar.current.date(from: DateComponents(year: 2022, month: 3, day: 18, hour: 11, minute: 19))!,
         usefulCount: 0
     )
-    static var comment1_4 = CommentModel(
+    static var CommentModelMock4 = CommentModel(
         id: 4,
         postId: 1,
         commentId: nil,
@@ -146,7 +342,7 @@ struct CommentModelMock {
         createdAt: Calendar.current.date(from: DateComponents(year: 2022, month: 3, day: 19, hour: 17, minute: 20))!,
         usefulCount: 0
     )
-    static var comment1_5 = CommentModel(
+    static var CommentModelMock5 = CommentModel(
         id: 5,
         postId: 1,
         commentId: 4,
@@ -157,7 +353,7 @@ struct CommentModelMock {
         createdAt: Calendar.current.date(from: DateComponents(year: 2022, month: 3, day: 19, hour: 17, minute: 57))!,
         usefulCount: 0
     )
-    static var comment1_6 = CommentModel(
+    static var CommentModelMock6 = CommentModel(
         id: 6,
         postId: 1,
         commentId: 4,
@@ -168,7 +364,7 @@ struct CommentModelMock {
         createdAt: Calendar.current.date(from: DateComponents(year: 2022, month: 3, day: 19, hour: 18, minute: 02))!,
         usefulCount: 0
     )
-    static var comment2_1 = CommentModel(
+    static var CommentModelMock7 = CommentModel(
         id: 1,
         postId: 2,
         commentId: nil,
@@ -179,7 +375,7 @@ struct CommentModelMock {
         createdAt: Calendar.current.date(from: DateComponents(year: 2022, month: 3, day: 19, hour: 21, minute: 02))!,
         usefulCount: 0
     )
-    static var comment2_2 = CommentModel(
+    static var CommentModelMock8 = CommentModel(
         id: 2,
         postId: 2,
         commentId: nil,
@@ -190,7 +386,7 @@ struct CommentModelMock {
         createdAt: Calendar.current.date(from: DateComponents(year: 2022, month: 3, day: 20, hour: 10, minute: 10))!,
         usefulCount: 0
     )
-    static var comment2_3 = CommentModel(
+    static var CommentModelMock9 = CommentModel(
         id: 3,
         postId: 2,
         commentId: nil,
@@ -201,7 +397,7 @@ struct CommentModelMock {
         createdAt: Calendar.current.date(from: DateComponents(year: 2022, month: 3, day: 20, hour: 11, minute: 08))!,
         usefulCount: 0
     )
-    static var comment3_1 = CommentModel(
+    static var CommentModelMock10 = CommentModel(
         id: 1,
         postId: 3,
         commentId: nil,
@@ -212,7 +408,7 @@ struct CommentModelMock {
         createdAt: Calendar.current.date(from: DateComponents(year: 2022, month: 3, day: 24, hour: 15, minute: 12))!,
         usefulCount: 0
     )
-    static var comment3_2 = CommentModel(
+    static var CommentModelMock11 = CommentModel(
         id: 2,
         postId: 3,
         commentId: nil,
@@ -223,7 +419,7 @@ struct CommentModelMock {
         createdAt: Calendar.current.date(from: DateComponents(year: 2022, month: 3, day: 24, hour: 16, minute: 02))!,
         usefulCount: 0
     )
-    static var comment3_3 = CommentModel(
+    static var CommentModelMock12 = CommentModel(
         id: 3,
         postId: 3,
         commentId: 2,
@@ -234,7 +430,7 @@ struct CommentModelMock {
         createdAt: Calendar.current.date(from: DateComponents(year: 2022, month: 3, day: 24, hour: 16, minute: 04))!,
         usefulCount: 0
     )
-    static var comment3_4 = CommentModel(
+    static var CommentModelMock13 = CommentModel(
         id: 4,
         postId: 3,
         commentId: nil,
@@ -245,7 +441,7 @@ struct CommentModelMock {
         createdAt: Calendar.current.date(from: DateComponents(year: 2022, month: 3, day: 24, hour: 18, minute: 17))!,
         usefulCount: 0
     )
-    static var comment4_1 = CommentModel(
+    static var CommentModelMock14 = CommentModel(
         id: 1,
         postId: 4,
         commentId: nil,
@@ -256,7 +452,7 @@ struct CommentModelMock {
         createdAt: Calendar.current.date(from: DateComponents(year: 2022, month: 3, day: 27, hour: 12, minute: 18))!,
         usefulCount: 0
     )
-    static var comment4_2 = CommentModel(
+    static var CommentModelMock15 = CommentModel(
         id: 2,
         postId: 4,
         commentId: nil,
@@ -267,7 +463,7 @@ struct CommentModelMock {
         createdAt: Calendar.current.date(from: DateComponents(year: 2022, month: 3, day: 27, hour: 13, minute: 10))!,
         usefulCount: 0
     )
-    static var comment4_3 = CommentModel(
+    static var CommentModelMock16 = CommentModel(
         id: 3,
         postId: 4,
         commentId: nil,
@@ -415,10 +611,17 @@ struct DetailPostMock {
         content: "안녕하세요 자취왕입니다. 오늘은 자취할 때 먹기 좋은 음식에 대해 알려드리겠습니다. 우선 제일 추천하는 음식은 역시 간장계란밥입니다! 그외에도 시리얼, 감자전 등등이 있습니다.",
         author: AuthorMock.author1,
         createdAt: Calendar.current.date(from: DateComponents(year: 2022, month: 3, day: 17, hour: 14, minute: 17))!,
-        images: [URL(string: "https://t1.daumcdn.net/cfile/tistory/99189B4D5E3517292D"), URL(string: "http://weekly.chosun.com/up_fd/wc_news/2653/bimg_org/2653_on6.jpg"), URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnzM4jTazackQ05MqrX2Mf7UyHPrpJgoZJxg&usqp=CAU")],
+        images: [URL(string: "https://t1.daumcdn.net/cfile/tistory/99189B4D5E3517292D"),
+                 URL(string: "http://weekly.chosun.com/up_fd/wc_news/2653/bimg_org/2653_on6.jpg"),
+                 URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnzM4jTazackQ05MqrX2Mf7UyHPrpJgoZJxg&usqp=CAU")],
         tags: ["꿀팁 시리즈", "자취 요리"],
         usefulCount: 5,
-        comment: [CommentModelMock.comment1_1, CommentModelMock.comment1_2, CommentModelMock.comment1_3, CommentModelMock.comment1_4, CommentModelMock.comment1_5, CommentModelMock.comment1_6],
+        comment: [CommentModelMock.CommentModelMock1,
+                  CommentModelMock.CommentModelMock2,
+                  CommentModelMock.CommentModelMock3,
+                  CommentModelMock.CommentModelMock4,
+                  CommentModelMock.CommentModelMock5,
+                  CommentModelMock.CommentModelMock6],
         idWithUseful: [3, 5],
         idWithReply: [1, 2, 3, 5],
         idWithMark: [2, 5]
@@ -434,7 +637,7 @@ struct DetailPostMock {
         images: [],
         tags: ["바선생", "바퀴벌레 퇴치법", "자취 벌레"],
         usefulCount: 2,
-        comment: [CommentModelMock.comment2_1, CommentModelMock.comment2_2, CommentModelMock.comment2_3],
+        comment: [CommentModelMock.CommentModelMock7, CommentModelMock.CommentModelMock8, CommentModelMock.CommentModelMock9],
         idWithUseful: [],
         idWithReply: [4,6,7],
         idWithMark: []
@@ -450,7 +653,7 @@ struct DetailPostMock {
         images: [URL(string: "https://www.seoulfn.com/news/photo/202006/384499_164020_3214.jpg"), URL(string: "https://tgzzmmgvheix1905536.cdn.ntruss.com/2020/12/0bb7445853f545c4ac0febf9805ba2bd")],
         tags: ["꿀팁 시리즈", "자취 위치"],
         usefulCount: 5,
-        comment: [CommentModelMock.comment3_1, CommentModelMock.comment3_2, CommentModelMock.comment3_3, CommentModelMock.comment3_4],
+        comment: [CommentModelMock.CommentModelMock10, CommentModelMock.CommentModelMock11, CommentModelMock.CommentModelMock12, CommentModelMock.CommentModelMock13],
         idWithUseful: [2, 3, 5],
         idWithReply: [2, 3, 5],
         idWithMark: [2, 3, 5]
@@ -466,7 +669,7 @@ struct DetailPostMock {
         images: [URL(string: "http://image.dongascience.com/Photo/2020/03/5bddba7b6574b95d37b6079c199d7101.jpg")],
         tags: [],
         usefulCount: 2,
-        comment: [CommentModelMock.comment4_1, CommentModelMock.comment4_2, CommentModelMock.comment4_3],
+        comment: [CommentModelMock.CommentModelMock14, CommentModelMock.CommentModelMock15, CommentModelMock.CommentModelMock16],
         idWithUseful: [9],
         idWithReply: [4, 8, 9],
         idWithMark: [8]
@@ -491,13 +694,18 @@ struct DetailPostMock {
                                            category: Category.companionLife,
                                            isAnonymous: false,
                                            title: "강아지 첫 산책시키는 법",
-                                           content: "안녕하세요, 현재 말티푸와 함께 지내고 있는 견주입니다.\n강아지의 첫산책을 어떻게 해야하는지 걱정하는 분들이 많더라고요.\n우선은 강아지가 겁먹지 않게 자극적이지 않은, 조용한 환경에서부터 산책을 시작하고 점점 새로운 장소로 나아가는 것이 좋답니다.\nㅋㅋㅋ 강아지 때부터 산책을 잘 하는 습관을 들여야 적응한 이후에도 건강한 생활 습관을 가질 수 있습니다. 산책하는 데 익숙해지시면 건강에도 좋답니다!",
+                                           content: "안녕하세요, 현재 말티푸와 함께 지내고 있는 견주입니다.\n강아지의 첫산책을 어떻게 해야하는지 걱정하는 분들이 많더라고요.\n우선은 강아지가 겁먹지 않게 자극적이지 않은, 조용한 환경에서부터 산책을 시작하고 점점 새로운 장소로 나아가는 것이좋답니다.\n",
+                                                
                                            author: AuthorMock.author53,
                                            createdAt: Calendar.current.date(from: DateComponents(year: 2022, month: 3, day: 25, hour: 20, minute: 20))!,
                                            images: [URL(string: "https://static.dogmate.co.kr/blog/wp-content/uploads/2019/04/25165439/image_6552724361539941650988.jpg")],
                                            tags: ["강아지", "힐링", "산책", "건강"],
                                            usefulCount: 2,
-                                           comment: [CommentModelMock.CommentModelMock53, CommentModelMock.CommentModelMock54, CommentModelMock.CommentModelMock55, CommentModelMock.CommentModelMock56, CommentModelMock.CommentModelMock57],
+                                           comment: [CommentModelMock.CommentModelMock53,
+                                                     CommentModelMock.CommentModelMock54,
+                                                     CommentModelMock.CommentModelMock55,
+                                                     CommentModelMock.CommentModelMock56,
+                                                     CommentModelMock.CommentModelMock57],
                                            idWithUseful: [54, 57],
                                            idWithReply: [53, 54, 55, 56, 57],
                                            idWithMark: [57])
@@ -505,7 +713,7 @@ struct DetailPostMock {
                                            category: Category.companionLife,
                                            isAnonymous: false,
                                            title: "강아지가 깨물때 대처법",
-                                           content: "안녕하세요, 현재 말티푸와 함께 지내고 있는 견주입니다.\n어린 강아지들이 손을 깨물 때 귀엽다고 그냥 넘어가시면 안됩니다.\n제가 추천하는 방법은 손을 얼른 빼고 다른 장난감으로 놀아주는 것입니다.\n손은 장난감이 아니라는 것을 인식시켜주는 것이지요.\n성견이 되었을 때 물린다면 ...끔찍하군요 ㅠㅠ 그런 일이 생기지 않도록 주의합시다!",
+                                           content: "안녕하세요, 현재 말티푸와 함께 지내고 있는 견주입니다.\n어린 강아지들이 손을 깨물 때 귀엽다고 그냥 넘어가시면 안됩니다.\n제가 추천하는 방법은 손을 얼른 빼고 다른 장난감으로 놀아주는 것입니다.\n손은 장난감이 아니라는 것을 인식시켜주는 것이지요.",
                                            author: AuthorMock.author53,
                                            createdAt: Calendar.current.date(from: DateComponents(year: 2022, month: 4, day: 1, hour: 20, minute: 12))!,
                                            images: [URL(string: "https://t1.daumcdn.net/cfile/tistory/1154274F4F26BD861E")],
@@ -547,7 +755,7 @@ struct DetailPostMock {
                                                   category: Category.livingAlone,
                                                   isAnonymous: false,
                                                   title: "자취생 집에서 하기 좋은 운동 모음",
-                                                  content: "요즘 코로나 때문에 헬스장 다니기도 힘드시죠?\n그런분들을 위해 집에서 간단하게 할 수 있는 맨몸 운동들을 알려주려 합니다.\n우선 제일 추천하는 것은 스쿼트입니다.\n참고로 스쿼트는 다리 뿐만 아니라 여러 근육을 강화할 수 있는 전신운동입니다. 자취생 필독!",
+                                                  content: "요즘 코로나 때문에 헬스장 다니기도 힘드시죠?\n그런분들을 위해 집에서 간단하게 할 수 있는 맨몸 운동들을 알려주려 합니다.\n우선 제일 추천하는 것은 스쿼트입니다.\n참고로 스쿼트는 다리 뿐만 아니라 여러 근육을 강화할 수 있는 전신운동입니다.",
                                                   author: AuthorMock.author56,
                                                   createdAt: Calendar.current.date(from: DateComponents(year: 2022, month: 4, day: 2, hour: 20, minute: 01))!,
                                                   images: [],
