@@ -16,9 +16,8 @@ struct RecommendList: View {
                 ForEach(recommended) {rec in
                     NavigationLink {
                         Text("프로필로 보낸다")
-                        //                   Simon의 MyPageView? 고유 아이디로 찾아야 함
                     } label: {
-                        RecommendedItem(recommended: rec)
+                        ExpertSelectButtonView(title: rec.name, imageUrl: rec.name)
                     }
                 }
             }

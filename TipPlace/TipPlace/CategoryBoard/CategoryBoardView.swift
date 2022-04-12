@@ -87,7 +87,7 @@ struct BoardListView: View {
         ForEach(boardPostsList) { boardPost in
             NavigationLink {
                 DetailPostView(postId: boardPost.id)
-            } label: { BoardRow(boardPost: boardPost)
+            } label: { MainBoardRow(boardPost: boardPost)
                     .padding(.vertical, 5)
             }
         }
