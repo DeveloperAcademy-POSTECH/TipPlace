@@ -14,7 +14,7 @@ struct MainBoardList: View {
         ForEach(boardPostsList) { boardPost in
             ZStack {
                 MainBoardRow(boardPost: boardPost)
-                NavigationLink(destination: Text("DetailPostView")) {
+                NavigationLink(destination: DetailPostView(postId: 1)) {
                 }
                 .opacity(0)
                 .buttonStyle(.plain)
