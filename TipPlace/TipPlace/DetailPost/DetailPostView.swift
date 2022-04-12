@@ -21,8 +21,16 @@ struct TempParentView: View {
 }
 
 struct DetailPostView: View {
+    @State var didBookMarked = false
     @State var isUsefulButtonSelected = false
     @State var isCommentButtonClicked = false
+
+    var bookmarkImageString: String {
+        get {
+            if didBookMarked { return "bookmark.fill" }
+            return "bookmark"
+        }
+    }
 
     let detailPost: DetailPostModel
     // TODO: images를 뽑아 내는 게 여기서 할 일이 적합한지, CollectionView에서 처리하는 게 적합한지 생각해보기
@@ -106,6 +114,7 @@ struct DetailPostView: View {
         }
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
+            // MARK: NavigationBar - ToolBar Buttons
             HStack {
                 Button {
                     // button action
@@ -113,12 +122,12 @@ struct DetailPostView: View {
                     Label("", systemImage: "square.and.arrow.up")
                     .labelStyle(.iconOnly)
                 }
-                Button {
-                    // button action
-                } label: {
-                    Label("", systemImage: "bookmark")
-                    .labelStyle(.iconOnly)
-                }
+                Button(action: {
+                    didBookMarked.toggle()
+                }, label: {
+                    Label("", systemImage: bookmarkImageString)
+                        .labelStyle(.iconOnly)
+                })
             }
         }
         .listStyle(.plain)
