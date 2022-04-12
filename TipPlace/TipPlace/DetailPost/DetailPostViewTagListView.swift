@@ -35,7 +35,7 @@ extension DetailPostView {
     }
 }
 
-struct TagListView_Previews: PreviewProvider {
+struct DetailPostViewTagListView_Previews: PreviewProvider {
     static var previews: some View {
         DetailPostView(postId: 1)
     }

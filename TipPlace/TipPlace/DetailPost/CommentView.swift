@@ -70,23 +70,23 @@ extension DetailPostView {
 struct CommentView_Previews: PreviewProvider {
     static var previews: some View {
         DetailPostView(postId: 1)
-        DetailPostView.CommentView(comment: DetailPostView.CommentModel(
-                                    id: 1,
-                                    postId: 1,
-                                    commentId: nil,
-                                    isAnonnymous: false,
-                                    author: AuthorMock.author51,
-                                    content: """
-                                            임시 댓글입니다.
-                                            임시 댓글입니다.
-                                            임시 댓글입니다.
-                                            임시 댓글입니다.
-                                            임시 댓글입니다.
-                                            임시 댓글입니다.
-                                            """,
-                                    isReply: true,
-                                    createdAt: Date(),
-                                    usefulCount: 25))
-        .frame(maxHeight: 100)
+//        DetailPostView.CommentView(comment: DetailPostView.CommentModel(
+//                                    id: 1,
+//                                    postId: 1,
+//                                    commentId: nil,
+//                                    isAnonnymous: false,
+//                                    author: AuthorMock.author51,
+//                                    content: """
+//                                            임시 댓글입니다.
+//                                            임시 댓글입니다.
+//                                            임시 댓글입니다.
+//                                            임시 댓글입니다.
+//                                            임시 댓글입니다.
+//                                            임시 댓글입니다.
+//                                            """,
+//                                    isReply: true,
+//                                    createdAt: Date(),
+//                                    usefulCount: 25))
+//        .frame(maxHeight: 100)
     }
 }

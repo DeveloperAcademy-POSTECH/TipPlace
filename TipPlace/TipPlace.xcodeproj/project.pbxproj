@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		070AD7B9280599BF0067FFAF /* DetailPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070AD7B8280599BF0067FFAF /* DetailPostView.swift */; };
 		0769BF3927FE6FD9009548C9 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 0769BF3827FE6FD9009548C9 /* .swiftlint.yml */; };
 		0769BF3E27FEAF7E009548C9 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0769BF3D27FEAF7E009548C9 /* Category.swift */; };
 		0769BF5627FF05E4009548C9 /* BoardPostListData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0769BF5527FF05E4009548C9 /* BoardPostListData.json */; };
@@ -16,9 +17,8 @@
 		0769BF6227FF06DA009548C9 /* UserData1.json in Resources */ = {isa = PBXBuildFile; fileRef = 0769BF6127FF06DA009548C9 /* UserData1.json */; };
 		0769BF6427FF06F8009548C9 /* UserData2.json in Resources */ = {isa = PBXBuildFile; fileRef = 0769BF6327FF06F8009548C9 /* UserData2.json */; };
 		0769BF6627FF0719009548C9 /* RecommendedPeopleData.json in Resources */ = {isa = PBXBuildFile; fileRef = 0769BF6527FF0719009548C9 /* RecommendedPeopleData.json */; };
-		0769BF6A27FFD03B009548C9 /* DetailPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0769BF6927FFD03B009548C9 /* DetailPostView.swift */; };
 		07CAE79828046C970090FD23 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CAE79728046C970090FD23 /* CommentView.swift */; };
-		07CAE79E2804E5C90090FD23 /* TagListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CAE79D2804E5C90090FD23 /* TagListView.swift */; };
+		07CAE79E2804E5C90090FD23 /* DetailPostViewTagListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CAE79D2804E5C90090FD23 /* DetailPostViewTagListView.swift */; };
 		07CAE7A0280511AA0090FD23 /* BoxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CAE79F280511AA0090FD23 /* BoxButton.swift */; };
 		07DB9CA32804666300CDC1B0 /* AuthorProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DB9CA22804666300CDC1B0 /* AuthorProfileView.swift */; };
 		07DB9CA52804675400CDC1B0 /* ImageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DB9CA42804675400CDC1B0 /* ImageCollectionView.swift */; };
@@ -54,6 +54,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		070AD7B8280599BF0067FFAF /* DetailPostView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailPostView.swift; sourceTree = "<group>"; };
 		0769BF3827FE6FD9009548C9 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		0769BF3D27FEAF7E009548C9 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		0769BF5527FF05E4009548C9 /* BoardPostListData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BoardPostListData.json; sourceTree = "<group>"; };
@@ -63,9 +64,8 @@
 		0769BF6127FF06DA009548C9 /* UserData1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = UserData1.json; sourceTree = "<group>"; };
 		0769BF6327FF06F8009548C9 /* UserData2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = UserData2.json; sourceTree = "<group>"; };
 		0769BF6527FF0719009548C9 /* RecommendedPeopleData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RecommendedPeopleData.json; sourceTree = "<group>"; };
-		0769BF6927FFD03B009548C9 /* DetailPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostView.swift; sourceTree = "<group>"; };
 		07CAE79728046C970090FD23 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
-		07CAE79D2804E5C90090FD23 /* TagListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagListView.swift; sourceTree = "<group>"; };
+		07CAE79D2804E5C90090FD23 /* DetailPostViewTagListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostViewTagListView.swift; sourceTree = "<group>"; };
 		07CAE79F280511AA0090FD23 /* BoxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxButton.swift; sourceTree = "<group>"; };
 		07DB9CA22804666300CDC1B0 /* AuthorProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorProfileView.swift; sourceTree = "<group>"; };
 		07DB9CA42804675400CDC1B0 /* ImageCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionView.swift; sourceTree = "<group>"; };
@@ -138,11 +138,11 @@
 		07DB9CA12804663D00CDC1B0 /* DetailPost */ = {
 			isa = PBXGroup;
 			children = (
-				0769BF6927FFD03B009548C9 /* DetailPostView.swift */,
+				070AD7B8280599BF0067FFAF /* DetailPostView.swift */,
 				07DB9CA22804666300CDC1B0 /* AuthorProfileView.swift */,
 				07DB9CA42804675400CDC1B0 /* ImageCollectionView.swift */,
 				07CAE79728046C970090FD23 /* CommentView.swift */,
-				07CAE79D2804E5C90090FD23 /* TagListView.swift */,
+				07CAE79D2804E5C90090FD23 /* DetailPostViewTagListView.swift */,
 				07CAE79F280511AA0090FD23 /* BoxButton.swift */,
 			);
 			path = DetailPost;
@@ -214,7 +214,6 @@
 			isa = PBXGroup;
 			children = (
 				07DB9CA12804663D00CDC1B0 /* DetailPost */,
-				C5991F9927FD6AD2007A7F26 /* TipPlaceApp.swift */,
 				C5991FA927FD6B97007A7F26 /* MainTabView.swift */,
 				AE3418B42803D23900A54336 /* MainBoard */,
 				C5991FA727FD6B84007A7F26 /* CategoryView.swift */,
@@ -223,7 +222,6 @@
 				C5F0C57B28041C0D0016AD09 /* MyPageChildrenView */,
 				C5EDB12F2803D7B700DC8CDB /* ProfileImageView.swift */,
 				C5991F9927FD6AD2007A7F26 /* TipPlaceApp.swift */,
-				0769BF6927FFD03B009548C9 /* DetailPostView.swift */,
 				BC39DC272803C98300192C74 /* PostUploadView.swift */,
 				AE3418B12803D08500A54336 /* Utility */,
 				0769BF3C27FEAF6A009548C9 /* Enum */,
@@ -361,15 +359,15 @@
 				C5991FA827FD6B84007A7F26 /* CategoryView.swift in Sources */,
 				BC39DC3628050EE700192C74 /* CommentModel.swift in Sources */,
 				4AA1E3BD28006B2A00156D19 /* RecommendedItem.swift in Sources */,
+				070AD7B9280599BF0067FFAF /* DetailPostView.swift in Sources */,
 				BC39DC3A280519DB00192C74 /* UserInfo.swift in Sources */,
 				BC39DC282803C98300192C74 /* PostUploadView.swift in Sources */,
-				07CAE79E2804E5C90090FD23 /* TagListView.swift in Sources */,
+				07CAE79E2804E5C90090FD23 /* DetailPostViewTagListView.swift in Sources */,
 				4AA1E3BB28006B1F00156D19 /* CategoryBoardView.swift in Sources */,
 				07DB9CA52804675400CDC1B0 /* ImageCollectionView.swift in Sources */,
 				4A798DC828052C8900DD31E4 /* loadPosts.swift in Sources */,
 				4A798DC728052C8900DD31E4 /* dateToString.swift in Sources */,
 				AE3418BA2803D41F00A54336 /* MainBoardListView.swift in Sources */,
-				0769BF6A27FFD03B009548C9 /* DetailPostView.swift in Sources */,
 				C5991FAD27FD6B97007A7F26 /* MyPageView.swift in Sources */,
 				BC39DC3828050EF000192C74 /* DetailedPostModel.swift in Sources */,
 				C5991FAE27FD6B97007A7F26 /* MainBoardView.swift in Sources */,
