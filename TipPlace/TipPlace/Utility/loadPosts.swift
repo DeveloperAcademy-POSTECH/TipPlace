@@ -10,16 +10,14 @@ import Foundation
 // 우선순위 기준 정렬 함수
 // 카테고리를 데이터 차원에서 분리 -> categoryRawValue 제외 가능 (커스텀 가능)
 
-func loadPosts(selected: String) -> [BoardPost] {
-    var boardPosts: [BoardPost]
-    if selected == "최신순" {
-        boardPosts = ListMock.boardPosts
+func filterPost(with allPosts: [BoardPost], by selected: String) -> [BoardPost] {
+    if selected == "전체" {
+        return allPosts
+    } else {
+        return allPosts
             .filter({ $0.tag?.contains(selected) ?? false })
             .sorted(by: { $0.usefulCount > $1.usefulCount })
-    } else {
-        boardPosts = ListMock.boardPosts.sorted(by: { $0.usefulCount > $1.usefulCount })
     }
-    return boardPosts
 }
 
 func loadPosts(selectedOption: String, category: Category) -> [BoardPost] {
