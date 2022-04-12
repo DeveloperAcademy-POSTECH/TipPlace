@@ -778,7 +778,7 @@ struct BoardPostMock {
         thumnailImageUrl: URL(string: "https://t1.daumcdn.net/cfile/tistory/99189B4D5E3517292D"),
         usefulCount: 5,
         replyCount: 6,
-        tag: ["꿀팁 시리즈", "자취 요리"],
+        tag: ["꿀팁 시리즈", "자취 요리", "자취"],
         category: Category.livingAlone
     )
     static var boardPost2 = BoardPost(
@@ -791,7 +791,7 @@ struct BoardPostMock {
         thumnailImageUrl: nil,
         usefulCount: 2,
         replyCount: 3,
-        tag: ["바선생", "바퀴벌레 퇴치법", "자취 벌레"],
+        tag: ["바선생", "바퀴벌레 퇴치법", "자취 벌레", "자취"],
         category: Category.livingAlone
     )
     static var boardPost3 = BoardPost(
@@ -804,7 +804,7 @@ struct BoardPostMock {
         thumnailImageUrl: URL(string: "https://www.seoulfn.com/news/photo/202006/384499_164020_3214.jpg"),
         usefulCount: 5,
         replyCount: 4,
-        tag: ["꿀팁 시리즈", "자취 위치"],
+        tag: ["꿀팁 시리즈", "자취 위치", "자취"],
         category: Category.livingAlone
     )
     static var boardPost4 = BoardPost(
@@ -830,7 +830,7 @@ struct BoardPostMock {
         thumnailImageUrl: nil,
         usefulCount: 0,
         replyCount: 0,
-        tag: ["강아지 목욕", "새끼 강아지"],
+        tag: ["강아지", "강아지 목욕", "새끼 강아지"],
         category: Category.companionLife
     )
     static var boardPost53 = BoardPost(id: 53,
