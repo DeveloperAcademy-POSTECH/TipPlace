@@ -40,10 +40,11 @@ struct PostUploadView: View {
     func uiToBase64(uiImg: UIImage) -> String {
         return (uiImg.jpegData(compressionQuality: 1)?.base64EncodedString())!
     }
-    // 서버에 데이터 보내기 (현재는 Print문으로 대체)
+    // 서버에 데이터 보내기
     func upload() {
         // author[0] 으로 로그인 되어있다고 가정
         // 서버가 없어서 사진은 업로드 불가
+        // 리스트에 데이터를 붙이는 식으로 임시 구현
         ListMock.boardPosts.append(
             BoardPost(
                 id: ListMock.boardPosts.count+1,
