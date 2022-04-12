@@ -33,7 +33,7 @@
 		AEE70E5C28004B2E004E0F01 /* LoadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE70E5B28004B2E004E0F01 /* LoadData.swift */; };
 		BC39DC282803C98300192C74 /* PostUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC39DC272803C98300192C74 /* PostUploadView.swift */; };
 		BC39DC3628050EE700192C74 /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC39DC3528050EE700192C74 /* CommentModel.swift */; };
-		BC39DC3828050EF000192C74 /* DetailedPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC39DC3728050EF000192C74 /* DetailedPost.swift */; };
+		BC39DC3828050EF000192C74 /* DetailedPostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC39DC3728050EF000192C74 /* DetailedPostModel.swift */; };
 		BC39DC3A280519DB00192C74 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC39DC39280519DB00192C74 /* UserInfo.swift */; };
 		C5991F9A27FD6AD2007A7F26 /* TipPlaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5991F9927FD6AD2007A7F26 /* TipPlaceApp.swift */; };
 		C5991F9E27FD6AD3007A7F26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5991F9D27FD6AD3007A7F26 /* Assets.xcassets */; };
@@ -75,7 +75,7 @@
 		AEE70E5B28004B2E004E0F01 /* LoadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadData.swift; sourceTree = "<group>"; };
 		BC39DC272803C98300192C74 /* PostUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostUploadView.swift; sourceTree = "<group>"; };
 		BC39DC3528050EE700192C74 /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
-		BC39DC3728050EF000192C74 /* DetailedPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedPost.swift; sourceTree = "<group>"; };
+		BC39DC3728050EF000192C74 /* DetailedPostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedPostModel.swift; sourceTree = "<group>"; };
 		BC39DC39280519DB00192C74 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		C5991F9627FD6AD2007A7F26 /* TipPlace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TipPlace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5991F9927FD6AD2007A7F26 /* TipPlaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipPlaceApp.swift; sourceTree = "<group>"; };
@@ -152,7 +152,7 @@
 				AE4E3A6428030F1000293623 /* MockData.swift */,
 				AE4E3A6228030BEF00293623 /* BoardPost.swift */,
 				BC39DC3528050EE700192C74 /* CommentModel.swift */,
-				BC39DC3728050EF000192C74 /* DetailedPost.swift */,
+				BC39DC3728050EF000192C74 /* DetailedPostModel.swift */,
 				AE4E3A5E28030B8100293623 /* Author.swift */,
 				BC39DC39280519DB00192C74 /* UserInfo.swift */,
 			);
@@ -344,7 +344,7 @@
 				AE3418BA2803D41F00A54336 /* MainBoardListView.swift in Sources */,
 				0769BF6A27FFD03B009548C9 /* DetailPostView.swift in Sources */,
 				C5991FAD27FD6B97007A7F26 /* MyPageView.swift in Sources */,
-				BC39DC3828050EF000192C74 /* DetailedPost.swift in Sources */,
+				BC39DC3828050EF000192C74 /* DetailedPostModel.swift in Sources */,
 				C5991FAE27FD6B97007A7F26 /* MainBoardView.swift in Sources */,
 				C5F0C5832804A8CD0016AD09 /* MyPageChildrenViewList.swift in Sources */,
 				C5F0C57F28041DEE0016AD09 /* ExpertCollectionView.swift in Sources */,
