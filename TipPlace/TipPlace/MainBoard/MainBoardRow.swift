@@ -32,13 +32,18 @@ struct MainBoardRow: View {
                 }
             }
             Spacer()
-            // TODO: 서버로부터 이미지 받아서 뿌리기
-            Image("요정의 샘")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 100, height: 100, alignment: .center)
+            if let imageURL = boardPost.thumnailImageUrl {
+                AsyncImage(url: imageURL) { image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                } placeholder: {
+                    ProgressView()
+                }
+                .frame(width: 110, height: 110, alignment: .center)
                 .clipShape(RoundedRectangle(cornerRadius: 10, style: .circular))
                 .padding(.leading, 5)
+            }
         }
         .padding(5)
     }
