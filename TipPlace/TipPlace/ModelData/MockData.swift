@@ -23,7 +23,7 @@ struct BoardPostListMock {
         BoardPostMock.boardPost55,
         BoardPostMock.boardPost56,
         BoardPostMock.boardPost57,
-        BoardPostMock.boardPost58,]
+        BoardPostMock.boardPost58]
 }
 
 struct AuthorMock {
