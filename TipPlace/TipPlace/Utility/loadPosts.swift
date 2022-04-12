@@ -12,15 +12,11 @@ import Foundation
 func loadPosts(selectedOption: String, category: Category) -> [BoardPost]{
     var boardPosts: [BoardPost]
     if selectedOption == "최신순" {
-        boardPosts = ListMock.boardPosts
-            .filter({
-                $0.category == category}).sorted(by: {
-                    $0.createdAt > $1.createdAt})
+        boardPosts = ListMock.boardPosts.sorted(by: {$0.createdAt > $1.createdAt})
+    } else if selectedOption == "인기순" {
+        boardPosts = ListMock.boardPosts.sorted(by: {$0.replyCount > $1.replyCount})
     } else {
-        boardPosts = ListMock.boardPosts
-            .filter({
-                $0.category == category}).sorted(by: {
-                    $0.usefulCount > $1.usefulCount})
+        boardPosts = ListMock.boardPosts.sorted(by: {$0.usefulCount > $1.usefulCount})
     }
     return boardPosts
 }
