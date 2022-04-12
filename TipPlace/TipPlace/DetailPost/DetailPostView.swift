@@ -33,30 +33,60 @@ struct DetailPostView: View {
     }
 
     let detailPost: DetailPostModel
+
+    var commentCount: Int {
+        get {
+            if let comment = detailPost.comment {
+                return comment.count
+            } else { return 0 }
+        }
+    }
+
     // TODO: images를 뽑아 내는 게 여기서 할 일이 적합한지, CollectionView에서 처리하는 게 적합한지 생각해보기
     var images: [ContentImage] {
         get {
             var imageArray: [ContentImage] = []
             for imageUrl in detailPost.images {
-                imageArray.append(ContentImage(imageUrl: imageUrl))
+                if let imageUrl = imageUrl {
+                    imageArray.append(ContentImage(imageUrl: imageUrl))
+                }
             }
             return imageArray
         }
     }
 
     init(postId: Int) {
-        let detailPostData = BoardPostMock.boardPost54
-        detailPost = DetailPostModel(id: detailPostData.id,
-                                     category: Category.economy,
-                                     isAnonymous: detailPostData.isAnonymous,
-                                     title: detailPostData.title,
-                                     content: detailPostData.content,
-                                     author: detailPostData.author,
-                                     createdAt: detailPostData.createdAt,
-                                     images: [],
-                                     tags: ["aaa", "bbb"],
-                                     usefulCount: detailPostData.usefulCount,
-                                     comment: [])
+        var detailPost: DetailPostModel?
+
+        for detailPostData in ListMock.detailPosts where detailPostData.id == postId {
+                detailPost = detailPostData
+        }
+
+        if detailPost == nil {
+            detailPost = ListMock.detailPosts.first
+        }
+
+        guard let detailPost = detailPost else {
+            self.detailPost = DetailPostModel(id: 0,
+                                              category: .etc,
+                                              isAnonymous: true,
+                                              title: "",
+                                              content: "",
+                                              author: Author(id: 0,
+                                                             profileImage: nil,
+                                                             name: "",
+                                                             specialDomain: nil),
+                                              createdAt: Date(),
+                                              images: [],
+                                              tags: nil,
+                                              usefulCount: 0,
+                                              comment: nil,
+                                              idWithUseful: nil,
+                                              idWithReply: nil,
+                                              idWithMark: nil)
+            return
+        }
+        self.detailPost = detailPost
     }
 
     var body: some View {
@@ -76,8 +106,8 @@ struct DetailPostView: View {
                 ImageCollecionView(imageDatas: images)
 
                 // MARK: tags
-                if !detailPost.tags.isEmpty {
-                    TagListView(tags: detailPost.tags)
+                if let tags = detailPost.tags, !tags.isEmpty {
+                    TagListView(tags: tags)
                 }
 
                 // MARK: buttons
@@ -102,7 +132,7 @@ struct DetailPostView: View {
                         HStack {
                             Image(systemName: "text.bubble")
                                 .padding(EdgeInsets(top: -3, leading: 0, bottom: -3, trailing: -5))
-                            Text("댓글 \(detailPost.comment.count)")
+                            Text("댓글 \(commentCount)")
                         }
                     })
                     .buttonStyle(BoxButtonStyle(isButtonSelected: $isCommentButtonClicked))
@@ -113,9 +143,11 @@ struct DetailPostView: View {
 
             // MARK: reply section
             Section(header: Text("댓글")) {
-                ForEach(detailPost.comment) { comment in
-                    CommentView(comment: comment)
-                        .listRowBackground(Color.clear)
+                if let comment = detailPost.comment {
+                    ForEach(comment) { comment in
+                        CommentView(comment: comment)
+                            .listRowBackground(Color.clear)
+                    }
                 }
             }
             .listRowSeparator(.visible, edges: .top)
@@ -149,30 +181,30 @@ struct DetailPostView_Previews: PreviewProvider {
         DetailPostView(postId: 1)
     }
 }
-
-extension DetailPostView {
-    struct DetailPostModel {
-        let id: Int
-        let category: Category
-        let isAnonymous: Bool
-        let title: String
-        let content: String
-        let author: Author
-        let createdAt: Date
-        let images: [URL]
-        let tags: [String]
-        let usefulCount: Int
-        let comment: [CommentModel]
-    }
-    struct CommentModel: Identifiable {
-        let id: Int
-        let postId: Int
-        let commentId: Int? // 대댓글일 경우 댓글의 ID
-        let isAnonnymous: Bool
-        let author: Author
-        let content: String
-        let isReply: Bool // 댓글이면 false, 대댓글이면 true
-        let createdAt: Date
-        let usefulCount: Int
-    }
-}
+//
+//extension DetailPostView {
+//    struct DetailPostModel {
+//        let id: Int
+//        let category: Category
+//        let isAnonymous: Bool
+//        let title: String
+//        let content: String
+//        let author: Author
+//        let createdAt: Date
+//        let images: [URL]
+//        let tags: [String]
+//        let usefulCount: Int
+//        let comment: [CommentModel]
+//    }
+//    struct CommentModel: Identifiable {
+//        let id: Int
+//        let postId: Int
+//        let commentId: Int? // 대댓글일 경우 댓글의 ID
+//        let isAnonnymous: Bool
+//        let author: Author
+//        let content: String
+//        let isReply: Bool // 댓글이면 false, 대댓글이면 true
+//        let createdAt: Date
+//        let usefulCount: Int
+//    }
+//}
