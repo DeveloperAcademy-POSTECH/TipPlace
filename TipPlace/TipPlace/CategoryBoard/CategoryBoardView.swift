@@ -16,9 +16,8 @@ struct CategoryBoardView: View {
     var body: some View {
         NavigationView {
             List {
-                Section(footer: Text("")) {
+                Section {
                     Text("\(categoryEnum.korean) 전문가의 글 모아보기")
-                        .font(.caption)
                     RecommendList(categoryEnum: categoryEnum)
                 }
                 .listRowSeparator(.hidden)
