@@ -19,7 +19,7 @@ struct CategoryBoardView: View {
                 Section(footer: Text("")) {
                     Text("\(categoryEnum.korean) 전문가의 글 모아보기")
                         .font(.caption)
-                    RecommendList()
+                    RecommendList(categoryEnum: categoryEnum)
                 }
                 .listRowSeparator(.hidden)
                 .listSectionSeparator(.visible, edges: .bottom)

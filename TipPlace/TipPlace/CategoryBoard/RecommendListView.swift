@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct RecommendList: View {
+    var categoryEnum: Category
     var body: some View {
-        let recommended = ListMock.authors.filter{
-            $0.speficalDomain?.isEmpty == false
-        }
+        let recommended = loadRecommends(category: categoryEnum)
         ScrollView(.horizontal) {
             HStack {
                 ForEach(recommended) {rec in
@@ -30,6 +29,6 @@ struct RecommendList: View {
 
 struct RecommendList_Previews: PreviewProvider {
     static var previews: some View {
-        RecommendList()
+        RecommendList(categoryEnum:Category.livingAlone)
     }
 }
