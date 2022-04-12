@@ -12,7 +12,7 @@ struct CategoryBoardView: View {
     @State var queryString = ""
     @State private var showSheet = false
     @State private var selectedOption = "최신순"
-    var boardPostsList: [BoardPost] = ListMock.boardPosts
+    var boardPostsList: [BoardPost] = BoardPostListMock.boardPosts
     var body: some View {
         NavigationView {
             List {
@@ -37,6 +37,9 @@ struct CategoryBoardView: View {
                                 Button("최신순") {
                                     selectedOption = "최신순"
                                 }
+                                Button("인기순") {
+                                    selectedOption  = "인기순"
+                                }
                                 Button("실용순") {
                                     selectedOption = "실용순"
                                 }
@@ -44,7 +47,7 @@ struct CategoryBoardView: View {
 //                        정렬 피커 선택
                     }
                     .font(.caption)
-                    BoardListView(boardPostsList: loadPosts(selectedOption: selectedOption, category: categoryEnum))
+                    BoardListView(boardPostsList: loadPosts(selectedOption: selectedOption, categorayRawValue: 1))
 //                    ForEach문에 전달할 배열을 loadPosts에서 변경: 정렬
                 }
             }
