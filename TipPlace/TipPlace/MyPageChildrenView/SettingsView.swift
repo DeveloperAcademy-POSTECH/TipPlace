@@ -16,6 +16,7 @@ struct SettingsView: View {
                 VStack(alignment: .leading, spacing: 6) {
                     Text("사용자 정보")
                         .padding(.bottom, 20)
+                        .font(.system(size: 15, weight: .bold))
                     InfoRowView(title: "이름", content: "고현수")
                     EditInfoRowView(title: "사용자 이름", content: "내일은요리왕")
                     InfoRowView(title: "이메일", content: "asdasd@icloud.com")
@@ -24,6 +25,7 @@ struct SettingsView: View {
                 VStack(alignment: .leading, spacing: 6) {
                     Text("계정 정보")
                         .padding(.bottom, 20)
+                        .font(.system(size: 15, weight: .bold))
                     InfoRowView(title: "아이디", content: "happyhsk")
                     EditInfoRowView(title: "비밀번호", content: "*******")
                 }
@@ -85,7 +87,6 @@ struct InfoRowView: View {
             }
             .padding(.top, 5)
             Divider()
-            
         }
         .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 20))
     }

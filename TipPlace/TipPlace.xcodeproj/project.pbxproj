@@ -46,6 +46,7 @@
 		C5F0C57F28041DEE0016AD09 /* ExpertCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F0C57E28041DEE0016AD09 /* ExpertCollectionView.swift */; };
 		C5F0C5832804A8CD0016AD09 /* MyPageChildrenViewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F0C5822804A8CD0016AD09 /* MyPageChildrenViewList.swift */; };
 		C5F0C585280507E60016AD09 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F0C584280507E60016AD09 /* SettingsView.swift */; };
+		C5F0C587280561B20016AD09 /* ExpertProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F0C586280561B20016AD09 /* ExpertProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +90,7 @@
 		C5F0C57E28041DEE0016AD09 /* ExpertCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpertCollectionView.swift; sourceTree = "<group>"; };
 		C5F0C5822804A8CD0016AD09 /* MyPageChildrenViewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageChildrenViewList.swift; sourceTree = "<group>"; };
 		C5F0C584280507E60016AD09 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		C5F0C586280561B20016AD09 /* ExpertProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpertProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +226,7 @@
 				C5F0C57E28041DEE0016AD09 /* ExpertCollectionView.swift */,
 				C5F0C5822804A8CD0016AD09 /* MyPageChildrenViewList.swift */,
 				C5F0C584280507E60016AD09 /* SettingsView.swift */,
+				C5F0C586280561B20016AD09 /* ExpertProfileView.swift */,
 			);
 			path = MyPageChildrenView;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				4A798DC728052C8900DD31E4 /* dateToString.swift in Sources */,
 				AE3418BA2803D41F00A54336 /* MainBoardListView.swift in Sources */,
 				0769BF6A27FFD03B009548C9 /* DetailPostView.swift in Sources */,
+				C5F0C587280561B20016AD09 /* ExpertProfileView.swift in Sources */,
 				C5991FAD27FD6B97007A7F26 /* MyPageView.swift in Sources */,
 				BC39DC3828050EF000192C74 /* DetailedPost.swift in Sources */,
 				C5991FAE27FD6B97007A7F26 /* MainBoardView.swift in Sources */,
