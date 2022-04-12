@@ -32,6 +32,7 @@
 		BC39DC282803C98300192C74 /* PostUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC39DC272803C98300192C74 /* PostUploadView.swift */; };
 		BC39DC3628050EE700192C74 /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC39DC3528050EE700192C74 /* CommentModel.swift */; };
 		BC39DC3828050EF000192C74 /* DetailedPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC39DC3728050EF000192C74 /* DetailedPost.swift */; };
+		BC39DC3A280519DB00192C74 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC39DC39280519DB00192C74 /* UserInfo.swift */; };
 		C5991F9A27FD6AD2007A7F26 /* TipPlaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5991F9927FD6AD2007A7F26 /* TipPlaceApp.swift */; };
 		C5991F9E27FD6AD3007A7F26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5991F9D27FD6AD3007A7F26 /* Assets.xcassets */; };
 		C5991FA127FD6AD3007A7F26 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5991FA027FD6AD3007A7F26 /* Preview Assets.xcassets */; };
@@ -67,6 +68,7 @@
 		BC39DC272803C98300192C74 /* PostUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostUploadView.swift; sourceTree = "<group>"; };
 		BC39DC3528050EE700192C74 /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
 		BC39DC3728050EF000192C74 /* DetailedPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedPost.swift; sourceTree = "<group>"; };
+		BC39DC39280519DB00192C74 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		C5991F9627FD6AD2007A7F26 /* TipPlace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TipPlace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5991F9927FD6AD2007A7F26 /* TipPlaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipPlaceApp.swift; sourceTree = "<group>"; };
 		C5991F9D27FD6AD3007A7F26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				BC39DC3528050EE700192C74 /* CommentModel.swift */,
 				BC39DC3728050EF000192C74 /* DetailedPost.swift */,
 				AE4E3A5E28030B8100293623 /* Author.swift */,
+				BC39DC39280519DB00192C74 /* UserInfo.swift */,
 			);
 			path = ModelData;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				C5991FA827FD6B84007A7F26 /* CategoryView.swift in Sources */,
 				BC39DC3628050EE700192C74 /* CommentModel.swift in Sources */,
 				4AA1E3BD28006B2A00156D19 /* RecommendedItem.swift in Sources */,
+				BC39DC3A280519DB00192C74 /* UserInfo.swift in Sources */,
 				BC39DC282803C98300192C74 /* PostUploadView.swift in Sources */,
 				4AA1E3BB28006B1F00156D19 /* CategoryBoardView.swift in Sources */,
 				AE3418BA2803D41F00A54336 /* MainBoardListView.swift in Sources */,
