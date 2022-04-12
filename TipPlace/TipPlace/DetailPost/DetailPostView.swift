@@ -26,32 +26,26 @@ struct DetailPostView: View {
     @State var isCommentButtonClicked = false
 
     var bookmarkImageString: String {
-        get {
-            didBookMarked ? "bookmark.fill" : "bookmark"
-        }
+        didBookMarked ? "bookmark.fill" : "bookmark"
     }
 
     let detailPost: DetailPostModel
 
     var commentCount: Int {
-        get {
-            if let comment = detailPost.comment {
-                return comment.count
-            } else { return 0 }
-        }
+        if let comment = detailPost.comment {
+            return comment.count
+        } else { return 0 }
     }
 
     // TODO: images를 뽑아 내는 게 여기서 할 일이 적합한지, CollectionView에서 처리하는 게 적합한지 생각해보기
     var images: [ContentImage] {
-        get {
-            var imageArray: [ContentImage] = []
-            for imageUrl in detailPost.images {
-                if let imageUrl = imageUrl {
-                    imageArray.append(ContentImage(imageUrl: imageUrl))
-                }
+        var imageArray: [ContentImage] = []
+        for imageUrl in detailPost.images {
+            if let imageUrl = imageUrl {
+                imageArray.append(ContentImage(imageUrl: imageUrl))
             }
-            return imageArray
         }
+        return imageArray
     }
 
     init(postId: Int) {
@@ -180,30 +174,3 @@ struct DetailPostView_Previews: PreviewProvider {
         DetailPostView(postId: 1)
     }
 }
-//
-//extension DetailPostView {
-//    struct DetailPostModel {
-//        let id: Int
-//        let category: Category
-//        let isAnonymous: Bool
-//        let title: String
-//        let content: String
-//        let author: Author
-//        let createdAt: Date
-//        let images: [URL]
-//        let tags: [String]
-//        let usefulCount: Int
-//        let comment: [CommentModel]
-//    }
-//    struct CommentModel: Identifiable {
-//        let id: Int
-//        let postId: Int
-//        let commentId: Int? // 대댓글일 경우 댓글의 ID
-//        let isAnonnymous: Bool
-//        let author: Author
-//        let content: String
-//        let isReply: Bool // 댓글이면 false, 대댓글이면 true
-//        let createdAt: Date
-//        let usefulCount: Int
-//    }
-//}
