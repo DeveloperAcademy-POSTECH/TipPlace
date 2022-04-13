@@ -82,7 +82,7 @@ struct DetailPostView: View {
         List {
             Section {
                 // MARK: author
-                AuthorProfileView(detailPost.author, date: Date())
+                AuthorProfileView(detailPost.author, date: detailPost.createdAt)
 
                 // MARK: title
                 Text(detailPost.title)
