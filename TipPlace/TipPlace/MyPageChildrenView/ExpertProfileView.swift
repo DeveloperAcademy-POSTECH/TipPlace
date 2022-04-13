@@ -35,8 +35,8 @@ struct ExpertProfileView: View {
     }
     var body: some View {
         VStack(alignment: .leading) {
-            ExpertInfoView(userId:userId)
-            ExpertPostsView(userId:userId)
+            ExpertInfoView(userId: userId)
+            ExpertPostsView(userId: userId)
             Spacer()
         }
             .navigationBarBackButtonHidden(true)
@@ -91,8 +91,9 @@ struct ExpertInfoView: View {
 struct ExpertPostsView: View {
     var userId: Int
     var body: some View {
-        VStack {
-            Text("보드리스트가 들어올 곳")
+        List {
+            BoardListView(boardPostsList: ListMock.boardPosts.filter({$0.author.id == userId}))
+//            일단 작성글/유용한 글/북마크 구별 없이 보드 배치
         }
     }
 }
