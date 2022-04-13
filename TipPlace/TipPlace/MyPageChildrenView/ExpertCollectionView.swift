@@ -44,7 +44,6 @@ struct ExpertSelectButtonView: View {
             RoundedRectangle(cornerRadius: 25)
                 .stroke(Color.gray, lineWidth: 2)
         )
-        .padding(.top, 20)
     }
 }
 
