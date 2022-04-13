@@ -11,6 +11,19 @@ extension DetailPostView {
     struct CommentView: View {
         private let comment: CommentModel
 
+        private let baseImageUrl = [
+            "https://cdn.pixabay.com/photo/2017/02/08/17/24/fantasy-2049567_960_720.jpg",
+            "https://cdn.pixabay.com/photo/2015/12/01/20/28/forest-1072828_960_720.jpg",
+            "https://cdn.pixabay.com/photo/2016/08/11/23/48/mountains-1587287_960_720.jpg"
+        ]
+
+        private var imageURL: URL? {
+            if let url = comment.author.profileImage {
+                return url
+            }
+            return URL(string: baseImageUrl[Int.random(in: 0..<3)])
+        }
+
         init(comment: CommentModel) {
             self.comment = comment
         }
@@ -29,10 +42,14 @@ extension DetailPostView {
         var contentView: some View {
             VStack(alignment: .leading, spacing: 5) {
                 HStack {
-                    Image(systemName: "person.crop.circle")
-                        .resizable()
-                        .frame(width: 23, height: 23)
-                        .padding(2)
+                    AsyncImage(url: URL(string: baseImageUrl[Int.random(in: 0..<3)])) { image in
+                        image.resizable()
+                    } placeholder: {
+                        ProgressView()
+                    }
+                    .frame(width: 23, height: 23)
+                    .cornerRadius(23 / 2)
+                    .padding(2)
                     Label(comment.author.name, systemImage: "")
                         .labelStyle(.titleOnly)
                         .font(.caption)
