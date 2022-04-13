@@ -30,7 +30,7 @@ struct ExpertSelectButtonView: View {
                             .font(.system(size: 10, weight: .heavy, design: .default))
                         Spacer()
                         Text(loadTag(userId:userId)[0])
-//                        Tag 불러오기 추가
+//                        Tag 불러오기 추가 
                             .font(.system(size: 10, weight: .regular, design: .default))
                     }
                     .padding()
