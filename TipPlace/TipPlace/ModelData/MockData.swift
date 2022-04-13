@@ -252,7 +252,7 @@ struct UserInfoMock{
                               usefulPost: [57],
                               replyPost: [53, 54, 55],
                               markPost: nil,
-                              writtendPost: [53],
+                              writtendPost: [53, 54],
                               interestedTag: ["강아지", "산책", "반려동물"],
                               interestedCategory: [Category.companionLife, Category.cook, Category.health])
     static var userInfo54 = UserInfo(id: 54,
