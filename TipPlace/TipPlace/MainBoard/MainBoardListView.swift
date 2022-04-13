@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct MainBoardList: View {
-//    BoardPostListMock -> ListMock으로 변경
-    var boardPostsList = ListMock.boardPosts
+    @Binding var selectedTag: String
+
     var body: some View {
-        ForEach(boardPostsList) { boardPost in
+        ForEach(filterPost(with: ListMock.boardPosts, by: selectedTag)) { boardPost in
             ZStack {
                 MainBoardRow(boardPost: boardPost)
-                NavigationLink(destination: Text("DetailPostView")) {
+                NavigationLink(destination: DetailPostView(postId: boardPost.id)) {
                 }
                 .opacity(0)
                 .buttonStyle(.plain)
@@ -27,6 +27,54 @@ struct MainBoardList: View {
 
 struct MainBoardList_Previews: PreviewProvider {
     static var previews: some View {
-        MainBoardList()
+        MainBoardList(selectedTag: .constant("자취"))
+    }
+}
+
+struct MainBoardRow: View {
+    var boardPost: BoardPost
+    var body: some View {
+        HStack {
+            VStack(alignment: .leading, spacing: 10) {
+                Text(boardPost.title)
+                    .font(.callout)
+                    .fontWeight(.bold)
+                    .lineLimit(1)
+                VStack(alignment: .leading, spacing: 5) {
+                    Text(boardPost.content)
+                        .font(.footnote)
+                        .lineLimit(3)
+                        .padding(.bottom, 7)
+                    Text(boardPost.author.name)
+                        .font(.caption2)
+                        .foregroundColor(.secondary)
+                    HStack {
+                        Text("유용해요 \(boardPost.usefulCount)")
+                        Text("댓글 \(boardPost.replyCount)")
+                    }
+                    .font(.caption2)
+                }
+            }
+            Spacer()
+            if let imageURL = boardPost.thumnailImageUrl {
+                AsyncImage(url: imageURL) { image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                } placeholder: {
+                    ProgressView()
+                }
+                .frame(width: 110, height: 110, alignment: .center)
+                .clipShape(RoundedRectangle(cornerRadius: 10, style: .circular))
+                .padding(.leading, 5)
+            }
+        }
+        .padding(5)
+    }
+}
+
+struct MainBoardRow_Previews: PreviewProvider {
+    static var previews: some View {
+        MainBoardRow(boardPost: BoardPostMock.boardPost2)
     }
 }
