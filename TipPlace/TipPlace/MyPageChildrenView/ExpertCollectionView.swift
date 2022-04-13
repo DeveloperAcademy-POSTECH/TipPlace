@@ -30,6 +30,7 @@ struct ExpertSelectButtonView: View {
                             .overlay(Circle().stroke(Color.green, lineWidth: 2))
                         Spacer()
                         Text(title)
+//                        파라미터로 넘겨준 전문가 이름
                             .font(.system(size: 10, weight: .heavy, design: .default))
                         Spacer()
                         Text(loadTag(userId:userId)[0])
@@ -47,6 +48,7 @@ struct ExpertSelectButtonView: View {
                 .stroke(Color.gray, lineWidth: 2)
         )
         .padding(.top, 20)
+//         추천인 섹션 칸이 너무 넓어져서 패딩을 주지 않아도 될 것 같아요!
     }
 }
 
