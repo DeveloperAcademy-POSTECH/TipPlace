@@ -17,11 +17,10 @@ struct RecommendList: View {
                     NavigationLink {
                         Text("프로필로 보낸다")
                     } label: {
-                        ExpertSelectButtonView(title: rec.name, imageUrl: rec.name)
+                        ExpertSelectButtonView( userId: rec.id)
                     }
                 }
             }
-            Divider()
         }
     }
 }

@@ -9,13 +9,10 @@ import SwiftUI
 
 struct ExpertSelectButton: Identifiable {
     var id: Int
-    let imageUrl: String
-    let categoryEnum: Category
 }
 
 struct ExpertSelectButtonView: View {
-    let title: String
-    let imageUrl: String
+    let userId: Int
     var body: some View {
         VStack(alignment: .leading) {
             Button {
@@ -28,10 +25,12 @@ struct ExpertSelectButtonView: View {
                             .clipShape(Circle())
                             .overlay(Circle().stroke(Color.green, lineWidth: 2))
                         Spacer()
-                        Text("아이디")
+                        Text(loadUser(userId:userId).name)
+//                        파라미터로 넘겨준 전문가 이름
                             .font(.system(size: 10, weight: .heavy, design: .default))
                         Spacer()
-                        Text("#태그제일앞에거")
+                        Text(loadTag(userId:userId)[0])
+//                        Tag 불러오기 추가 
                             .font(.system(size: 10, weight: .regular, design: .default))
                     }
                     .padding()
@@ -44,7 +43,6 @@ struct ExpertSelectButtonView: View {
             RoundedRectangle(cornerRadius: 25)
                 .stroke(Color.gray, lineWidth: 2)
         )
-        .padding(.top, 20)
     }
 }
 
@@ -59,7 +57,8 @@ struct ExpertCollectionView: View {
         ScrollView {
             LazyVGrid(columns: columns, spacing: 15) {
                 ForEach(buttons) { button in
-                    ExpertSelectButtonView(title: button.categoryEnum.korean, imageUrl: button.imageUrl)
+                    ExpertSelectButtonView(userId: 1)
+//                    userID 파라미터 추가
                 }
             }
             .padding()
@@ -76,20 +75,20 @@ struct ExpertCollectionView_Previews: PreviewProvider {
 }
 struct ExpertButtonStore {
     static var buttons = [
-        ExpertSelectButton(id: 0, imageUrl: "wonsign.circle", categoryEnum: Category.economy),
-        ExpertSelectButton(id: 1, imageUrl: "text.book.closed", categoryEnum: Category.law),
-        ExpertSelectButton(id: 2, imageUrl: "figure.walk.diamond", categoryEnum: Category.safety),
-        ExpertSelectButton(id: 3, imageUrl: "fork.knife", categoryEnum: Category.cook),
-        ExpertSelectButton(id: 4, imageUrl: "house", categoryEnum: Category.livingAlone),
-        ExpertSelectButton(id: 5, imageUrl: "wand.and.stars", categoryEnum: Category.cleaning),
-        ExpertSelectButton(id: 6, imageUrl: "hammer", categoryEnum: Category.tech),
-        ExpertSelectButton(id: 7, imageUrl: "car", categoryEnum: Category.driving),
-        ExpertSelectButton(id: 8, imageUrl: "cross", categoryEnum: Category.health),
-        ExpertSelectButton(id: 9, imageUrl: "books.vertical", categoryEnum: Category.campusLife),
-        ExpertSelectButton(id: 10, imageUrl: "network", categoryEnum: Category.workingLife),
-        ExpertSelectButton(id: 11, imageUrl: "pawprint", categoryEnum: Category.companionLife),
-        ExpertSelectButton(id: 12, imageUrl: "lasso.and.sparkles", categoryEnum: Category.hobby),
-        ExpertSelectButton(id: 13, imageUrl: "person.2", categoryEnum: Category.relationship),
-        ExpertSelectButton(id: 14, imageUrl: "arrow.triangle.branch", categoryEnum: Category.etc)
+        ExpertSelectButton(id: 0),
+        ExpertSelectButton(id: 1),
+        ExpertSelectButton(id: 2),
+        ExpertSelectButton(id: 3),
+        ExpertSelectButton(id: 4),
+        ExpertSelectButton(id: 5),
+        ExpertSelectButton(id: 6),
+        ExpertSelectButton(id: 7),
+        ExpertSelectButton(id: 8),
+        ExpertSelectButton(id: 9),
+        ExpertSelectButton(id: 10),
+        ExpertSelectButton(id: 11),
+        ExpertSelectButton(id: 12),
+        ExpertSelectButton(id: 13),
+        ExpertSelectButton(id: 14)
     ]
 }

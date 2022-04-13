@@ -12,7 +12,7 @@ struct TempParentView: View {
         NavigationView {
             List {
                 NavigationLink("to DetailPostView") {
-                    DetailPostView(postId: 1)
+                    DetailPostView(postId: 4)
                 }
             }
         }
@@ -29,7 +29,7 @@ struct DetailPostView: View {
         didBookMarked ? "bookmark.fill" : "bookmark"
     }
 
-    let detailPost: DetailPostModel
+    var detailPost: DetailPostModel
 
     var commentCount: Int {
         if let comment = detailPost.comment {
@@ -55,10 +55,6 @@ struct DetailPostView: View {
                 detailPost = detailPostData
         }
 
-        if detailPost == nil {
-            detailPost = ListMock.detailPosts.first
-        }
-
         guard let detailPost = detailPost else {
             self.detailPost = DetailPostModel(id: 0,
                                               category: .etc,
@@ -80,13 +76,16 @@ struct DetailPostView: View {
             return
         }
         self.detailPost = detailPost
+        if detailPost.isAnonymous {
+            self.detailPost.author = Author(id: 0, profileImage: nil, name: "익명", specialDomain: [])
+        }
     }
 
     var body: some View {
         List {
             Section {
                 // MARK: author
-                AuthorProfileView(detailPost.author, date: Date())
+                AuthorProfileView(detailPost.author, date: detailPost.createdAt)
 
                 // MARK: title
                 Text(detailPost.title)
@@ -105,7 +104,6 @@ struct DetailPostView: View {
 
                 // MARK: buttons
                 HStack {
-                    // TODO: 각 버튼의 icon과 title 사이의 간격 조절 필요함
                     // MARK: 유용해요 버튼
                     Button(action: {
                         isUsefulButtonSelected.toggle()
