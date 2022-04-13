@@ -11,9 +11,8 @@ func loadTag(userId: Int) -> [String] {
     let user: UserInfo = loadUser(userId: userId)
     if let tags: [String] = user.interestedTag {
         return tags
-    } else
-    {
-        return ["tmp tag"]
-        
+    } else {
+        return [""]
+//        빈 문자열로 변경
     }
 }

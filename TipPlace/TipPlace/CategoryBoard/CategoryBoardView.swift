@@ -76,7 +76,7 @@ struct CategoryBoardView: View {
 
 struct CategoryBoardView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryBoardView(categoryEnum: Category.livingAlone, queryString: "")
+        CategoryBoardView(categoryEnum: Category.companionLife, queryString: "")
     }
 }
 

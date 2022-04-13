@@ -17,7 +17,7 @@ struct ExpertSelectButtonView: View {
         VStack(alignment: .leading) {
             Button {
             } label: {
-                NavigationLink(destination: ExpertProfileView()) {
+                NavigationLink(destination: ExpertProfileView(userId: userId)) {
                     VStack {
                         ProfileImageView()
                             .aspectRatio(contentMode: .fit)
