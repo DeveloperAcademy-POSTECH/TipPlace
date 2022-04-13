@@ -9,7 +9,7 @@ import SwiftUI
 
 extension DetailPostView {
     struct CommentView: View {
-        private let comment: CommentModel
+        private var comment: CommentModel
 
         private let baseImageUrl = [
             "https://cdn.pixabay.com/photo/2017/02/08/17/24/fantasy-2049567_960_720.jpg",
@@ -26,6 +26,9 @@ extension DetailPostView {
 
         init(comment: CommentModel) {
             self.comment = comment
+            if comment.isAnonymous {
+                self.comment.author = Author(id: 0, profileImage: nil, name: "익명", specialDomain: [])
+            }
         }
 
         var body: some View {
