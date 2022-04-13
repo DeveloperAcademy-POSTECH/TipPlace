@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ExpertProfileView: View {
+    var userId: Int
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var backButton : some View {
         Button {
@@ -34,8 +35,8 @@ struct ExpertProfileView: View {
     }
     var body: some View {
         VStack(alignment: .leading) {
-            ExpertInfoView()
-            ExpertPostsView()
+            ExpertInfoView(userId:userId)
+            ExpertPostsView(userId:userId)
             Spacer()
         }
             .navigationBarBackButtonHidden(true)
@@ -46,6 +47,7 @@ struct ExpertProfileView: View {
 }
 
 struct ExpertInfoView: View {
+    var userId: Int
     var body: some View {
         VStack {
             ProfileImageView()
@@ -85,6 +87,7 @@ struct ExpertInfoView: View {
 }
 
 struct ExpertPostsView: View {
+    var userId: Int
     var body: some View {
         VStack {
             Text("보드리스트가 들어올 곳")
@@ -94,6 +97,6 @@ struct ExpertPostsView: View {
 
 struct ExpertProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ExpertProfileView()
+        ExpertProfileView(userId: 1)
     }
 }
