@@ -18,6 +18,7 @@ struct ExpertSelectButtonView: View {
     let imageUrl: String
     let userId: Int
     var body: some View {
+        let tag = loadTag(userId: userId)[0]
         VStack(alignment: .leading) {
             Button {
             } label: {
@@ -33,8 +34,7 @@ struct ExpertSelectButtonView: View {
 //                        파라미터로 넘겨준 전문가 이름
                             .font(.system(size: 10, weight: .heavy, design: .default))
                         Spacer()
-                        Text(loadTag(userId:userId)[0])
-//                        Tag 불러오기 추가
+                        Text(tag)         
                             .font(.system(size: 10, weight: .regular, design: .default))
                     }
                     .padding()
