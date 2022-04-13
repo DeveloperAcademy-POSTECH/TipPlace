@@ -29,7 +29,7 @@ struct MainTabView: View {
                 .tabItem {
                     Label("마이페이지", systemImage: "person")
                 }
-            .tag("마이페이지")
+                .tag("마이페이지")
         }
     }
 }

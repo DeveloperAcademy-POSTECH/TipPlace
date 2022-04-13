@@ -100,7 +100,7 @@ struct AuthorMock {
     static var author2 = Author(id: 2,
                                 profileImage:
                                     URL(string: "https://dimg.donga.com/wps/NEWS/IMAGE/2014/02/04/60569995.3.jpg"),
-                                name: "고라파덕",
+                                name: "고라파덕33",
                                 specialDomain: [Category.companionLife])
     static var author3 = Author(id: 3,
                                 profileImage: nil,
@@ -157,7 +157,7 @@ struct UserInfoMock{
                                     interestedCategory: [Category.livingAlone, Category.cleaning, Category.cook])
     static var userInfo2 = UserInfo(id: 2,
                                     profileImage: URL(string: "https://dimg.donga.com/wps/NEWS/IMAGE/2014/02/04/60569995.3.jpg"),
-                                    name: "고라파덕",
+                                    name: "고라파덕3",
                                     specialDomain: [Category.companionLife],
                                     usefulPost: [3],
                                     replyPost: [1, 3],
