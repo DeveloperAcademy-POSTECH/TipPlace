@@ -22,12 +22,11 @@ extension DetailPostView {
                     ForEach(tags, id: \.self) { tag in
                         Text("# \(tag)")
                                .padding(5)
-                               .font(.body)
+                               .font(.footnote)
                                .background(Color.gray)
                                .foregroundColor(Color.white)
                                .cornerRadius(5)
                                .padding(3)
-                               .padding(.bottom, 8)
                     }
                 }
             }
