@@ -33,7 +33,7 @@ struct ExpertSelectButtonView: View {
 //                        파라미터로 넘겨준 전문가 이름
                             .font(.system(size: 10, weight: .heavy, design: .default))
                         Spacer()
-                        Text(loadTag(userId:userId)[0])
+                        Text(loadTag(userId: userId)[0])
 //                        Tag 불러오기 추가
                             .font(.system(size: 10, weight: .regular, design: .default))
                     }
