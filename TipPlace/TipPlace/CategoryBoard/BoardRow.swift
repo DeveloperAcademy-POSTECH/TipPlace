@@ -19,19 +19,22 @@ struct BoardRow: View {
                 Text(boardPost.title)
                     .font(.title)
                 Text(boardPost.content)
-                    .font(.body)
+                    .font(.subheadline)
                 Text(boardPost.author.name)
-                    .font(.callout)
+                    .font(.caption2)
                 HStack {
                     Text("유용해요 \(boardPost.usefulCount)")
                     Text("좋아요 \(boardPost.replyCount)")
+                    Text(dateToString(date: boardPost.createdAt))
                 }
                 .font(.footnote)
             }
             .padding()
-            Image(systemName: "person")
-                .resizable()
-                .frame(width: 50, height: 50, alignment: .center)
+            if boardPost.thumnailImageUrl != nil {
+                Image(systemName: "person")
+                    .resizable()
+                    .frame(width: 50, height: 50, alignment: .center)
+            }
         }
     }
 }

@@ -14,11 +14,13 @@ struct PostUploadView: View {
     @State private var showCamera = false
     @State private var images: [UIImage] = []
     @State private var title: String = ""
-    @State private var category: String = "카테고리 선택"
+    @State private var category: Category?
     @State private var tagSentence: String = ""
     @State private var tags: [String] = []
     @State private var content: String = ""
     @State private var isAnonymous = true
+    @State private var showingAlert = false
+    @State private var alertMessage: String = ""
     @FocusState private var isContentFocused: Bool
     // 태그 필터링하기
     func tagFiltering() {
@@ -27,6 +29,9 @@ struct PostUploadView: View {
                 in: .whitespacesAndNewlines)
             if trimmedTagSentence.hasPrefix("#") {
                 tags.append(trimmedTagSentence)
+                tagSentence = ""
+            } else {
+                tags.append("#" + trimmedTagSentence)
                 tagSentence = ""
             }
         }
@@ -37,18 +42,41 @@ struct PostUploadView: View {
     }
     // 서버에 데이터 보내기
     func upload() {
-        var base64images: [String] = []
-        for img in images {
-            base64images.append(uiToBase64(uiImg: img))
-        }
-        print("[사진 개수] " + String(images.count))
-        print("[글 제목] " + title)
-        print("[카테고리] " + category)
-        tags.enumerated().forEach {
-            print("[태그\($0)] \($1)")
-        }
-        print("[게시글] " + content)
-        print("[익명여부] " + (isAnonymous ? "O" : "X"))
+        // author[0] 으로 로그인 되어있다고 가정
+        // 서버가 없어서 사진은 업로드 불가
+        // 리스트에 데이터를 붙이는 식으로 임시 구현
+        ListMock.boardPosts.append(
+            BoardPost(
+                id: ListMock.boardPosts.count+1,
+                isAnonymous: isAnonymous,
+                title: title,
+                content: content,
+                author: ListMock.authors[0],
+                createdAt: Date.now,
+                thumnailImageUrl: nil,
+                usefulCount: 0,
+                replyCount: 0,
+                tag: tags,
+                category: category!
+            )
+        )
+        ListMock.detailPosts.append(
+            DetailPostModel(
+                id: ListMock.boardPosts.count+1,
+                category: category!,
+                isAnonymous: isAnonymous,
+                title: title,
+                content: content,
+                author: ListMock.authors[0],
+                createdAt: Date.now,
+                images: [],
+                tags: tags,
+                usefulCount: 0,
+                comment: [],
+                idWithUseful: [],
+                idWithReply: [],
+                idWithMark: [])
+        )
     }
     var body: some View {
         NavigationView {
@@ -125,7 +153,13 @@ struct PostUploadView: View {
                     // 카테고리 입력 칸
                     NavigationLink(
                         destination: CategorySelectView(category: $category)
-                    ) { Text(category).padding(.horizontal, 8) }
+                    ) {
+                        if category == nil {
+                            Text("카테고리 선택").padding(.horizontal, 8)
+                        } else {
+                            Text(category!.korean).padding(.horizontal, 8)
+                        }
+                    }
                     // 태그 입력 칸
                     VStack(alignment: .leading) {
                         ZStack(alignment: .topLeading) {
@@ -202,8 +236,19 @@ struct PostUploadView: View {
                         },
                         // 업로드 누를 경우의 동작
                         trailing: Button("업로드") {
-                            upload()
-                            self.presentationMode.wrappedValue.dismiss()
+                            if title.isEmpty {
+                                alertMessage = "제목을 입력해주세요"
+                                showingAlert = true
+                            } else if category == nil {
+                                alertMessage = "카테고리를 선택해주세요"
+                                showingAlert = true
+                            } else if content.isEmpty {
+                                alertMessage = "내용을 입력해주세요"
+                                showingAlert = true
+                            } else {
+                                upload()
+                                self.presentationMode.wrappedValue.dismiss()
+                            }
                         }
                     )
                 .toolbar {
@@ -220,6 +265,11 @@ struct PostUploadView: View {
                             Text("익명")
                         }
                     }
+                }
+                .alert("", isPresented: $showingAlert) {
+                    Button("확인") {}
+                } message: {
+                    Text(alertMessage)
                 }
                 .onChange(of: title) { _ in
                     proxy.scrollTo("bottomOfTitle", anchor: .bottom)
@@ -244,29 +294,29 @@ struct PostUploadView_Previews: PreviewProvider {
 // 카테고리 선택 시 목록 나오게 하는 View
 struct CategorySelectView: View {
     @Environment(\.presentationMode) var presentationMode
-    @Binding var category: String
-    let categoryArray: [String] = [
-        Category.economy.korean,
-        Category.law.korean,
-        Category.safety.korean,
-        Category.cook.korean,
-        Category.livingAlone.korean,
-        Category.cleaning.korean,
-        Category.tech.korean,
-        Category.driving.korean,
-        Category.health.korean,
-        Category.campusLife.korean,
-        Category.workingLife.korean,
-        Category.companionLife.korean,
-        Category.hobby.korean,
-        Category.relationship.korean,
-        Category.etc.korean
+    @Binding var category: Category?
+    let categoryArray: [Category] = [
+        Category.economy,
+        Category.law,
+        Category.safety,
+        Category.cook,
+        Category.livingAlone,
+        Category.cleaning,
+        Category.tech,
+        Category.driving,
+        Category.health,
+        Category.campusLife,
+        Category.workingLife,
+        Category.companionLife,
+        Category.hobby,
+        Category.relationship,
+        Category.etc
     ]
     var body: some View {
         List {
-            ForEach(categoryArray, id: \.self) { categoryName in
-                Button(categoryName) {
-                    category = categoryName
+            ForEach(categoryArray, id: \.self) { category in
+                Button(category.korean) {
+                    self.category = category
                     self.presentationMode.wrappedValue.dismiss()
                 }
             }
@@ -326,54 +376,3 @@ struct ImagePicker: UIViewControllerRepresentable {
         }
     }
 }
-
-// 태그 형식으로 쓸지 고려중인 것
-// struct WrappedLayoutForTag: View {
-//    @State var platforms = ["Ninetendo", "XBox", "PlayStation", "PlayStation 2", "PlayStation 3"]
-//
-//    var body: some View {
-//        GeometryReader { geometry in
-//            self.generateContent(in: geometry)
-//        }
-//    }
-//
-//    private func generateContent(in geoProxy: GeometryProxy) -> some View {
-//        var width = CGFloat.zero
-//        var height = CGFloat.zero
-//
-//        return ZStack(alignment: .topLeading) {
-//            ForEach(self.platforms, id: \.self) { platform in self.item(for: platform)
-//                    .padding([.horizontal, .vertical], 4)
-//                    .alignmentGuide(.leading, computeValue: { dens in
-//                        if abs(width - dens.width) > geoProxy.size.width {
-//                            width = 0
-//                            height -= dens.height
-//                        }
-//                        let result = width
-//                        if platform == self.platforms.last! {
-//                            width = 0 // last item
-//                        } else {
-//                            width -= dens.width
-//                        }
-//                        return result
-//                    })
-//                    .alignmentGuide(.top, computeValue: { _ in
-//                        let result = height
-//                        if platform == self.platforms.last! {
-//                            height = 0 // last item
-//                        }
-//                        return result
-//                    })
-//            }
-//        }
-//    }
-//
-//    func item(for text: String) -> some View {
-//        Text(text)
-//            .padding(.all, 5)
-//            .font(.body)
-//            .background(Color.blue)
-//            .foregroundColor(Color.white)
-//            .cornerRadius(5)
-//    }
-// }

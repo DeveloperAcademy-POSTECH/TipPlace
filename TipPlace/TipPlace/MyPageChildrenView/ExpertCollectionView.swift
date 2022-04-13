@@ -16,6 +16,7 @@ struct ExpertSelectButton: Identifiable {
 struct ExpertSelectButtonView: View {
     let title: String
     let imageUrl: String
+    let userId: Int
     var body: some View {
         VStack(alignment: .leading) {
             Button {
@@ -28,10 +29,12 @@ struct ExpertSelectButtonView: View {
                             .clipShape(Circle())
                             .overlay(Circle().stroke(Color.green, lineWidth: 2))
                         Spacer()
-                        Text("아이디")
+                        Text(title)
+//                        파라미터로 넘겨준 전문가 이름
                             .font(.system(size: 10, weight: .heavy, design: .default))
                         Spacer()
-                        Text("#태그제일앞에거")
+                        Text(loadTag(userId:userId)[0])
+//                        Tag 불러오기 추가
                             .font(.system(size: 10, weight: .regular, design: .default))
                     }
                     .padding()
@@ -58,7 +61,8 @@ struct ExpertCollectionView: View {
         ScrollView {
             LazyVGrid(columns: columns, spacing: 15) {
                 ForEach(buttons) { button in
-                    ExpertSelectButtonView(title: button.categoryEnum.korean, imageUrl: button.imageUrl)
+                    ExpertSelectButtonView(title: button.categoryEnum.korean, imageUrl: button.imageUrl, userId: button.id)
+//                    userID 파라미터 추가
                 }
             }
             .padding()
