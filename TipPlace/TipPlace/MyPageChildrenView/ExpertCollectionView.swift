@@ -47,7 +47,7 @@ struct ExpertSelectButtonView: View {
             RoundedRectangle(cornerRadius: 25)
                 .stroke(Color.gray, lineWidth: 2)
         )
-        .padding(.top, 20)
+//        .padding(.top, 20)
 //         추천인 섹션 칸이 너무 넓어져서 패딩을 주지 않아도 될 것 같아요!
     }
 }

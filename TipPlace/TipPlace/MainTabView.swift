@@ -30,7 +30,6 @@ struct MainTabView: View {
                     Label("마이페이지", systemImage: "person")
                 }
                 .tag("마이페이지")
-            TempParentView()
         }
     }
 }
