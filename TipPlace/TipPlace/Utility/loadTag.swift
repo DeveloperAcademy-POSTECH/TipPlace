@@ -8,9 +8,8 @@
 import Foundation
 
 func loadTag(userId: Int) -> [String] {
-    let user: [UserInfo]
-    user = ListMock.userInfos.filter({$0.id == userId})
-    if let tags: [String] = user[0].interestedTag {
+    let user: UserInfo = loadUser(userId: userId)
+    if let tags: [String] = user.interestedTag {
         return tags
     } else
     {
