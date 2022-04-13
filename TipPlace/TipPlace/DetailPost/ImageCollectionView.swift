@@ -10,26 +10,13 @@ import SwiftUI
 extension DetailPostView {
     struct ContentImage: Identifiable {
         init(imageUrl: URL) {
-//            id = imageUrl
             id = UUID().uuidString
+            url = imageUrl
             image = Image(systemName: "checkmark.circle")
         }
         let id: String
+        let url: URL
         var image: Image?
-    }
-
-    struct ImageCell: View {
-        let imageData: ContentImage
-        var body: some View {
-            guard let image = imageData.image else {
-                return Image("")
-                    .resizable()
-                    .frame(width: 95, height: 95, alignment: .center)
-            }
-            return image
-                .resizable()
-                .frame(width: 95, height: 95, alignment: .center)
-        }
     }
 
     // TODO: cell의 재사용 필요
@@ -40,10 +27,15 @@ extension DetailPostView {
             ScrollView(.horizontal) {
                 HStack {
                     ForEach(imageDatas) {
-                        DetailPostView.ImageCell(imageData: $0)
-                            .background(.yellow)
-                            .cornerRadius(8)
-                            .padding(2)
+                        AsyncImage(url: $0.url) { image in
+                            image
+                                .resizable()
+                                .frame(width: 95, height: 95, alignment: .center)
+                                .cornerRadius(8)
+                                .padding(2)
+                        } placeholder: {
+                            Text("")
+                        }
                     }
                 }
             }
