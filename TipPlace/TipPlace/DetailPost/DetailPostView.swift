@@ -12,7 +12,7 @@ struct TempParentView: View {
         NavigationView {
             List {
                 NavigationLink("to DetailPostView") {
-                    DetailPostView(postId: 1)
+                    DetailPostView(postId: 4)
                 }
             }
         }
@@ -29,7 +29,7 @@ struct DetailPostView: View {
         didBookMarked ? "bookmark.fill" : "bookmark"
     }
 
-    let detailPost: DetailPostModel
+    var detailPost: DetailPostModel
 
     var commentCount: Int {
         if let comment = detailPost.comment {
@@ -76,6 +76,9 @@ struct DetailPostView: View {
             return
         }
         self.detailPost = detailPost
+        if detailPost.isAnonymous {
+            self.detailPost.author = Author(id: 0, profileImage: nil, name: "익명", specialDomain: [])
+        }
     }
 
     var body: some View {
