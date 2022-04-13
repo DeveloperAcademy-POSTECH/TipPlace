@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-extension MainBoardView {
 struct TagListView: View {
     var recommendedTags: [String] = load(fileName: "RecommendedTagData.json")
     @Binding var selectedTag: String
@@ -22,7 +21,7 @@ struct TagListView: View {
                     } label: {
                         Text(tag)
                     }
-                    .buttonStyle(MainTagButtonStyle(isButtonSelected: $isTagSelected))
+                    .buttonStyle(MainTagButtonStyle())
                 }
                 .padding(.bottom, 10)
                 .padding(.top, 5)
@@ -31,10 +30,9 @@ struct TagListView: View {
         }
     }
 }
-}
 
 struct TagListView_Previews: PreviewProvider {
     static var previews: some View {
-        MainBoardView.TagListView(selectedTag: .constant("tag"))
+        TagListView(selectedTag: .constant("tag"))
     }
 }
