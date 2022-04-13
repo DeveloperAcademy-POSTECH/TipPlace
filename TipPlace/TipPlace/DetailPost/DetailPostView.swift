@@ -93,6 +93,7 @@ struct DetailPostView: View {
 
                 // MARK: content
                 Text(detailPost.content)
+                    .font(.callout)
 
                 // MARK: images
                 ImageCollecionView(imageDatas: images)
