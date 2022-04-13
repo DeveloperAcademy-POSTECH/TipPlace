@@ -10,14 +10,12 @@ import SwiftUI
 struct TagListView: View {
     var recommendedTags: [String] = load(fileName: "RecommendedTagData.json")
     @Binding var selectedTag: String
-    @State var isTagSelected = false
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
                 ForEach(recommendedTags, id: \.self) { tag in
                     Button {
                         selectedTag = tag
-                        isTagSelected.toggle()
                     } label: {
                         Text(tag)
                     }
