@@ -49,34 +49,36 @@ struct ExpertProfileView: View {
 struct ExpertInfoView: View {
     var userId: Int
     var body: some View {
+        let user: UserInfo = loadUser(userId: userId)
         VStack {
             ProfileImageView()
                 .padding(EdgeInsets(top: 40, leading: 0, bottom: 10, trailing: 0))
-            Text("아이디")
+            Text(user.name)
             .font(.system(size: 21, weight: .regular))
             .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
-            Text("카테고리")
+            Text(user.speficalDomain?[0].korean ?? "디폴트 카테고리")
             .font(.system(size: 15, weight: .regular))
             .foregroundColor(.green)
             .padding(EdgeInsets(top: 0, leading: 0, bottom: 4, trailing: 0))
-            Text("#태그 #태그 #태그")
+            Text(loadTag(userId: userId)[0])
+//            배열 내 문자열을 일렬로 출력하는 방법 필요
             .font(.system(size: 12, weight: .regular))
             HStack {
                 VStack {
-                    Text("3")
+                    Text(String(user.writtendPost?.count ?? 0))
                         .font(.system(size: 25, weight: .bold))
                     Text("게시물")
                         .font(.system(size: 12, weight: .regular))
                 }
                 VStack {
-                    Text("3")
+                    Text(String(user.replyPost?.count ?? 0))
                         .font(.system(size: 25, weight: .bold))
                     Text("유용해요")
                         .font(.system(size: 12, weight: .regular))
                 }
                 .padding(EdgeInsets(top: 30, leading: 70, bottom: 30, trailing: 70))
                 VStack {
-                    Text("3")
+                    Text(String(user.markPost?.count ?? 0))
                         .font(.system(size: 25, weight: .bold))
                     Text("저장")
                         .font(.system(size: 12, weight: .regular))
