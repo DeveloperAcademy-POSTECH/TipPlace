@@ -18,7 +18,6 @@ struct ExpertSelectButtonView: View {
     let imageUrl: String
     let userId: Int
     var body: some View {
-        let tag = loadTag(userId: userId)[0]
         VStack(alignment: .leading) {
             Button {
             } label: {
@@ -34,7 +33,7 @@ struct ExpertSelectButtonView: View {
 //                        파라미터로 넘겨준 전문가 이름
                             .font(.system(size: 10, weight: .heavy, design: .default))
                         Spacer()
-                        Text(tag)         
+                        Text(loadTag(userId: userId)[0])
                             .font(.system(size: 10, weight: .regular, design: .default))
                     }
                     .padding()
@@ -47,8 +46,6 @@ struct ExpertSelectButtonView: View {
             RoundedRectangle(cornerRadius: 25)
                 .stroke(Color.gray, lineWidth: 2)
         )
-//        .padding(.top, 20)
-//         추천인 섹션 칸이 너무 넓어져서 패딩을 주지 않아도 될 것 같아요!
     }
 }
 
