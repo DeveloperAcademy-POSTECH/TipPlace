@@ -18,7 +18,7 @@ struct ExpertSelectButtonView: View {
         VStack(alignment: .leading) {
             Button {
             } label: {
-                NavigationLink(destination: ExpertProfileView()) {
+                NavigationLink(destination: ExpertProfileView(userId: userId)) {
                     VStack {
                         ProfileImageView()
                             .aspectRatio(contentMode: .fit)
@@ -94,7 +94,6 @@ struct ExpertCollectionView: View {
             LazyVGrid(columns: columns, spacing: 15) {
                 ForEach(buttons) { button in
                     ExpertSelectButtonView(user: button.user)
-//                    userID 파라미터 추가
                 }
             }
             .padding()
@@ -126,5 +125,6 @@ struct ExpertButtonStore {
         ExpertSelectButton(user: loadUser(userId: 55), id:13),
         ExpertSelectButton(user: loadUser(userId: 56), id:14),
         ExpertSelectButton(user: loadUser(userId: 57), id:15)
+
     ]
 }

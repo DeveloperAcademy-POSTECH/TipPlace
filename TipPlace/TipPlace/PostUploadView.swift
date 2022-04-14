@@ -28,10 +28,11 @@ struct PostUploadView: View {
             let trimmedTagSentence = tagSentence.trimmingCharacters(
                 in: .whitespacesAndNewlines)
             if trimmedTagSentence.hasPrefix("#") {
-                tags.append(trimmedTagSentence)
+                let startIdx: String.Index = trimmedTagSentence.index(trimmedTagSentence.startIndex, offsetBy: 1)
+                tags.append(String(trimmedTagSentence[startIdx...]))
                 tagSentence = ""
             } else {
-                tags.append("#" + trimmedTagSentence)
+                tags.append(trimmedTagSentence)
                 tagSentence = ""
             }
         }
@@ -47,7 +48,7 @@ struct PostUploadView: View {
         // 리스트에 데이터를 붙이는 식으로 임시 구현
         ListMock.boardPosts.append(
             BoardPost(
-                id: ListMock.boardPosts.count+1,
+                id: ListMock.boardPosts.count + 1,
                 isAnonymous: isAnonymous,
                 title: title,
                 content: content,
@@ -62,7 +63,7 @@ struct PostUploadView: View {
         )
         ListMock.detailPosts.append(
             DetailPostModel(
-                id: ListMock.boardPosts.count+1,
+                id: ListMock.detailPosts.count + 1,
                 category: category!,
                 isAnonymous: isAnonymous,
                 title: title,
