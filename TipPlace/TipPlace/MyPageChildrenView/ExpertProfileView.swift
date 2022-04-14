@@ -34,7 +34,8 @@ struct ExpertProfileView: View {
         }
     }
     var body: some View {
-        VStack(alignment: .leading) {
+//        ExpertInfoView 정렬: .leading -> center
+        VStack(alignment: .center) {
             ExpertInfoView(userId: userId)
             ExpertPostsView(userId: userId)
             Spacer()
