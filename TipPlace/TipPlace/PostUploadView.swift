@@ -28,10 +28,11 @@ struct PostUploadView: View {
             let trimmedTagSentence = tagSentence.trimmingCharacters(
                 in: .whitespacesAndNewlines)
             if trimmedTagSentence.hasPrefix("#") {
-                tags.append(trimmedTagSentence)
+                let startIdx: String.Index = trimmedTagSentence.index(trimmedTagSentence.startIndex, offsetBy: 1)
+                tags.append(String(trimmedTagSentence[startIdx...]))
                 tagSentence = ""
             } else {
-                tags.append("#" + trimmedTagSentence)
+                tags.append(trimmedTagSentence)
                 tagSentence = ""
             }
         }
