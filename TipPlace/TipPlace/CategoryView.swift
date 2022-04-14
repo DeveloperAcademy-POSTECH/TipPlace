@@ -14,24 +14,26 @@ struct CategorySelectButton: Identifiable {
 }
 
 struct CategorySelectButtonView: View {
-    let title: String
+    let title: Category
     let imageUrl: String
     var body: some View {
         VStack(alignment: .leading) {
             Button {
-                print("버튼 눌림")
             } label: {
-                VStack {
-                    Image(systemName: imageUrl)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 48, height: 54)
-                    Spacer()
-                    Text(title)
-                        .font(.subheadline)
+                NavigationLink(destination: CategoryBoardView(categoryEnum: title)) {
+                    VStack {
+                        Image(systemName: imageUrl)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 48, height: 54)
+                        Spacer()
+                        Text(title.korean)
+                            .font(.subheadline)
+                    }
                 }
             }
-        }.foregroundColor(Color.black)
+        }
+        .foregroundColor(Color.black)
     }
 }
 
@@ -45,15 +47,17 @@ struct CategoryView: View {
     var body: some View {
         HStack {
             NavigationView {
-                ScrollView {
-                    LazyVGrid(columns: columns, spacing: 20) {
-                        ForEach(buttons) { button in
-                            CategorySelectButtonView(title: button.categoryEnum.korean, imageUrl: button.imageUrl)
+                    ScrollView {
+                        LazyVGrid(columns: columns, spacing: 20) {
+                            ForEach(buttons) { button in
+                            CategorySelectButtonView(
+                                title: button.categoryEnum,
+                                imageUrl: button.imageUrl)
+                            }
                         }
+                        .padding()
                     }
-                    .padding()
-                }
-                .navigationTitle("카테고리")
+                    .navigationTitle("카테고리")
             }
         }
     }
