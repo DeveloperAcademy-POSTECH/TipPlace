@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ExpertProfileView: View {
-    var userId: Int
+    var user: UserInfo
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var backButton : some View {
         Button {
@@ -36,8 +36,48 @@ struct ExpertProfileView: View {
     var body: some View {
 //        ExpertInfoView 정렬: .leading -> center
         VStack(alignment: .center) {
-            ExpertInfoView(userId: userId)
-            ExpertPostsView(userId: userId)
+            ExpertInfoView(userId: user.id)
+            ExpertPostsView(userId: user.id)
+            Spacer()
+        }
+            .navigationBarBackButtonHidden(true)
+            .navigationTitle("프로필")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(leading: backButton, trailing: bookmarkButton)
+    }
+}
+
+struct AuthorProfileView: View {
+    var author: Author
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    var backButton : some View {
+        Button {
+            self.presentationMode.wrappedValue.dismiss()
+        }
+            label: {
+                HStack {
+                    Image(systemName: "arrow.backward") // set image here
+                        .aspectRatio(contentMode: .fit)
+                        .foregroundColor(.green)
+                }
+        }
+    }
+    var bookmarkButton : some View {
+        Button {
+        }
+            label: {
+                HStack {
+                    Image(systemName: "bookmark") // set image here
+                        .aspectRatio(contentMode: .fit)
+                        .foregroundColor(.green)
+                }
+        }
+    }
+    var body: some View {
+//        ExpertInfoView 정렬: .leading -> center
+        VStack(alignment: .center) {
+            ExpertInfoView(userId: author.id)
+            ExpertPostsView(userId: author.id)
             Spacer()
         }
             .navigationBarBackButtonHidden(true)
@@ -101,6 +141,6 @@ struct ExpertPostsView: View {
 
 struct ExpertProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ExpertProfileView(userId: 1)
+        ExpertProfileView(user: loadUser(userId: 3))
     }
 }

@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct ExpertSelectButton:Identifiable {
-    var user: [UserInfo]
+    var user: UserInfo
     var id: Int
 }
 
 struct ExpertSelectButtonView: View {
-    var user: [UserInfo]
+    var user: UserInfo
     var body: some View {
         VStack(alignment: .leading) {
             Button {
             } label: {
-                NavigationLink(destination: ExpertProfileView(userId: userId)) {
+                NavigationLink(destination: ExpertProfileView(user: user)) {
                     VStack {
                         ProfileImageView()
                             .aspectRatio(contentMode: .fit)
@@ -26,11 +26,11 @@ struct ExpertSelectButtonView: View {
                             .clipShape(Circle())
                             .overlay(Circle().stroke(Color.green, lineWidth: 2))
                         Spacer()
-                        Text(user[0].name)
+                        Text(user.name)
 //                        파라미터로 넘겨준 전문가 이름
                             .font(.system(size: 10, weight: .heavy, design: .default))
                         Spacer()
-                        Text(loadTag(userId: user[0].id)[0])
+                        Text(loadTag(userId: user.id)[0])
 //                        Tag 불러오기 추가
                             .font(.system(size: 10, weight: .regular, design: .default))
                     }
@@ -53,7 +53,7 @@ struct AuthorSelectButtonView: View {
         VStack(alignment: .leading) {
             Button {
             } label: {
-                NavigationLink(destination: ExpertProfileView()) {
+                NavigationLink(destination: AuthorProfileView(author: author)) {
                     VStack {
                         ProfileImageView()
                             .aspectRatio(contentMode: .fit)

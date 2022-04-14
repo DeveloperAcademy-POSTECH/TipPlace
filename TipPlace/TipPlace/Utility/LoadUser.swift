@@ -7,8 +7,8 @@
 
 import Foundation
 
-func loadUser(userId: Int) -> [UserInfo] {
+func loadUser(userId: Int) -> UserInfo {
     let user: [UserInfo]
     user = ListMock.userInfos.filter({$0.id == userId})
-    return user
+    return user[0]
 }
