@@ -14,50 +14,48 @@ struct CategoryBoardView: View {
     @State private var selectedOption = "최신순"
     var boardPostsList: [BoardPost] = ListMock.boardPosts
     var body: some View {
-        NavigationView {
-            List {
-                Section {
-                    Text("\(categoryEnum.korean) 전문가의 글 모아보기")
-                    RecommendList(categoryEnum: categoryEnum)
-                }
-                .listRowSeparator(.hidden)
-                .listSectionSeparator(.visible, edges: .bottom)
-                Section {
-                    HStack {
-                        Text("\(categoryEnum.korean) 게시물")
-                        Spacer()
-                        Button(action: {
-                            showSheet.toggle()})
-                        {Text(selectedOption)
-                            Image(systemName: "arrow.up.arrow.down")
-                        }
-                        .confirmationDialog("정렬", isPresented: $showSheet) {
-                                Button("최신순") {
-                                    selectedOption = "최신순"
-                                }
-                                Button("실용순") {
-                                    selectedOption = "실용순"
-                                }
-                        }
-//                        정렬 피커 선택
+        List {
+            Section {
+                Text("\(categoryEnum.korean) 전문가의 글 모아보기")
+                RecommendList(categoryEnum: categoryEnum)
+            }
+            .listRowSeparator(.hidden)
+            .listSectionSeparator(.visible, edges: .bottom)
+            Section {
+                HStack {
+                    Text("\(categoryEnum.korean) 게시물")
+                    Spacer()
+                    Button(action: {
+                        showSheet.toggle()})
+                    {Text(selectedOption)
+                        Image(systemName: "arrow.up.arrow.down")
                     }
-                    .font(.caption)
-                    BoardListView(boardPostsList: loadPosts(selectedOption: selectedOption, category: categoryEnum))
-//                    ForEach문에 전달할 배열을 loadPosts에서 변경: 정렬
+                    .confirmationDialog("정렬", isPresented: $showSheet) {
+                        Button("최신순") {
+                            selectedOption = "최신순"
+                        }
+                        Button("실용순") {
+                            selectedOption = "실용순"
+                        }
+                    }
+                    //                        정렬 피커 선택
                 }
+                .font(.caption)
+                BoardListView(boardPostsList: loadPosts(selectedOption: selectedOption, category: categoryEnum))
+                //                    ForEach문에 전달할 배열을 loadPosts에서 변경: 정렬
             }
-            .refreshable {
-//                최신 업데이트된 데이터가 있는지 확인. MockData로 어떻게 확인?
-            }
-            .navigationTitle(categoryEnum.korean)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+        }
+        .refreshable {
+            //                최신 업데이트된 데이터가 있는지 확인. MockData로 어떻게 확인?
+        }
+        .navigationTitle(categoryEnum.korean)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink {
                     PostUploadView()
                         .navigationBarHidden(true)
                 } label: {
                     Image(systemName: "square.and.pencil")
-                }
                 }
             }
         }
