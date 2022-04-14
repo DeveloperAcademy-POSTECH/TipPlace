@@ -30,7 +30,9 @@ extension DetailPostView {
                         AsyncImage(url: $0.url) { image in
                             image
                                 .resizable()
+                                .aspectRatio(contentMode: .fill)
                                 .frame(width: 95, height: 95, alignment: .center)
+                                .scaledToFit()
                                 .cornerRadius(8)
                                 .padding(2)
                         } placeholder: {
