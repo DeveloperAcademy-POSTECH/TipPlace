@@ -402,7 +402,6 @@
 				AEFF8DD02805EB2F00938905 /* MainTagButtonStyle.swift in Sources */,
 				07DB9CA32804666300CDC1B0 /* AuthorProfileView.swift in Sources */,
 				07CAE7A0280511AA0090FD23 /* BoxButton.swift in Sources */,
-				AE3418BC2803D42E00A54336 /* MainBoardRow.swift in Sources */,
 				4A4413B928064E2A00ED6069 /* loadTag.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -529,6 +528,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TipPlace/Preview Content\"";
