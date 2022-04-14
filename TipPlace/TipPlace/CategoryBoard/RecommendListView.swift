@@ -17,7 +17,7 @@ struct RecommendList: View {
                     NavigationLink {
                         Text("프로필로 보낸다")
                     } label: {
-                        ExpertSelectButtonView( userId: rec.id)
+                        AuthorSelectButtonView(author: rec)
                     }
                 }
             }
