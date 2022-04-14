@@ -9,13 +9,22 @@ import Foundation
 import SwiftUI
 
 struct ProfileImageView: View {
+//    let url: URL
     let baseImageUrl = [
         "https://cdn.pixabay.com/photo/2017/02/08/17/24/fantasy-2049567_960_720.jpg",
         "https://cdn.pixabay.com/photo/2015/12/01/20/28/forest-1072828_960_720.jpg",
         "https://cdn.pixabay.com/photo/2016/08/11/23/48/mountains-1587287_960_720.jpg"
     ]
     // imageURL이 null 일 때 기본으로 들어가는 이미지
-
+//    func setProfileUrl() -> Bool {
+//        if let url == nil {
+//            return true
+//        }
+//        else {
+//            return false
+//
+//        }
+//    }
     var body: some View {
         AsyncImage(url: URL(string: baseImageUrl[Int.random(in: 0..<3)])) { image in
             image.resizable()
