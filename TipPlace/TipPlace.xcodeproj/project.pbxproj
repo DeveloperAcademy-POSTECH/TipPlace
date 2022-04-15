@@ -27,6 +27,9 @@
 		4A4413B928064E2A00ED6069 /* loadTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4413B828064E2A00ED6069 /* loadTag.swift */; };
 		4A798DC728052C8900DD31E4 /* dateToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A798DC528052C8900DD31E4 /* dateToString.swift */; };
 		4A798DC828052C8900DD31E4 /* loadPosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A798DC628052C8900DD31E4 /* loadPosts.swift */; };
+		4A878046280A3709009A8BBE /* CommentModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A878045280A3709009A8BBE /* CommentModelMock.swift */; };
+		4A878048280A375A009A8BBE /* UserInfoMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A878047280A375A009A8BBE /* UserInfoMock.swift */; };
+		4A87804A280A3779009A8BBE /* AuthorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A878049280A3779009A8BBE /* AuthorMock.swift */; };
 		4AA1E3B928006B1400156D19 /* BoardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA1E3B828006B1400156D19 /* BoardRow.swift */; };
 		4AA1E3BB28006B1F00156D19 /* CategoryBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA1E3BA28006B1F00156D19 /* CategoryBoardView.swift */; };
 		4AA1E3BD28006B2A00156D19 /* RecommendedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA1E3BC28006B2A00156D19 /* RecommendedItem.swift */; };
@@ -35,7 +38,7 @@
 		AE3418BA2803D41F00A54336 /* MainBoardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3418B92803D41E00A54336 /* MainBoardListView.swift */; };
 		AE4E3A5F28030B8100293623 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4E3A5E28030B8100293623 /* Author.swift */; };
 		AE4E3A6328030BEF00293623 /* BoardPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4E3A6228030BEF00293623 /* BoardPost.swift */; };
-		AE4E3A6528030F1000293623 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4E3A6428030F1000293623 /* MockData.swift */; };
+		AE4E3A6528030F1000293623 /* ListMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4E3A6428030F1000293623 /* ListMock.swift */; };
 		AE4E3A6B2803BA6600293623 /* RecommendList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4E3A6A2803BA6600293623 /* RecommendList.swift */; };
 		AEE70E5A28004853004E0F01 /* RecommendedTagData.json in Resources */ = {isa = PBXBuildFile; fileRef = AEE70E5928004853004E0F01 /* RecommendedTagData.json */; };
 		AEE70E5C28004B2E004E0F01 /* LoadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE70E5B28004B2E004E0F01 /* LoadData.swift */; };
@@ -80,6 +83,9 @@
 		4A4413B828064E2A00ED6069 /* loadTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loadTag.swift; sourceTree = "<group>"; };
 		4A798DC528052C8900DD31E4 /* dateToString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dateToString.swift; sourceTree = "<group>"; };
 		4A798DC628052C8900DD31E4 /* loadPosts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loadPosts.swift; sourceTree = "<group>"; };
+		4A878045280A3709009A8BBE /* CommentModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModelMock.swift; sourceTree = "<group>"; };
+		4A878047280A375A009A8BBE /* UserInfoMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoMock.swift; sourceTree = "<group>"; };
+		4A878049280A3779009A8BBE /* AuthorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorMock.swift; sourceTree = "<group>"; };
 		4AA1E3B828006B1400156D19 /* BoardRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardRow.swift; sourceTree = "<group>"; };
 		4AA1E3BA28006B1F00156D19 /* CategoryBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryBoardView.swift; sourceTree = "<group>"; };
 		4AA1E3BC28006B2A00156D19 /* RecommendedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendedItem.swift; sourceTree = "<group>"; };
@@ -88,7 +94,7 @@
 		AE3418B92803D41E00A54336 /* MainBoardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBoardListView.swift; sourceTree = "<group>"; };
 		AE4E3A5E28030B8100293623 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 		AE4E3A6228030BEF00293623 /* BoardPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardPost.swift; sourceTree = "<group>"; };
-		AE4E3A6428030F1000293623 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		AE4E3A6428030F1000293623 /* ListMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMock.swift; sourceTree = "<group>"; };
 		AE4E3A6A2803BA6600293623 /* RecommendList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendList.swift; sourceTree = "<group>"; };
 		AEA1932E2805A1D400B9FE0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEE70E5928004853004E0F01 /* RecommendedTagData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RecommendedTagData.json; sourceTree = "<group>"; };
@@ -188,7 +194,7 @@
 		AE4E3A662803132E00293623 /* ModelData */ = {
 			isa = PBXGroup;
 			children = (
-				AE4E3A6428030F1000293623 /* MockData.swift */,
+				AE4E3A6428030F1000293623 /* ListMock.swift */,
 				AE4E3A6228030BEF00293623 /* BoardPost.swift */,
 				BC39DC3528050EE700192C74 /* CommentModel.swift */,
 				BC39DC3728050EF000192C74 /* DetailedPostModel.swift */,
@@ -196,6 +202,9 @@
 				BC39DC39280519DB00192C74 /* UserInfo.swift */,
 				4A339F4F280966FC00B10B1F /* BoardPostMock.swift */,
 				4A339F512809673900B10B1F /* DetailPostMock.swift */,
+				4A878045280A3709009A8BBE /* CommentModelMock.swift */,
+				4A878047280A375A009A8BBE /* UserInfoMock.swift */,
+				4A878049280A3779009A8BBE /* AuthorMock.swift */,
 			);
 			path = ModelData;
 			sourceTree = "<group>";
@@ -380,6 +389,7 @@
 				4AD373412805A9460080259E /* loadRecommends.swift in Sources */,
 				C5991FA827FD6B84007A7F26 /* CategoryView.swift in Sources */,
 				BC39DC3628050EE700192C74 /* CommentModel.swift in Sources */,
+				4A878046280A3709009A8BBE /* CommentModelMock.swift in Sources */,
 				4AA1E3BD28006B2A00156D19 /* RecommendedItem.swift in Sources */,
 				070AD7B9280599BF0067FFAF /* DetailPostView.swift in Sources */,
 				BC39DC3A280519DB00192C74 /* UserInfo.swift in Sources */,
@@ -398,15 +408,17 @@
 				C5F0C5832804A8CD0016AD09 /* MyPageChildrenViewList.swift in Sources */,
 				C5F0C57F28041DEE0016AD09 /* ExpertCollectionView.swift in Sources */,
 				C5991F9A27FD6AD2007A7F26 /* TipPlaceApp.swift in Sources */,
+				4A878048280A375A009A8BBE /* UserInfoMock.swift in Sources */,
 				AE3418B32803D1C300A54336 /* TagListView.swift in Sources */,
 				4AA1E3B928006B1400156D19 /* BoardRow.swift in Sources */,
 				C5991FAC27FD6B97007A7F26 /* MainTabView.swift in Sources */,
-				AE4E3A6528030F1000293623 /* MockData.swift in Sources */,
+				AE4E3A6528030F1000293623 /* ListMock.swift in Sources */,
 				4A339F50280966FC00B10B1F /* BoardPostMock.swift in Sources */,
 				AE4E3A5F28030B8100293623 /* Author.swift in Sources */,
 				0769BF3E27FEAF7E009548C9 /* Category.swift in Sources */,
 				AE4E3A6B2803BA6600293623 /* RecommendList.swift in Sources */,
 				07CAE79828046C970090FD23 /* CommentView.swift in Sources */,
+				4A87804A280A3779009A8BBE /* AuthorMock.swift in Sources */,
 				AEFF8DD02805EB2F00938905 /* MainTagButtonStyle.swift in Sources */,
 				07DB9CA32804666300CDC1B0 /* AuthorProfileView.swift in Sources */,
 				07CAE7A0280511AA0090FD23 /* BoxButton.swift in Sources */,
