@@ -18,6 +18,7 @@ struct RecommendList: View {
                         Text("프로필로 보낸다")
                     } label: {
                         AuthorSelectButtonView(author: rec)
+                            .padding(1)
                     }
                 }
             }

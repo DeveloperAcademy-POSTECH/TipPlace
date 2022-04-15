@@ -82,11 +82,12 @@ struct BoardListView: View {
     var boardPostsList: [BoardPost]
     var body: some View {
         ForEach(boardPostsList) { boardPost in
-            NavigationLink {
-                DetailPostView(postId: boardPost.id)
-            } label: { MainBoardRow(boardPost: boardPost)
-                    .padding(.vertical, 5)
+            ZStack {
+                MainBoardRow(boardPost: boardPost)
+                NavigationLink(destination: DetailPostView(postId: boardPost.id)) {
+                }
             }
+            .padding(.vertical, 5)
         }
         .listStyle(.inset)
     }
