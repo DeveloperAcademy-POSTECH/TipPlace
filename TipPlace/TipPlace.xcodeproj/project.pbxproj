@@ -30,6 +30,7 @@
 		4A878046280A3709009A8BBE /* CommentModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A878045280A3709009A8BBE /* CommentModelMock.swift */; };
 		4A878048280A375A009A8BBE /* UserInfoMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A878047280A375A009A8BBE /* UserInfoMock.swift */; };
 		4A87804A280A3779009A8BBE /* AuthorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A878049280A3779009A8BBE /* AuthorMock.swift */; };
+		4A87804C280A3A02009A8BBE /* loadDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A87804B280A3A02009A8BBE /* loadDomain.swift */; };
 		4AA1E3B928006B1400156D19 /* BoardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA1E3B828006B1400156D19 /* BoardRow.swift */; };
 		4AA1E3BB28006B1F00156D19 /* CategoryBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA1E3BA28006B1F00156D19 /* CategoryBoardView.swift */; };
 		4AA1E3BD28006B2A00156D19 /* RecommendedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA1E3BC28006B2A00156D19 /* RecommendedItem.swift */; };
@@ -86,6 +87,7 @@
 		4A878045280A3709009A8BBE /* CommentModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModelMock.swift; sourceTree = "<group>"; };
 		4A878047280A375A009A8BBE /* UserInfoMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoMock.swift; sourceTree = "<group>"; };
 		4A878049280A3779009A8BBE /* AuthorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorMock.swift; sourceTree = "<group>"; };
+		4A87804B280A3A02009A8BBE /* loadDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loadDomain.swift; sourceTree = "<group>"; };
 		4AA1E3B828006B1400156D19 /* BoardRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardRow.swift; sourceTree = "<group>"; };
 		4AA1E3BA28006B1F00156D19 /* CategoryBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryBoardView.swift; sourceTree = "<group>"; };
 		4AA1E3BC28006B2A00156D19 /* RecommendedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendedItem.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				4AD373402805A9460080259E /* loadRecommends.swift */,
 				4A4413B828064E2A00ED6069 /* loadTag.swift */,
 				C5FEE44C280831FB00A79921 /* LoadUser.swift */,
+				4A87804B280A3A02009A8BBE /* loadDomain.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				BC39DC3628050EE700192C74 /* CommentModel.swift in Sources */,
 				4A878046280A3709009A8BBE /* CommentModelMock.swift in Sources */,
 				4AA1E3BD28006B2A00156D19 /* RecommendedItem.swift in Sources */,
+				4A87804C280A3A02009A8BBE /* loadDomain.swift in Sources */,
 				070AD7B9280599BF0067FFAF /* DetailPostView.swift in Sources */,
 				BC39DC3A280519DB00192C74 /* UserInfo.swift in Sources */,
 				BC39DC282803C98300192C74 /* PostUploadView.swift in Sources */,

@@ -27,7 +27,8 @@ struct CategoryBoardView: View {
                     Spacer()
                     Button(action: {
                         showSheet.toggle()})
-                    {Text(selectedOption)
+                    {
+                        Text(selectedOption)
                         Image(systemName: "arrow.up.arrow.down")
                     }
                     .confirmationDialog("정렬", isPresented: $showSheet) {

@@ -97,8 +97,7 @@ struct ExpertInfoView: View {
             Text(user.name)
             .font(.system(size: 21, weight: .regular))
             .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
-            Text(user.speficalDomain[0].korean)
-            // 빈 배열일 때 디폴트 값 처리 어떻게 하나요?
+            Text(loadDomain(userId: userId))
             .font(.system(size: 15, weight: .regular))
             .foregroundColor(.green)
             .padding(EdgeInsets(top: 0, leading: 0, bottom: 4, trailing: 0))
@@ -143,6 +142,6 @@ struct ExpertPostsView: View {
 
 struct ExpertProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ExpertProfileView(user: loadUser(userId: 3))
+        ExpertProfileView(user: loadUser(userId: 1))
     }
 }
