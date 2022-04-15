@@ -9,5 +9,7 @@ import Foundation
 
 func loadTag(userId: Int) -> [String] {
     let user: UserInfo = loadUser(userId: userId)
-    return user.interestedTag
+    if user.interestedTag.isEmpty == true {return [""]
+    } else {
+        return user.interestedTag}
 }
