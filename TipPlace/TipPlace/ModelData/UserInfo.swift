@@ -12,16 +12,16 @@ struct UserInfo: Codable, Identifiable {
     var profileImage: URL?
     var name: String
     var speficalDomain: [Category]
-    var usefulPost: [Int]?
-    var replyPost: [Int]?
-    var markPost: [Int]?
-    var writtendPost: [Int]?
-    var interestedTag: [String]?
-    var interestedCategory: [Category]?
+    var usefulPost: [Int]
+    var replyPost: [Int]
+    var markPost: [Int]
+    var writtendPost: [Int]
+    var interestedTag: [String]
+    var interestedCategory: [Category]
 
     init(id: Int, profileImage: URL?, name: String, specialDomain: [Category],
-         usefulPost: [Int]?, replyPost: [Int]?, markPost: [Int]?, writtendPost: [Int]?,
-         interestedTag: [String]?, interestedCategory: [Category]?) {
+         usefulPost: [Int], replyPost: [Int], markPost: [Int], writtendPost: [Int],
+         interestedTag: [String], interestedCategory: [Category]) {
         self.id = id
         self.profileImage = profileImage
         self.name = name

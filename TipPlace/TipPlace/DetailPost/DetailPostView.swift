@@ -32,9 +32,8 @@ struct DetailPostView: View {
     var detailPost: DetailPostModel
 
     var commentCount: Int {
-        if let comment = detailPost.comment {
-            return comment.count
-        } else { return 0 }
+        return detailPost.comment.count
+//       옵셔널 -> 빈 배열 수정
     }
 
     // TODO: images를 뽑아 내는 게 여기서 할 일이 적합한지, CollectionView에서 처리하는 게 적합한지 생각해보기
@@ -67,12 +66,12 @@ struct DetailPostView: View {
                                                              specialDomain: []),
                                               createdAt: Date(),
                                               images: [],
-                                              tags: nil,
+                                              tags: [],
                                               usefulCount: 0,
-                                              comment: nil,
-                                              idWithUseful: nil,
-                                              idWithReply: nil,
-                                              idWithMark: nil)
+                                              comment: [],
+                                              idWithUseful: [],
+                                              idWithReply: [],
+                                              idWithMark: [])
             return
         }
         self.detailPost = detailPost

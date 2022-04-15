@@ -36,7 +36,7 @@
 		AE4E3A5F28030B8100293623 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4E3A5E28030B8100293623 /* Author.swift */; };
 		AE4E3A6328030BEF00293623 /* BoardPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4E3A6228030BEF00293623 /* BoardPost.swift */; };
 		AE4E3A6528030F1000293623 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4E3A6428030F1000293623 /* MockData.swift */; };
-		AE4E3A6B2803BA6600293623 /* RecommendListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4E3A6A2803BA6600293623 /* RecommendListView.swift */; };
+		AE4E3A6B2803BA6600293623 /* RecommendList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4E3A6A2803BA6600293623 /* RecommendList.swift */; };
 		AEE70E5A28004853004E0F01 /* RecommendedTagData.json in Resources */ = {isa = PBXBuildFile; fileRef = AEE70E5928004853004E0F01 /* RecommendedTagData.json */; };
 		AEE70E5C28004B2E004E0F01 /* LoadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE70E5B28004B2E004E0F01 /* LoadData.swift */; };
 		AEFF8DD02805EB2F00938905 /* MainTagButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFF8DCF2805EB2F00938905 /* MainTagButtonStyle.swift */; };
@@ -89,7 +89,7 @@
 		AE4E3A5E28030B8100293623 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 		AE4E3A6228030BEF00293623 /* BoardPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardPost.swift; sourceTree = "<group>"; };
 		AE4E3A6428030F1000293623 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
-		AE4E3A6A2803BA6600293623 /* RecommendListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendListView.swift; sourceTree = "<group>"; };
+		AE4E3A6A2803BA6600293623 /* RecommendList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendList.swift; sourceTree = "<group>"; };
 		AEA1932E2805A1D400B9FE0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEE70E5928004853004E0F01 /* RecommendedTagData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RecommendedTagData.json; sourceTree = "<group>"; };
 		AEE70E5B28004B2E004E0F01 /* LoadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadData.swift; sourceTree = "<group>"; };
@@ -204,7 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				4AA1E3BA28006B1F00156D19 /* CategoryBoardView.swift */,
-				AE4E3A6A2803BA6600293623 /* RecommendListView.swift */,
+				AE4E3A6A2803BA6600293623 /* RecommendList.swift */,
 				4AA1E3BC28006B2A00156D19 /* RecommendedItem.swift */,
 				4AA1E3B828006B1400156D19 /* BoardRow.swift */,
 			);
@@ -405,7 +405,7 @@
 				4A339F50280966FC00B10B1F /* BoardPostMock.swift in Sources */,
 				AE4E3A5F28030B8100293623 /* Author.swift in Sources */,
 				0769BF3E27FEAF7E009548C9 /* Category.swift in Sources */,
-				AE4E3A6B2803BA6600293623 /* RecommendListView.swift in Sources */,
+				AE4E3A6B2803BA6600293623 /* RecommendList.swift in Sources */,
 				07CAE79828046C970090FD23 /* CommentView.swift in Sources */,
 				AEFF8DD02805EB2F00938905 /* MainTagButtonStyle.swift in Sources */,
 				07DB9CA32804666300CDC1B0 /* AuthorProfileView.swift in Sources */,

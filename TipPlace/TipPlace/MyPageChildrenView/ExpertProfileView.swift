@@ -107,20 +107,20 @@ struct ExpertInfoView: View {
             .font(.system(size: 12, weight: .regular))
             HStack {
                 VStack {
-                    Text(String(user.writtendPost?.count ?? 0))
+                    Text(String(user.writtendPost.count))
                         .font(.system(size: 25, weight: .bold))
                     Text("게시물")
                         .font(.system(size: 12, weight: .regular))
                 }
                 VStack {
-                    Text(String(user.replyPost?.count ?? 0))
+                    Text(String(user.replyPost.count))
                         .font(.system(size: 25, weight: .bold))
                     Text("유용해요")
                         .font(.system(size: 12, weight: .regular))
                 }
                 .padding(EdgeInsets(top: 30, leading: 70, bottom: 30, trailing: 70))
                 VStack {
-                    Text(String(user.markPost?.count ?? 0))
+                    Text(String(user.markPost.count))
                         .font(.system(size: 25, weight: .bold))
                     Text("저장")
                         .font(.system(size: 12, weight: .regular))

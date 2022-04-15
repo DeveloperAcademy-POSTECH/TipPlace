@@ -269,7 +269,7 @@ https://cdn.crowdpic.net/detail-thumb/thumb_d_E2EEB7B49A4E6D7E44355FE4235DBB17.j
                               specialDomain: [Category.companionLife],
                               usefulPost: [57],
                               replyPost: [53, 54, 55],
-                              markPost: nil,
+                              markPost: [],
                               writtendPost: [53, 54],
                               interestedTag: ["강아지", "산책", "반려동물"],
                               interestedCategory: [Category.companionLife, Category.cook, Category.health])
@@ -299,7 +299,7 @@ https://cdn.crowdpic.net/detail-thumb/thumb_d_E2EEB7B49A4E6D7E44355FE4235DBB17.j
                                      specialDomain: [],
                                      usefulPost: [56, 57],
                                      replyPost: [53, 56, 57],
-                                     markPost: nil,
+                                     markPost: [],
                                      writtendPost: [57],
                                      interestedTag: ["자취", "갓생", "집밥"],
                                      interestedCategory: [Category.campusLife, Category.cook, Category.livingAlone])
@@ -312,7 +312,7 @@ https://www.canceranswer.co.kr/news/photo/202109/3045_4820_1253.jpg
                                      usefulPost: [53, 57],
                                      replyPost: [53, 57],
                                      markPost: [53],
-                                     writtendPost: nil,
+                                     writtendPost: [],
                                      interestedTag: ["운동", "삼대", "헬스"],
                                      interestedCategory: [Category.health, Category.livingAlone])
 }

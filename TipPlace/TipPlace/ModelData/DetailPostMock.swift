@@ -176,9 +176,9 @@ https://t1.daumcdn.net/cfile/tistory/1154274F4F26BD861E
                                                   usefulCount: 0,
                                                   comment: [CommentModelMock.CommentModelMock61,
                                                             CommentModelMock.CommentModelMock62],
-                                                  idWithUseful: nil,
+                                                  idWithUseful: [],
                                                   idWithReply: [53, 54],
-                                                  idWithMark: nil)
+                                                  idWithMark: [])
     static var DetailPostMock56 = DetailPostModel(id: 56,
                                                   category: Category.livingAlone,
                                                   isAnonymous: true,
@@ -196,7 +196,7 @@ https://t1.daumcdn.net/cfile/tistory/1154274F4F26BD861E
                                                             CommentModelMock.CommentModelMock64],
                                                   idWithUseful: [55, 56],
                                                   idWithReply: [55, 56],
-                                                  idWithMark: nil)
+                                                  idWithMark: [])
     static var DetailPostMock57 = DetailPostModel(id: 57,
                                                   category: Category.livingAlone,
                                                   isAnonymous: false,
@@ -217,5 +217,5 @@ https://t1.daumcdn.net/cfile/tistory/1154274F4F26BD861E
                                                             CommentModelMock.CommentModelMock66],
                                                   idWithUseful: [53, 54, 55, 56, 57],
                                                   idWithReply: [55, 56],
-                                                  idWithMark: nil)
+                                                  idWithMark: [])
 }
