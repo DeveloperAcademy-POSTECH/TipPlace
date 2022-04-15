@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ExpertSelectButton:Identifiable {
+struct ExpertSelectButton: Identifiable {
     var user: UserInfo
     var id: Int
 }
@@ -110,21 +110,20 @@ struct ExpertCollectionView_Previews: PreviewProvider {
 }
 struct ExpertButtonStore {
     static var buttons = [
-        ExpertSelectButton(user: loadUser(userId: 1), id:1),
-        ExpertSelectButton(user: loadUser(userId: 2), id:2),
-        ExpertSelectButton(user: loadUser(userId: 3), id:3),
-        ExpertSelectButton(user: loadUser(userId: 4), id:4),
-        ExpertSelectButton(user: loadUser(userId: 5), id:5),
-        ExpertSelectButton(user: loadUser(userId: 6), id:6),
-        ExpertSelectButton(user: loadUser(userId: 7), id:7),
-        ExpertSelectButton(user: loadUser(userId: 8), id:8),
-        ExpertSelectButton(user: loadUser(userId: 9), id:9),
-        ExpertSelectButton(user: loadUser(userId: 10), id:10),
-        ExpertSelectButton(user: loadUser(userId: 53), id:11),
-        ExpertSelectButton(user: loadUser(userId: 54), id:12),
-        ExpertSelectButton(user: loadUser(userId: 55), id:13),
-        ExpertSelectButton(user: loadUser(userId: 56), id:14),
-        ExpertSelectButton(user: loadUser(userId: 57), id:15)
-
+        ExpertSelectButton(user: loadUser(userId: 1), id: 1),
+        ExpertSelectButton(user: loadUser(userId: 2), id: 2),
+        ExpertSelectButton(user: loadUser(userId: 3), id: 3),
+        ExpertSelectButton(user: loadUser(userId: 4), id: 4),
+        ExpertSelectButton(user: loadUser(userId: 5), id: 5),
+        ExpertSelectButton(user: loadUser(userId: 6), id: 6),
+        ExpertSelectButton(user: loadUser(userId: 7), id: 7),
+        ExpertSelectButton(user: loadUser(userId: 8), id: 8),
+        ExpertSelectButton(user: loadUser(userId: 9), id: 9),
+        ExpertSelectButton(user: loadUser(userId: 10), id: 10),
+        ExpertSelectButton(user: loadUser(userId: 53), id: 11),
+        ExpertSelectButton(user: loadUser(userId: 54), id: 12),
+        ExpertSelectButton(user: loadUser(userId: 55), id: 13),
+        ExpertSelectButton(user: loadUser(userId: 56), id: 14),
+        ExpertSelectButton(user: loadUser(userId: 57), id: 15)
     ]
 }

@@ -9,6 +9,7 @@ import Foundation
 
 func loadRecommends(category: Category) -> [Author] {
     let recommended: [Author]
-    recommended = ListMock.authors.filter({$0.speficalDomain?.contains(category) == true})
+    recommended = ListMock.authors.filter({
+        $0.speficalDomain.contains(category) == true})
     return recommended
 }

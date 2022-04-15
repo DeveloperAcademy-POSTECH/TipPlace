@@ -22,6 +22,8 @@
 		07CAE7A0280511AA0090FD23 /* BoxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CAE79F280511AA0090FD23 /* BoxButton.swift */; };
 		07DB9CA32804666300CDC1B0 /* AuthorProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DB9CA22804666300CDC1B0 /* AuthorProfileView.swift */; };
 		07DB9CA52804675400CDC1B0 /* ImageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DB9CA42804675400CDC1B0 /* ImageCollectionView.swift */; };
+		4A339F50280966FC00B10B1F /* BoardPostMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A339F4F280966FC00B10B1F /* BoardPostMock.swift */; };
+		4A339F522809673900B10B1F /* DetailPostMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A339F512809673900B10B1F /* DetailPostMock.swift */; };
 		4A4413B928064E2A00ED6069 /* loadTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4413B828064E2A00ED6069 /* loadTag.swift */; };
 		4A798DC728052C8900DD31E4 /* dateToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A798DC528052C8900DD31E4 /* dateToString.swift */; };
 		4A798DC828052C8900DD31E4 /* loadPosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A798DC628052C8900DD31E4 /* loadPosts.swift */; };
@@ -73,6 +75,8 @@
 		07CAE79F280511AA0090FD23 /* BoxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxButton.swift; sourceTree = "<group>"; };
 		07DB9CA22804666300CDC1B0 /* AuthorProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorProfileView.swift; sourceTree = "<group>"; };
 		07DB9CA42804675400CDC1B0 /* ImageCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionView.swift; sourceTree = "<group>"; };
+		4A339F4F280966FC00B10B1F /* BoardPostMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardPostMock.swift; sourceTree = "<group>"; };
+		4A339F512809673900B10B1F /* DetailPostMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostMock.swift; sourceTree = "<group>"; };
 		4A4413B828064E2A00ED6069 /* loadTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loadTag.swift; sourceTree = "<group>"; };
 		4A798DC528052C8900DD31E4 /* dateToString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dateToString.swift; sourceTree = "<group>"; };
 		4A798DC628052C8900DD31E4 /* loadPosts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loadPosts.swift; sourceTree = "<group>"; };
@@ -190,6 +194,8 @@
 				BC39DC3728050EF000192C74 /* DetailedPostModel.swift */,
 				AE4E3A5E28030B8100293623 /* Author.swift */,
 				BC39DC39280519DB00192C74 /* UserInfo.swift */,
+				4A339F4F280966FC00B10B1F /* BoardPostMock.swift */,
+				4A339F512809673900B10B1F /* DetailPostMock.swift */,
 			);
 			path = ModelData;
 			sourceTree = "<group>";
@@ -383,6 +389,7 @@
 				07DB9CA52804675400CDC1B0 /* ImageCollectionView.swift in Sources */,
 				4A798DC828052C8900DD31E4 /* loadPosts.swift in Sources */,
 				4A798DC728052C8900DD31E4 /* dateToString.swift in Sources */,
+				4A339F522809673900B10B1F /* DetailPostMock.swift in Sources */,
 				AE3418BA2803D41F00A54336 /* MainBoardListView.swift in Sources */,
 				C5F0C587280561B20016AD09 /* ExpertProfileView.swift in Sources */,
 				C5991FAD27FD6B97007A7F26 /* MyPageView.swift in Sources */,
@@ -395,6 +402,7 @@
 				4AA1E3B928006B1400156D19 /* BoardRow.swift in Sources */,
 				C5991FAC27FD6B97007A7F26 /* MainTabView.swift in Sources */,
 				AE4E3A6528030F1000293623 /* MockData.swift in Sources */,
+				4A339F50280966FC00B10B1F /* BoardPostMock.swift in Sources */,
 				AE4E3A5F28030B8100293623 /* Author.swift in Sources */,
 				0769BF3E27FEAF7E009548C9 /* Category.swift in Sources */,
 				AE4E3A6B2803BA6600293623 /* RecommendListView.swift in Sources */,

@@ -7,7 +7,7 @@
 
 import Foundation
 
-func dateToString(date: Date) -> String{
+func dateToString(date: Date) -> String {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd"
     let dateString = dateFormatter.string(from: date)

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DetailPostModel: Codable, Identifiable{
+struct DetailPostModel: Codable, Identifiable {
     var id: Int
     var category: Category
     var isAnonymous: Bool
@@ -21,8 +21,7 @@ struct DetailPostModel: Codable, Identifiable{
     var comment: [CommentModel]?
     var idWithUseful: [Int]? // 유용해요 누른 사람들 아이디
     var idWithReply: [Int]? // 댓글 단 사람들 아이디
-    var idWithMark: [Int]? // 북마크한 사람들 아이디
-    
+    var idWithMark: [Int]? // 북마크한 사람들 아이디    
     init(id: Int, category: Category, isAnonymous: Bool,
          title: String, content: String, author: Author,
          createdAt: Date, images: [URL?], tags: [String]?,

@@ -64,7 +64,7 @@ struct DetailPostView: View {
                                               author: Author(id: 0,
                                                              profileImage: nil,
                                                              name: "",
-                                                             specialDomain: nil),
+                                                             specialDomain: []),
                                               createdAt: Date(),
                                               images: [],
                                               tags: nil,
