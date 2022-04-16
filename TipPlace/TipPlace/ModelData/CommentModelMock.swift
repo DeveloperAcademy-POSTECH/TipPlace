@@ -19,6 +19,7 @@ struct CommentModelMock {
         createdAt: Calendar.current.date(from: DateComponents(year: 2022, month: 3, day: 17, hour: 15, minute: 20))!,
         usefulCount: 0
     )
+
     static var CommentModelMock2 = CommentModel(
         id: 2,
         postId: 1,
@@ -30,6 +31,7 @@ struct CommentModelMock {
         createdAt: Calendar.current.date(from: DateComponents(year: 2022, month: 3, day: 17, hour: 15, minute: 24))!,
         usefulCount: 0
     )
+
     static var CommentModelMock3 = CommentModel(
         id: 3,
         postId: 1,
@@ -304,6 +306,7 @@ struct CommentModelMock {
                                                  createdAt:
     Calendar.current.date(from: DateComponents(year: 2022, month: 4, day: 2, hour: 16, minute: 10))!,
                                                  usefulCount: 0)
+
     static var CommentModelMock65 = CommentModel(id: 1,
                                                  postId: 57,
                                                  commentId: nil,
