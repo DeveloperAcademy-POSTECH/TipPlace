@@ -17,7 +17,7 @@ struct BoardPost: Codable, Identifiable {
     var thumnailImageUrl: URL?
     var usefulCount: Int
     var replyCount: Int
-    var tag: [String]?
+    var tag: [String]
     var category: Category
 
     init(id: Int, isAnonymous: Bool,

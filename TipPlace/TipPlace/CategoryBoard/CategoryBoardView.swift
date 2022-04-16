@@ -26,10 +26,11 @@ struct CategoryBoardView: View {
                     Text("\(categoryEnum.korean) 게시물")
                     Spacer()
                     Button(action: {
-                        showSheet.toggle()})
-                    {Text(selectedOption)
+                        showSheet.toggle()
+                    }, label: {
+                        Text(selectedOption)
                         Image(systemName: "arrow.up.arrow.down")
-                    }
+                    })
                     .confirmationDialog("정렬", isPresented: $showSheet) {
                         Button("최신순") {
                             selectedOption = "최신순"

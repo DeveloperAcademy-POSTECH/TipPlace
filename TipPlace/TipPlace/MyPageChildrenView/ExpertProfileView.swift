@@ -97,7 +97,7 @@ struct ExpertInfoView: View {
             Text(user.name)
             .font(.system(size: 21, weight: .regular))
             .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
-            Text(user.speficalDomain?[0].korean ?? "디폴트 카테고리")
+            Text(loadDomain(userId: userId))
             .font(.system(size: 15, weight: .regular))
             .foregroundColor(.green)
             .padding(EdgeInsets(top: 0, leading: 0, bottom: 4, trailing: 0))
@@ -106,20 +106,20 @@ struct ExpertInfoView: View {
             .font(.system(size: 12, weight: .regular))
             HStack {
                 VStack {
-                    Text(String(user.writtendPost?.count ?? 0))
+                    Text(String(user.writtendPost.count))
                         .font(.system(size: 25, weight: .bold))
                     Text("게시물")
                         .font(.system(size: 12, weight: .regular))
                 }
                 VStack {
-                    Text(String(user.replyPost?.count ?? 0))
+                    Text(String(user.replyPost.count))
                         .font(.system(size: 25, weight: .bold))
                     Text("유용해요")
                         .font(.system(size: 12, weight: .regular))
                 }
                 .padding(EdgeInsets(top: 30, leading: 70, bottom: 30, trailing: 70))
                 VStack {
-                    Text(String(user.markPost?.count ?? 0))
+                    Text(String(user.markPost.count))
                         .font(.system(size: 25, weight: .bold))
                     Text("저장")
                         .font(.system(size: 12, weight: .regular))
@@ -133,7 +133,8 @@ struct ExpertPostsView: View {
     var userId: Int
     var body: some View {
         List {
-            BoardListView(boardPostsList: ListMock.boardPosts.filter({$0.author.id == userId}))
+            BoardListView(boardPostsList: ListMock.boardPosts.filter({
+                $0.author.id == userId}))
 //            일단 작성글/유용한 글/북마크 구별 없이 보드 배치
         }
     }
@@ -141,6 +142,6 @@ struct ExpertPostsView: View {
 
 struct ExpertProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ExpertProfileView(user: loadUser(userId: 3))
+        ExpertProfileView(user: loadUser(userId: 1))
     }
 }

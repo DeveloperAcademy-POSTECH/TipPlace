@@ -15,7 +15,9 @@ func filterPost(with allPosts: [BoardPost], by selected: String) -> [BoardPost] 
         return allPosts
     } else {
         return allPosts
-            .filter({ $0.tag?.contains(selected) ?? false })
+            .filter({
+                $0.tag.contains(selected)})
+//        옵셔널 -> 빈 배열 수정
             .sorted(by: { $0.usefulCount > $1.usefulCount })
     }
 }
@@ -35,4 +37,3 @@ func loadPosts(selectedOption: String, category: Category) -> [BoardPost] {
     }
     return boardPosts
 }
-

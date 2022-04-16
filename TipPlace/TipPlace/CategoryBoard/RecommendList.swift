@@ -28,6 +28,6 @@ struct RecommendList: View {
 
 struct RecommendList_Previews: PreviewProvider {
     static var previews: some View {
-        RecommendList(categoryEnum:Category.livingAlone)
+        RecommendList(categoryEnum: Category.livingAlone)
     }
 }

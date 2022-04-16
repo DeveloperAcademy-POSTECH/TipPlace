@@ -17,10 +17,9 @@ struct CommentModel: Codable, Identifiable {
     var isReply: Bool // 댓글이면 false, 대댓글이면 true
     var createdAt: Date
     var usefulCount: Int
-    
-    init(id: Int, postId: Int, commentId: Int?, isAnonymous: Bool
-         ,author: Author, content: String, isReply: Bool, createdAt: Date
-         ,usefulCount: Int){
+    init(id: Int, postId: Int, commentId: Int?, isAnonymous: Bool,
+         author: Author, content: String, isReply: Bool, createdAt: Date,
+         usefulCount: Int) {
         self.id = id
         self.postId = postId
         self.commentId = commentId

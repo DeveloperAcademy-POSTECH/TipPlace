@@ -11,9 +11,9 @@ struct Author: Codable, Identifiable {
     var id: Int
     var profileImage: URL?
     var name: String
-    var speficalDomain: [Category]?
+    var speficalDomain: [Category]
 
-    init(id: Int, profileImage: URL?, name: String, specialDomain: [Category]?) {
+    init(id: Int, profileImage: URL?, name: String, specialDomain: [Category]) {
         self.id = id
         self.profileImage = profileImage
         self.name = name
